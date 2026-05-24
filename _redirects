@@ -15,6 +15,7 @@ http://roxanaakhmetova.com/*       https://roxanaakhmetova.com/:splat  301!
 
 # Redirect old URLs to new ones
 /oxford-ai-governance-conference  /oxford-ai-gala     301
+/15-minutes-to-launch         /mentorship             301
 
 # Redirect archived pages to relevant current pages
 /awards             /bio                301

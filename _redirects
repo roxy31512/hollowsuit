@@ -11,8 +11,10 @@ http://roxanaakhmetova.com/*       https://roxanaakhmetova.com/:splat  301!
 /contact.html                 /contact                301
 /bio.html                     /bio                    301
 /consulting.html              /consulting             301
-/oxford-ai-gala.html          /oxford-ai-governance-conference         301
 /oxford-ai-leadership.html    /oxford-ai-leadership   301
+
+# Redirect old URLs to new ones
+/oxford-ai-governance-conference  /oxford-ai-gala     301
 
 # Redirect archived pages to relevant current pages
 /awards             /bio                301
@@ -20,3 +22,8 @@ http://roxanaakhmetova.com/*       https://roxanaakhmetova.com/:splat  301!
 /education          /bio                301
 /current-projects   /projects           301
 /past-projects      /projects           301
+
+# Redirect broken URLs
+/blog/us-china-aai-relations        /blog             301
+/blog/us-china-aai-relations.html   /blog             301
+/skills.html                        /bio              301

@@ -149,6 +149,91 @@
       h1 { font-size: 1.8rem !important; }
       .post-content p { font-size: 1rem; }
     }
+
+    .carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  height: 500px;
+  position: relative;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+  padding: 20px;
+  font-size: 0.95rem;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.carousel-arrow:hover { background: rgba(0,0,0,0.8); }
+.carousel-arrow.prev { left: 20px; }
+.carousel-arrow.next { right: 20px; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.carousel-dot.active { background: #9fc0ff; }
+
+@media (max-width: 768px) {
+  .carousel-slide { height: 300px; }
+  .carousel-arrow { width: 40px; height: 40px; font-size: 1.5rem; }
+}
   </style>
 </head>
 
@@ -214,6 +299,73 @@
         </a>
       </div>
     </div>
+<!-- Photo Carousel -->
+<div style="margin-top: 60px;">
+  <div class="carousel-container">
+    <button class="carousel-arrow prev" onclick="prevSlide()">‹</button>
+
+    <div class="carousel-track" id="carouselTrack">
+
+      <div class="carousel-slide">
+        <img src="/images/YOUR-IMAGE-1.jpg" alt="Caption 1">
+        <div class="carousel-caption">Caption 1</div>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="/images/YOUR-IMAGE-2.jpg" alt="Caption 2">
+        <div class="carousel-caption">Caption 2</div>
+      </div>
+
+      <div class="carousel-slide">
+        <img src="/images/YOUR-IMAGE-3.jpg" alt="Caption 3">
+        <div class="carousel-caption">Caption 3</div>
+      </div>
+
+    </div>
+
+    <button class="carousel-arrow next" onclick="nextSlide()">›</button>
+  </div>
+
+  <div class="carousel-dots" id="carouselDots"></div>
+</div>
+
+<script>
+  const track = document.getElementById('carouselTrack');
+  const dotsContainer = document.getElementById('carouselDots');
+  const slides = document.querySelectorAll('.carousel-slide');
+  let currentSlide = 0;
+  const totalSlides = slides.length;
+
+  slides.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('carousel-dot');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => goToSlide(index));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll('.carousel-dot');
+
+  function goToSlide(index) {
+    currentSlide = index;
+    track.style.transform = `translateX(-${currentSlide * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    goToSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    goToSlide(currentSlide);
+  }
+
+  setInterval(nextSlide, 6000);
+</script>
+
+    
   </main>
 
   <custom-footer></custom-footer>

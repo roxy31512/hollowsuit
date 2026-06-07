@@ -494,12 +494,12 @@
     dotsContainer.appendChild(dot);
   });
 
-  const dots = document.querySelectorAll('.carousel-dot');
-
   function goToSlide(index) {
     currentSlide = index;
     track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+    document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentSlide);
+    });
   }
 
   function nextSlide() {
@@ -514,7 +514,7 @@
 
   setInterval(nextSlide, 6000);
 </script>
-
+    
     <div class="share-section">
       <div class="share-title">Share this post</div>
       <div class="share-buttons">

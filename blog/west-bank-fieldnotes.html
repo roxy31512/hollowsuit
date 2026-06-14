@@ -212,6 +212,94 @@
         direction: ltr;
       }
     }
+
+    /* Carousel */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 560px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 340px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      background: #000;
+    }
+
+    .carousel-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+      padding: 16px;
+      font-size: 0.88rem;
+    }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      font-size: 1.6rem;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+
+    .carousel-arrow:hover { background: rgba(0,0,0,0.8); }
+    .carousel-arrow.prev { left: 12px; }
+    .carousel-arrow.next { right: 12px; }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .carousel-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .carousel-dot.active { background: #9fc0ff; }
+
+    @media (max-width: 768px) {
+      .carousel-slide { height: 220px; }
+      .carousel-arrow { width: 32px; height: 32px; font-size: 1.2rem; }
+    }
   </style>
 </head>
 
@@ -306,18 +394,36 @@
       </div>
     </div>
 
-    <!-- Entry 8 -->
-    <div class="field-entry">
-      <div class="field-photo">
-        <img src="/images/xx.jpg" alt="PHOTO 8 ALT TEXT" />
-        <div class="photo-caption">Caption for photo 8</div>
+    <!-- Photo Carousel (replaces Entry 8) -->
+    <div style="margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+      <div class="carousel-container">
+        <button class="carousel-arrow prev" onclick="prevSlide()">‹</button>
+
+        <div class="carousel-track" id="carouselTrack">
+
+          <div class="carousel-slide">
+            <img src="/images/YOUR-PHOTO-1.jpg" alt="Your caption here">
+            <div class="carousel-caption">Your caption here</div>
+          </div>
+
+          <div class="carousel-slide">
+            <img src="/images/YOUR-PHOTO-2.jpg" alt="Your caption here">
+            <div class="carousel-caption">Your caption here</div>
+          </div>
+
+          <div class="carousel-slide">
+            <img src="/images/YOUR-PHOTO-3.jpg" alt="Your caption here">
+            <div class="carousel-caption">Your caption here</div>
+          </div>
+
+        </div>
+
+        <button class="carousel-arrow next" onclick="nextSlide()">›</button>
       </div>
-      <div class="field-text">
-        <p>TEXT PLACEHOLDER. </p>
-      </div>
+
+      <div class="carousel-dots" id="carouselDots"></div>
     </div>
 
-    
     <!-- Add more entries by copying a field-entry block above -->
 
     <div class="blog-post-tags">
@@ -356,6 +462,42 @@
   <custom-footer></custom-footer>
   <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
+
+  <script>
+    const track = document.getElementById('carouselTrack');
+    const dotsContainer = document.getElementById('carouselDots');
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+
+    slides.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.classList.add('carousel-dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(index));
+      dotsContainer.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    function goToSlide(index) {
+      currentSlide = index;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      goToSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      goToSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 6000);
+  </script>
 
   <script>
     function shareTwitter(e) {

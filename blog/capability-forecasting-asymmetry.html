@@ -4,11 +4,11 @@
 
 <script src="/components/analytics.js"></script>
 <google-analytics></google-analytics>
-  
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Biggest Information Asymmetry in AI: Proprietary Capability Forecasting Models | Roxana Akhmetova</title>
-  <meta name="description" content="The Biggest Information Asymmetry in AI: Proprietary Capability Forecasting Models" />
+  <title>Field Notes from the West Bank, 2023: Border Surveillance and the Role of Technology | Roxana Akhmetova</title>
+  <meta name="description" content="Field notes from the West Bank, 2023, examining border surveillance technologies and their role in everyday life." />
   <meta name="author" content="Roxana Akhmetova" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -30,10 +30,11 @@
   </script>
 
   <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
   <style>
     html, body {
-      background-color: #1a1a1a !important;
+      background-color: #000 !important;
       min-height: 100%;
       color: #ffffff;
     }
@@ -52,6 +53,9 @@
       margin-bottom: 24px !important;
       color: #ffffff !important;
       font-weight: 600 !important;
+      -webkit-text-fill-color: #ffffff !important;
+      text-shadow: none !important;
+      opacity: 1 !important;
       border-bottom: 3px solid #e6eefb;
       display: inline-block;
       padding-bottom: 8px;
@@ -60,23 +64,77 @@
     .post-date {
       color: #9fc0ff;
       font-size: 0.95rem;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       font-weight: 500;
     }
 
-    .post-content p {
+    .post-intro p {
       color: #d8e1eb;
       font-size: 1.05rem;
       line-height: 1.8;
       margin-bottom: 20px;
-      white-space: pre-wrap;
     }
 
+    /* Photo + text entry */
+    .field-entry {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+      margin-bottom: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .field-entry:last-of-type {
+      border-bottom: none;
+    }
+
+    .field-entry.reverse {
+      direction: rtl;
+    }
+
+    .field-entry.reverse > * {
+      direction: ltr;
+    }
+
+    .field-photo {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .field-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .field-photo .photo-caption {
+      background: rgba(255,255,255,0.03);
+      color: #9aa4b2;
+      font-size: 0.85rem;
+      padding: 10px 14px;
+    }
+
+    .field-text p {
+      color: #d8e1eb;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .field-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Tags */
     .blog-post-tags {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
       margin-top: 30px;
+      margin-bottom: 50px;
     }
 
     .blog-tag {
@@ -88,6 +146,7 @@
       font-weight: 500;
     }
 
+    /* Back link */
     a.back-link {
       display: inline-block;
       color: #9fc0ff;
@@ -101,6 +160,7 @@
       transform: translateX(-4px);
     }
 
+    /* Share */
     .share-section {
       margin-top: 50px;
       padding-top: 30px;
@@ -145,7 +205,12 @@
     @media (max-width: 768px) {
       main { padding: 0 20px; }
       h1 { font-size: 1.8rem !important; }
-      .post-content p { font-size: 1rem; }
+      .field-entry {
+        grid-template-columns: 1fr;
+      }
+      .field-entry.reverse {
+        direction: ltr;
+      }
     }
   </style>
 </head>
@@ -154,28 +219,100 @@
   <custom-navbar></custom-navbar>
 
   <main>
-    <a href="/blog.html" class="back-link">&larr; Back to Blog</a>
+    <a href="/blog" class="back-link">&larr; Back to Blog</a>
 
-    <h1>The Biggest Information Asymmetry in AI: Proprietary Capability Forecasting Models</h1>
-    <div class="post-date">October 23, 2025</div>
+    <h1>Field Notes from the West Bank, 2023: Border Surveillance and the Role of Technology</h1>
+    <div class="post-date">2026</div>
 
-    <div class="post-content">
-      <p>I think the biggest information asymmetry in the AI debate is that capability forecasting models remain proprietary to labs, specifically, their internal predictions of when dangerous capabilities will emerge at scale. Other asymmetries exist, such as deployment data, safety research findings, or incident reports, but capability models shape predictions about future capabilities rather than just documenting current systems. I argue that this creates the following three governance failures:</p>
-
-      <p>Since AI labs are private, neither China nor the US know what the other's capability models predict, so both assume that the other is closer to transformative capabilities. So, domestic AI labs move faster for the sake of national security and don't prioritise domestic safety concerns. But, even if countries agreed in principle to capability thresholds, enforcing that would be very challenging because AI capabilities can emerge from algorithmic improvements on existing hardware. Without sharing capability models functionally or some visible infrastructure that would disclose this (like nuclear programs), verification remains a challenge. But transparency can still enable meaningful coordination around capability milestones.</p>
-
-      <p>Domestic regulation fails because labs can publicly claim that results are unpredictable but internally plan around high-confidence forecasts. So, rules-based regulation becomes nearly impossible since there is no legal mechanism that could force disclosure of internal predictions. Labs can also claim their capability models are 'too uncertain' or 'proprietary trade secrets' to share even with regulators. When California's SB 1047 tried to require labs to make capability disclosures, labs claimed these protections. This prevents regulators from developing independent expertise, which makes them structurally dependent on labs' own safety assessments.</p>
-
-      <p>Proper risk allocation breaks down because insurers cannot price risks they cannot predict. Since AI labs can't be properly insured without sharing capability models, the risks become everyone's burden - taxpayers/society bear costs that should price labs out of dangerous experiments. When OpenAI's Preparedness Framework promised to halt deployment at 'medium risk' for CBRN capabilities, there was no mechanism that could have been invoked to verify if their internal evals actually detected medium risk. This made their commitment unenforceable. If labs genuinely couldn't have known about risks, they have legal cover, but if capability forecasts predicted those risks, this becomes negligence. If capability forecasts were disclosed to regulators, liability insurance could then price risks appropriately and create market pressure against dangerous experiments.</p>
-
-      <p>Those outside AI labs are left to make educated guesses about AI development without having access to key variables like capability timeline. Policymakers who design AI policies and frameworks are making important decisions about how much to fund AI, whether we should slow down AI development, and what safety standards should be implemented, but they don't have access to the most relevant information. This creates governance that lacks legitimacy because informed consent is impossible when important facts are withheld.</p>
+    <!-- Intro text -->
+    <div class="post-intro">
+      <p>INTRO TEXT PLACEHOLDER. A brief framing paragraph about the fieldwork, why you were there, and what you were looking at.</p>
     </div>
 
+    <!-- Entry 1 -->
+    <div class="field-entry">
+      <div class="field-photo">
+        <img src="/images/YOUR-PHOTO-1.jpg" alt="PHOTO 1 ALT TEXT" />
+        <div class="photo-caption">Caption for photo 1</div>
+      </div>
+      <div class="field-text">
+        <p>TEXT PLACEHOLDER. Your analysis of this photo and what it shows about border surveillance technology.</p>
+      </div>
+    </div>
+
+    <!-- Entry 2 (reversed — photo on right) -->
+    <div class="field-entry reverse">
+      <div class="field-photo">
+        <img src="/images/YOUR-PHOTO-2.jpg" alt="PHOTO 2 ALT TEXT" />
+        <div class="photo-caption">Caption for photo 2</div>
+      </div>
+      <div class="field-text">
+        <p>TEXT PLACEHOLDER. Your analysis of this photo and what it shows about border surveillance technology.</p>
+      </div>
+    </div>
+
+    <!-- Entry 3 -->
+    <div class="field-entry">
+      <div class="field-photo">
+        <img src="/images/YOUR-PHOTO-3.jpg" alt="PHOTO 3 ALT TEXT" />
+        <div class="photo-caption">Caption for photo 3</div>
+      </div>
+      <div class="field-text">
+        <p>TEXT PLACEHOLDER. Your analysis of this photo and what it shows about border surveillance technology.</p>
+      </div>
+    </div>
+
+    <!-- Entry 4 (reversed) -->
+    <div class="field-entry reverse">
+      <div class="field-photo">
+        <img src="/images/YOUR-PHOTO-4.jpg" alt="PHOTO 4 ALT TEXT" />
+        <div class="photo-caption">Caption for photo 4</div>
+      </div>
+      <div class="field-text">
+        <p>TEXT PLACEHOLDER. Your analysis of this photo and what it shows about border surveillance technology.</p>
+      </div>
+    </div>
+
+    <!-- Entry 5 -->
+    <div class="field-entry">
+      <div class="field-photo">
+        <img src="/images/YOUR-PHOTO-5.jpg" alt="PHOTO 5 ALT TEXT" />
+        <div class="photo-caption">Caption for photo 5</div>
+      </div>
+      <div class="field-text">
+        <p>TEXT PLACEHOLDER. Your analysis of this photo and what it shows about border surveillance technology.</p>
+      </div>
+    </div>
+
+    <!-- Entry 6 (reversed) -->
+    <div class="field-entry reverse">
+      <div class="field-photo">
+        <img src="/images/YOUR-PHOTO-6.jpg" alt="PHOTO 6 ALT TEXT" />
+        <div class="photo-caption">Caption for photo 6</div>
+      </div>
+      <div class="field-text">
+        <p>TEXT PLACEHOLDER. Your analysis of this photo and what it shows about border surveillance technology.</p>
+      </div>
+    </div>
+
+    <!-- Entry 7 -->
+    <div class="field-entry">
+      <div class="field-photo">
+        <img src="/images/YOUR-PHOTO-7.jpg" alt="PHOTO 7 ALT TEXT" />
+        <div class="photo-caption">Caption for photo 7</div>
+      </div>
+      <div class="field-text">
+        <p>TEXT PLACEHOLDER. Your analysis of this photo and what it shows about border surveillance technology.</p>
+      </div>
+    </div>
+
+    <!-- Add more entries by copying a field-entry block above -->
+
     <div class="blog-post-tags">
-      <span class="blog-tag">AI Governance</span>
-      <span class="blog-tag">Transparency</span>
-      <span class="blog-tag">Information Asymmetry</span>
-      <span class="blog-tag">Policy</span>
+      <span class="blog-tag">Fieldwork</span>
+      <span class="blog-tag">West Bank</span>
+      <span class="blog-tag">Border Surveillance</span>
+      <span class="blog-tag">AI</span>
     </div>
 
     <div class="share-section">
@@ -201,11 +338,12 @@
         </a>
       </div>
     </div>
+
   </main>
 
   <custom-footer></custom-footer>
-  <script src="/components/navbar.js"></script>
-  <script src="/components/footer.js"></script>
+  <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
+  <script src="https://roxanaakhmetova.com/components/footer.js"></script>
 
   <script>
     function shareTwitter(e) {
@@ -235,23 +373,6 @@
         setTimeout(() => { btn.innerHTML = originalText; }, 2000);
       });
     }
-  </script>
-
-  <script>
-    document.addEventListener('selectstart', e => e.preventDefault());
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if (
-        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-        (e.ctrlKey && e.key === 'p')
-      ) {
-        e.preventDefault();
-      }
-    });
-    document.body.style.userSelect = 'none';
   </script>
 
 </body>

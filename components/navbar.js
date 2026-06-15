@@ -5,7 +5,6 @@ class CustomNavbar extends HTMLElement {
   }
 
   attachEventListeners() {
-    // Desktop dropdown
     const dropdown = this.querySelector('.dropdown');
     const dropdownMenu = this.querySelector('.dropdown-menu');
     
@@ -29,7 +28,6 @@ class CustomNavbar extends HTMLElement {
       dropdownMenu.addEventListener('mouseleave', hideMenu);
     }
 
-    // Mobile hamburger
     const hamburger = this.querySelector('.hamburger');
     const navLinks = this.querySelector('.nav-links');
     
@@ -39,7 +37,6 @@ class CustomNavbar extends HTMLElement {
         hamburger.classList.toggle('open');
       });
       
-      // Close menu when link is clicked
       const links = navLinks.querySelectorAll('a');
       links.forEach(link => {
         link.addEventListener('click', () => {
@@ -66,16 +63,8 @@ class CustomNavbar extends HTMLElement {
           position: sticky;
           top: 0;
           z-index: 999;
-          padding: 1rem 0;
           width: 100%;
         }
-
-        @media (max-width: 768px) {
-        header.site-header {
-        display: flex;
-        flex-direction: column;
-        }
-      }
 
         .nav-inner {
           display: flex;
@@ -84,7 +73,8 @@ class CustomNavbar extends HTMLElement {
           width: 100%;
           max-width: 1200px;
           margin: 0 auto;
-          padding: 0 1.5rem;
+          padding: 1rem 1.5rem;
+          flex-wrap: wrap;
         }
 
         .nav-links {
@@ -118,7 +108,6 @@ class CustomNavbar extends HTMLElement {
         .cta-link:hover {
           background: rgba(159,192,255,0.2) !important;
         }
-
 
         .dropdown {
           position: relative;
@@ -210,20 +199,23 @@ class CustomNavbar extends HTMLElement {
           transform: rotate(-45deg) translate(8px, -8px);
         }
 
-        /* Mobile */
         @media (max-width: 768px) {
           .hamburger {
             display: flex;
           }
 
-           .nav-links {
+          .nav-inner {
+            padding: 1rem 1.5rem;
+          }
+
+          .nav-links {
             display: none;
             flex-direction: column;
             width: 100%;
             background: rgba(10,10,12,0.98);
             padding: 1rem;
             gap: 0.5rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
           }
 
           .nav-links.open {

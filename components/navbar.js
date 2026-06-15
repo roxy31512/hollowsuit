@@ -70,6 +70,13 @@ class CustomNavbar extends HTMLElement {
           width: 100%;
         }
 
+        @media (max-width: 768px) {
+        header.site-header {
+        display: flex;
+        flex-direction: column;
+        }
+      }
+
         .nav-inner {
           display: flex;
           align-items: center;
@@ -209,13 +216,10 @@ class CustomNavbar extends HTMLElement {
             display: flex;
           }
 
-          .nav-links {
+           .nav-links {
             display: none;
             flex-direction: column;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
+            width: 100%;
             background: rgba(10,10,12,0.98);
             padding: 1rem;
             gap: 0.5rem;

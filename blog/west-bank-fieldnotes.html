@@ -41,8 +41,8 @@
 
     main {
       margin-top: 100px;
-      max-width: 900px;
-      padding: 0 40px;
+      max-width: 1150px;
+      padding: 0 30px;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 80px;
@@ -75,12 +75,8 @@
       margin-bottom: 20px;
     }
 
-    /* Photo + text entry */
+    /* Photo + text entry (float-based, photo right, text wraps below) */
     .field-entry {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      align-items: start;
       margin-bottom: 2rem;
       padding-bottom: 2rem;
       border-bottom: 1px solid rgba(255,255,255,0.06);
@@ -90,15 +86,17 @@
       border-bottom: none;
     }
 
-    .field-entry.reverse {
-      direction: rtl;
+    .field-entry::after {
+      content: "";
+      display: table;
+      clear: both;
     }
 
-    .field-entry.reverse > * {
-      direction: ltr;
-    }
-
-    .field-photo {
+    .field-entry .field-photo {
+      float: right;
+      width: 45%;
+      margin-left: 2rem;
+      margin-bottom: 1rem;
       border-radius: 10px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.08);
@@ -115,6 +113,10 @@
       color: #9aa4b2;
       font-size: 0.85rem;
       padding: 10px 14px;
+    }
+
+    .field-entry .field-text {
+      color: #d8e1eb;
     }
 
     .field-text p {
@@ -205,11 +207,10 @@
     @media (max-width: 768px) {
       main { padding: 0 20px; }
       h1 { font-size: 1.8rem !important; }
-      .field-entry {
-        grid-template-columns: 1fr;
-      }
-      .field-entry.reverse {
-        direction: ltr;
+      .field-entry .field-photo {
+        float: none;
+        width: 100%;
+        margin-left: 0;
       }
     }
 
@@ -318,66 +319,53 @@
     </div>
 
     <!-- Entry 1 -->
-    <div class="field-entry reverse" style="margin-bottom: 1rem; padding-bottom: 1rem;">
+    <div class="field-entry">
       <div class="field-photo">
         <img src="/images/20230628_142749 - Copy.jpg" alt="the more of your data I gather, the more I understand what it means to be human"/>
         <div class="photo-caption">"the more of your data I gather, the more I understand what it means to be human"</div>
       </div>
       <div class="field-text">
         <p>The concrete wall meets "the invisible border wall" (Akhmetova, 2026). The West Bank separation barrier in Bethlehem stands at 9 meters and stretches 708 kilometers. Banksy's The Walled Off Hotel stands four meters from where this image was taken. An Australian artist, Lushsux, painted this large mural portrait of Mark Zuckerberg and the quote attributed to him reads: "the more of your data I gather, the more I understand what it means to be human." Zuckerberg's face on the concrete wall is almost an ironic collapse of the distinction between the maximally visible concrete barrier and the invisible, distributed, ambient technology that outfits the wall and the ground with motion sensors, thermal imaging cameras, unmanned ground radars.</p>
+        <p>The barrier is outfitted with advanced tracking, physical, and cyber technologies, including AI tracking software (Red Wolf, Blue Wolf, Mabat 2000, seismic sensors, and cellular and signals interception). Red Wolf is an experimental AI system installed at checkpoints that scans faces, cross-references biometric profiles against a server called Wolf Pack, and automatically flags individuals for passage or denial. Once the data is collected, the migrant is not encountered as a person but rendered legible through data points as their data is 'understood' through their digital trails and social media activity. In my doctoral thesis I developed the invisible border wall concept where I outlined how successive systems of control are built over one another, each partially obscuring the last, but none fully replacing the previous ones. Yet, unlike the physical barrier, the invisible border wall resists being honest about what it is and how it operates, which data it collects, how it processes it, and what conclusions it has come up about you as your cross a border.</p>
       </div>
     </div>
 
-    <div style="color: #d8e1eb; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-   <p>The barrier is outfitted with advanced tracking, physical, and cyber technologies, including AI tracking software (Red Wolf, Blue Wolf, Mabat 2000, seismic sensors, and cellular and signals interception). Red Wolf is an experimental AI system installed at checkpoints that scans faces, cross-references biometric profiles against a server called Wolf Pack, and automatically flags individuals for passage or denial. Once the data is collected, the migrant is not encountered as a person but rendered legible through data points as their data is 'understood' through their digital trails and social media activity. In my doctoral thesis I developed the invisible border wall concept where I outlined how successive systems of control are built over one another, each partially obscuring the last, but none fully replacing the previous ones. Yet, unlike the physical barrier, the invisible border wall resists being honest about what it is and how it operates, which data it collects, how it processes it, and what conclusions it has come up about you as your cross a border.</p>
-</div>
- 
     <!-- Entry 2 -->
-    <div class="field-entry reverse" style="margin-bottom: 1rem; padding-bottom: 1rem;">
+    <div class="field-entry">
       <div class="field-photo">
         <img src="/images/20230626_160323 - Copy.jpg" alt="A soldier checks IDs on a street in H2 Hebron." />
         <div class="photo-caption">A soldier checks IDs on a street in H2 Hebron.</div>
       </div>
       <div class="field-text">
         <p>The invisible border wall is more than technology and data gathering; it is also border externalistion. The border is here, in the middle of a street, materialised in the body of a soldier who is seen checking papers in Hebron's H2 zone. Here Israeli military heavily restricts Palestinian movement to protect localized settler enclaves. Here the border is maximally visible, performed in public, in daylight, in front of tourists. Here the border is mobile yet the logic is identical to pre-sorting, rendering people legible, passage or denial based on identity data. As I walked through these streets, they were strikingly, unnaturally empty. Palestinian vehicular movement is prohibited here. The absence of people is the border control.</p>
+        <p>I was a tourist, and so where these people being asked for IDs. The Palestinians among them were not allowed to move forward. The question left behind is who is more honest - the soldier on the street or the Red Wolf algorithm? Where as the soldier represents sovereign state power over space and identity - visible display of control, the invisible border wall, the algorithm deliberately refuses this display.</p>
       </div>
     </div>
 
-     <div style="color: #d8e1eb; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-   <p>I was a tourist, and so where these people being asked for IDs. The Palestinians among them were not allowed to move forward. The question left behind is who is more honest - the soldier on the street or the Red Wolf algorithm? Where as the soldier represents sovereign state power over space and identity - visible display of control, the invisible border wall, the algorithm deliberately refuses this display.</p>
-  </div>
-
     <!-- Entry 3 -->
-    <div class="field-entry reverse" style="margin-bottom: 1rem; padding-bottom: 1rem;">
+    <div class="field-entry">
       <div class="field-photo">
         <img src="/images/20230625_130848 - Copy.jpg" alt="PHOTO 3 ALT TEXT" />
         <div class="photo-caption">Five cameras, one corner. Old City of East Jerusalem</div>
       </div>
       <div class="field-text">
-        <p>Visually chaotic and almost brutalist in its honesty. Nothing is hidden. The cables are exposed, the mounts are improvised, the generations of hardware overlap. This set of cameras and loudspeakers is likely a specialised part of the Israeli police’s Mabat 2000 surveillance grid to surveil the Old City of Jerusalem which is one of the most politically, religiously, and socially sensitive square kilometers on Earth. Old City of Jerusalem has major holy sites for Judaism, Islam, and Christianity. It is also a frequent flashpoint for protests and political clashes. These cameras likely cross-reference faces in real-time against state databases. The system is also likely equipped to track objects and detect "anomalies" by using behavioral prediction algorithms.</p>
+        <p>Visually chaotic and almost brutalist in its honesty. Nothing is hidden. The cables are exposed, the mounts are improvised, the generations of hardware overlap. This set of cameras and loudspeakers is likely a specialised part of the Israeli police's Mabat 2000 surveillance grid to surveil the Old City of Jerusalem which is one of the most politically, religiously, and socially sensitive square kilometers on Earth. Old City of Jerusalem has major holy sites for Judaism, Islam, and Christianity. It is also a frequent flashpoint for protests and political clashes. These cameras likely cross-reference faces in real-time against state databases. The system is also likely equipped to track objects and detect "anomalies" by using behavioral prediction algorithms.</p>
+        <p>Some of these cameras may also be equipped to log and track letters and numbers on vehicle license plates. Amnesty International and other human rights organisations have noted that the surveillance density in the Old City is so high that there are often one to two cameras every five meters.</p>
       </div>
     </div>
 
-     <div style="color: #d8e1eb; font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-   <p>Some of these cameras may also be equipped to log and track letters and numbers on vehicle license plates. Amnesty International and other human rights organisations have noted that the surveillance density in the Old City is so high that there are often one to two cameras every five meters.</p>
-  </div>
-    
-<!-- Entry 4 -->
-<div style="margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
-  <div style="float: right; width: 45%; margin-left: 2rem; margin-bottom: 1rem;">
-    <div class="field-photo">
-      <img src="/images/20230625_111356 - Copy.jpg" alt="Qalandiya checkpoint barrier graffiti" />
-      <div class="photo-caption">Grafitti on the physical barrier separating Ramallah from East Jerusalem at the Qalandiya Checkpoint reads "concrete proof of apartheid"</div>
+    <!-- Entry 4 -->
+    <div class="field-entry">
+      <div class="field-photo">
+        <img src="/images/20230625_111356 - Copy.jpg" alt="Qalandiya checkpoint barrier graffiti" />
+        <div class="photo-caption">Grafitti on the physical barrier separating Ramallah from East Jerusalem at the Qalandiya Checkpoint reads "concrete proof of apartheid"</div>
+      </div>
+      <div class="field-text">
+        <p>This section of the barrier sits at the Qalandiya checkpoint, one of the main crossing points between Ramallah and East Jerusalem, and one of the busiest and most heavily documented checkpoints in the West Bank. The graffiti on the concrete barrier reads "concrete proof of apartheid" and is thinly painted over in blocks of white paint. The pattern indicates a recurring cycle of writing and municipal or military erasure at this specific site; the wall functions as a contested surface as much as a physical barrier. Both this and the Bethlehem mural site have ongoing, unauthorised use by local residents and visitors to leave political messages that get removed and rewritten. Scholars who study wall graffiti in the West Bank describe this repainting cycle as a form of palimpsestic use of the surface. This use of the surface is a Palestinian tactic that responds to power structures. Unlike the algorithmic systems discussed above, which operate by withholding information about how they classify people, this graffiti states its claim plainly and in English, addressed to the tourists and journalists who pass through Qalandiya daily. That gap between what the wall is built to do and what gets recorded about it is part of what this project is trying to close.</p>
+        <p>The message on this concrete panel sits at the first, most visible layer of the invisible border wall framework: externalisation, where control is performed openly through physical structures and personnel rather than hidden in data systems. Qalandiya makes this layer explicit in a way the checkpoint in Hebron does too, but through infrastructure instead of a soldier's body or technology. The wall itself, the watchtowers, and the queuing structure are all part of this outsourced, visible performance of control, built to be seen and photographed by outsiders. What the graffiti does is name a condition, apartheid, that is produced across all three layers of the invisible border wall framework, even though the writing itself only has access to the first one. The people who cross here are also subject to the second layer, data collection through ID checks and permit systems tied to this crossing, and the third layer, algorithmic sorting by systems like Red Wolf that operate at checkpoints elsewhere in the West Bank. The graffiti cannot describe those layers because they are built to stay undescribed, but it names their outcome from the one layer that is still available for anyone to write on.</p>
+      </div>
     </div>
-  </div>
-  
-  <div style="color: #d8e1eb; font-size: 1.05rem; line-height: 1.8;">
-    <p style="margin-bottom: 1rem;">This section of the barrier sits at the Qalandiya checkpoint, one of the main crossing points between Ramallah and East Jerusalem, and one of the busiest and most heavily documented checkpoints in the West Bank. The graffiti on the concrete barrier reads "concrete proof of apartheid" and is thinly painted over in blocks of white paint. The pattern indicates a recurring cycle of writing and municipal or military erasure at this specific site; the wall functions as a contested surface as much as a physical barrier. Both this and the Bethlehem mural site have ongoing, unauthorised use by local residents and visitors to leave political messages that get removed and rewritten. Scholars who study wall graffiti in the West Bank describe this repainting cycle as a form of palimpsestic use of the surface. This use of the surface is a Palestinian tactic that responds to power structures. Unlike the algorithmic systems discussed above, which operate by withholding information about how they classify people, this graffiti states its claim plainly and in English, addressed to the tourists and journalists who pass through Qalandiya daily. That gap between what the wall is built to do and what gets recorded about it is part of what this project is trying to close.</p>
-    <p>The message on this concrete panel sits at the first, most visible layer of the invisible border wall framework: externalisation, where control is performed openly through physical structures and personnel rather than hidden in data systems. Qalandiya makes this layer explicit in a way the checkpoint in Hebron does too, but through infrastructure instead of a soldier's body or technology. The wall itself, the watchtowers, and the queuing structure are all part of this outsourced, visible performance of control, built to be seen and photographed by outsiders. What the graffiti does is name a condition, apartheid, that is produced across all three layers of the invisible border wall framework, even though the writing itself only has access to the first one. The people who cross here are also subject to the second layer, data collection through ID checks and permit systems tied to this crossing, and the third layer, algorithmic sorting by systems like Red Wolf that operate at checkpoints elsewhere in the West Bank. The graffiti cannot describe those layers because they are built to stay undescribed, but it names their outcome from the one layer that is still available for anyone to write on.</p>
-  </div>
-  <div style="clear: both;"></div>
-</div>
-    
+
     <!-- Entry 5 -->
     <div class="field-entry">
       <div class="field-photo">
@@ -388,7 +376,7 @@
         <p>TEXT PLACEHOLDER. </p>
       </div>
     </div>
-      
+
     <div class="blog-post-tags">
       <span class="blog-tag">Border Control</span>
       <span class="blog-tag">West Bank</span>

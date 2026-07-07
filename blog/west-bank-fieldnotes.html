@@ -73,16 +73,10 @@
       color: #d8e1eb;
       font-size: 1.05rem;
       line-height: 1.8;
-      margin-bottom: 20px;
+      margin-bottom: 30px;
     }
 
     /* Photo + text entry (float-based, photo right, text wraps below) */
-    .field-entry {
-  margin-bottom: 0.75rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
     .field-entry:last-of-type {
       border-bottom: none;
     }
@@ -103,6 +97,15 @@
       border: 1px solid rgba(255,255,255,0.08);
     }
 
+    .field-entry {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.field-entry.extra-space {
+  padding-bottom: 2.5rem;
+}
     .field-photo img {
       width: 100%;
       height: auto;
@@ -232,7 +235,7 @@
     </div>
 
     <!-- Entry 1 -->
-    <div class="field-entry">
+    <div class="field-entry extra-space">
       <div class="field-photo">
         <img src="/images/20230628_142749 - Copy.jpg" alt="the more of your data I gather, the more I understand what it means to be human"/>
         <div class="photo-caption">"the more of your data I gather, the more I understand what it means to be human"</div>
@@ -244,7 +247,7 @@
     </div>
 
     <!-- Entry 2 -->
-    <div class="field-entry">
+    <div class="field-entry extra-space">
       <div class="field-photo">
         <img src="/images/20230626_160323 - Copy.jpg" alt="A soldier checks IDs on a street in H2 Hebron." />
         <div class="photo-caption">A soldier checks IDs on a street in H2 Hebron.</div>
@@ -268,7 +271,7 @@
     </div>
 
     <!-- Entry 4 -->
-    <div class="field-entry">
+    <div class="field-entry extra-space">
       <div class="field-photo">
         <img src="/images/20230625_111356 - Copy.jpg" alt="Qalandiya checkpoint barrier graffiti" />
         <div class="photo-caption">Grafitti on the physical barrier separating Ramallah from East Jerusalem at the Qalandiya Checkpoint reads "concrete proof of apartheid"</div>
@@ -332,43 +335,7 @@
   <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
 
-  <script>
-    const track = document.getElementById('carouselTrack');
-    const dotsContainer = document.getElementById('carouselDots');
-    const slides = document.querySelectorAll('.carousel-slide');
-    let currentSlide = 0;
-    const totalSlides = slides.length;
-
-    slides.forEach((_, index) => {
-      const dot = document.createElement('div');
-      dot.classList.add('carousel-dot');
-      if (index === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goToSlide(index));
-      dotsContainer.appendChild(dot);
-    });
-
-    const dots = document.querySelectorAll('.carousel-dot');
-
-    function goToSlide(index) {
-      currentSlide = index;
-      track.style.transform = `translateX(-${currentSlide * 100}%)`;
-      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
-    }
-
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      goToSlide(currentSlide);
-    }
-
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      goToSlide(currentSlide);
-    }
-
-    setInterval(nextSlide, 6000);
-  </script>
-
-  <script>
+    <script>
     function shareTwitter(e) {
       e.preventDefault();
       const url = encodeURIComponent(window.location.href);

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<script src="/components/analytics.js"></script>
+<google-analytics></google-analytics>
+  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Sovereignty in the Age of Frontier AI | Roxana Akhmetova</title>
+  <meta name="description" content="Data Sovereignty in the Age of Frontier AI" />
+  <meta name="author" content="Roxana Akhmetova" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#1a1a1a',
+            mid: '#4d4d4d',
+            light: '#f7f7f8',
+            oxford: '#002147',
+            'oxford-100': '#e6eefb',
+            'oxford-600': '#234e85'
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="/style.css" />
+
+  <style>
+    html, body {
+      background-color: #1a1a1a !important;
+      min-height: 100%;
+      color: #ffffff;
+    }
+
+    main {
+      margin-top: 100px;
+      max-width: 900px;
+      padding: 0 40px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 80px;
+    }
+
+    h1 {
+      font-size: 2.2rem !important;
+      margin-bottom: 24px !important;
+      color: #ffffff !important;
+      font-weight: 600 !important;
+      border-bottom: 3px solid #e6eefb;
+      display: inline-block;
+      padding-bottom: 8px;
+    }
+
+    .post-date {
+      color: #9fc0ff;
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+
+    .post-content p {
+      color: #d8e1eb;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* --- Section styling --- */
+    .tier-title {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.25rem;
+      border-left: 4px solid #9fc0ff;
+      padding-left: 10px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .subheading {
+      color: #9fc0ff;
+      font-weight: 600;
+      font-size: 1.05rem;
+      margin-top: 15px;
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    .post-content ul {
+      color: #d8e1eb;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      padding-left: 22px;
+    }
+
+    .post-content ul li {
+      margin-bottom: 10px;
+    }
+
+    .blog-post-tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .blog-tag {
+      background: rgba(159, 192, 255, 0.1);
+      color: #9fc0ff;
+      padding: 5px 12px;
+      border-radius: 15px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    a.back-link {
+      display: inline-block;
+      color: #9fc0ff;
+      margin-bottom: 40px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    a.back-link:hover {
+      color: #ffffff;
+      transform: translateX(-4px);
+    }
+
+    .share-section {
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(159, 192, 255, 0.2);
+    }
+
+    .share-title {
+      color: #9fc0ff;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .share-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(159, 192, 255, 0.1);
+      border: 1px solid rgba(159, 192, 255, 0.3);
+      border-radius: 6px;
+      color: #9fc0ff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .share-btn:hover {
+      background: rgba(159, 192, 255, 0.2);
+      border-color: #9fc0ff;
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      main { padding: 0 20px; }
+      h1 { font-size: 1.8rem !important; }
+      .post-content p { font-size: 1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <custom-navbar></custom-navbar>
+
+  <main>
+    <a href="/blog.html" class="back-link">&larr; Back to Blog</a>
+
+    <h1>Data Sovereignty in the Age of Frontier AI</h1>
+    <div class="post-date">July 7, 2026</div>
+
+    <div class="post-content">
+      <p>In May 2026, Canada's Minister of Artificial Intelligence and Digital Innovation, Evan Solomon, <a href="https://www.forbes.com/sites/johnkoetsier/2026/05/12/canada-declares-digital-independence-but-sovereignty-is-not-solitude/" target="_blank" rel="noopener noreferrer" style="color: #9fc0ff; text-decoration: underline;">told a reporter that only four countries in the world have a foundation model</a>: the United States, China, France with Mistral, and Canada with Cohere. It is worth pausing on this, because it is the kind of statement a government makes when it wants a domestic company to stand in for something larger; perhaps a nation's technological independence. Ottawa <a href="https://www.canada.ca/en/innovation-science-economic-development/news/2025/08/canada-partners-with-cohere-to-accelerate-world-leading-artificial-intelligence.html" target="_blank" rel="noopener noreferrer" style="color: #9fc0ff; text-decoration: underline;">signed a memorandum of understanding with Cohere</a>, <a href="https://www.canada.ca/en/department-finance/news/2024/12/deputy-prime-minister-announces-240-million-for-cohere-to-scale-up-ai-compute-capacity.html" target="_blank" rel="noopener noreferrer" style="color: #9fc0ff; text-decoration: underline;">committed up to $240 million toward a data centre in Cambridge, Ontario</a>, and in June 2026 Prime Minister Mark Carney <a href="https://www.pm.gc.ca/en/news/news-releases/2026/06/04/prime-minister-carney-launches-ai-all-canadas-new-national-artificial" target="_blank" rel="noopener noreferrer" style="color: #9fc0ff; text-decoration: underline;">launched a national strategy</a> built on a $2 billion federal package and a promise to keep Canadian data, compute, and internet traffic inside Canadian borders.</p>
+
+      <p>Looking closer at the Cambridge facility, the claim gets more complicated. The data centre is <a href="https://www.benefitsandpensionsmonitor.com/news/industry-news/nvidia-backed-ai-firm-teams-up-with-coreweave-for-canadas-new-data-centre/390214" target="_blank" rel="noopener noreferrer" style="color: #9fc0ff; text-decoration: underline;">being built and operated by CoreWeave, an American cloud company</a>. Cohere itself was valued near $20 billion largely off of a <a href="https://pitchbook.com/news/articles/cohere-acquires-aleph-alpha-in-20bn-sovereign-ai-push" target="_blank" rel="noopener noreferrer" style="color: #9fc0ff; text-decoration: underline;">merger with a German AI firm, Aleph Alpha</a>, and its own government MOU explicitly describes it as a strategically important LLM provider, not a fully domestic supply chain. Given this, it is fair to ask how much Canadian ownership across the stack is actually required, achievable, or desirable, given that the compute underneath still runs through an American vendor. A sovereign model that operates on rented and foreign-operated servers leads to the question: Which layer of the AI stack does a country actually need to own to call itself sovereign, and which layers can it rent without giving up something it cannot get back.</p>
+
+      <p>The UK took a different route by giving investment packages, including a £1.1 billion AI Hardware Plan announced on June 8, 2026 at London Tech Week, and AI Growth Zones designed to attract global AI firms to build in Britain. Industry voices argued that compute and frontier models, which are the most important layers in AI, are almost entirely outside UK control, since the chips are dominated by global supply chains centred on Nvidia and the most advanced models are built by American and Chinese labs regardless of where the servers physically sit. Hence, as Jim Killock, executive director of the Open Rights Group, noted: "AI adoption does not mean AI independence."</p>
+
+      <p>The stack framing that dominates most sovereignty writing, who owns the chips, who owns the model weights, who owns the data centre, misses where dependency usually forms not in who owns the chips, who owns the model weights, who owns the data centre, but once a government or a company feeds its data into a platform, such as Palantir's Foundry, that data gets restructured into a proprietary internal shape. If government data is treated in a proprietary format, the files may not be readily usable by any comparable system, even if exports in formats like CSV or JSON are technically possible. This lock-in tied the government to the vendor for longer than they may have initially signed the contract for. For example, in the UK, a parliamentary-adjacent review of Palantir's NHS and defence contracts flagged vendor lock-in and market control as a standing risk, warning that dependence on a single proprietary system makes switching suppliers prohibitively difficult. Reports pointed to Switzerland's decision to cancel its own Palantir contract as the closest thing to a warning label the industry has produced. The same worry has surfaced inside the US government too, where a former Treasury official described the IRS's reliance on a single company (in this case Palantir as well) for core functions as risky because the vendor becomes indispensable, at which point it can set terms which the client must abide by.</p>
+
+      <p>A list of some companies and how they may lock a government in:</p>
+
+      <ul>
+        <li><strong>Oracle:</strong> offers database and enterprise software with licensing terms and audit practices that can make migration costly.</li>
+        <li><strong>SAP:</strong> offers ERP systems where business data structures and workflows are tied to SAP's proprietary architecture.</li>
+        <li><strong>Salesforce:</strong> CRM data and customer records stored in a format that can be hard to port cleanly to competitors.</li>
+        <li><strong>ServiceNow:</strong> offers workflow and IT service data that are increasingly used across government agencies, with similar proprietary structuring.</li>
+        <li><strong>Esri (ArcGIS):</strong> is dominant in government geospatial data; proprietary file formats can make switching GIS providers difficult.</li>
+        <li><strong>Microsoft's Azure/Dynamics:</strong> offers cloud infrastructure and enterprise software bundles which can deepen lock-in across multiple layers at once.</li>
+        <li><strong>AWS:</strong> offers proprietary services (databases, ML tooling) that do not have direct equivalents elsewhere, so migrating off AWS can mean rebuilding rather than porting.</li>
+        <li><strong>IBM:</strong> a legacy government and enterprise contractor, especially mainframe and Watson-era systems, with high switching costs that are part of decades-old infrastructure.</li>
+      </ul>
+
+      <p>This is why sovereignty cannot be reduced to a question about frontier AI labs. Companies such as AWS, IBM, or Palantir are not frontier AI labs. The dependency that matters most is which company controls the format your data lives in once it is inside their system. A government can diversify its model vendor, run Cohere one year and Mistral the next, but still be locked into a single infrastructure or data platform vendor that sit underneath both, hence diversification has to happen at every layer a client depends on.</p>
+
+      <p>An individual can go through the same audit a country goes through and look through which services hold your data, on what terms, and what happens if you leave. I ran this audit on my own accounts as a small-scale test of these same questions that the UK, Canada, and other countries are grappling with.</p>
+
+      <p>The audit worked the same way at home as it may work at the policy level. For each service, I looked at what company held my data, whether that data was used to train the company's AI, whether the company could read it, and whether I could own the space it sat in, or at least keep it in an open format instead of a proprietary one. None of these switches removed dependency. What changed is which kind of dependency I have. I moved my data from companies that can read, sell, or train on it, to ones that structurally cannot, and I moved it out of closed, proprietary formats that only one company's software can open, into formats any software can read.</p>
+
+      <p><span class="subheading">Storage:</span> My data was scattered across several Google accounts, OneDrive, Dropbox, USB drives, and old CD discs, each with its own terms and its own retention risk. I bought a Synology NAS and moved everything onto it. The files sit in standard formats on drives I hold, so if Synology disappeared tomorrow my data is still readable, and no company can train on it, sell it, or lock me out over a terms of service violation. Setup took me a weekend, cost around 1,000 CAD, and the hardware should run seven to ten years. I have two drives that mirror each other, so a single drive failure should not cost me the data. For remote access, I use Tailscale, which creates a direct connection between my devices and the NAS rather than routing my files through a third party's cloud servers to reach them.</p>
+
+      <p><span class="subheading">Email:</span> I moved from Gmail and Outlook to Tuta, which encrypts the message body and subject line by default on my end. Google could read my inbox to train models or serve ads, and Tuta structurally cannot, since the encryption means Tuta cannot read the contents either.</p>
+
+      <p><span class="subheading">Two-factor authentication:</span> I moved from Google and Microsoft Authenticator to Aegis, which is free, open source, and stores codes locally rather than syncing them through a company account. The dependency here is on a piece of software rather than a company, so if the developers walked away, the code is public and the community can keep maintaining it.</p>
+
+      <p><span class="subheading">Password Manager:</span> I moved from LastPass, which suffered a major data breach in 2022, to Bitwarden, which is also open source. I can self-host it if I want to remove the server dependency entirely, an option LastPass never gave me.</p>
+
+      <p><span class="subheading">Documents:</span> I moved from Microsoft Office and Google Docs to LibreOffice, which is also open source and free. It doesn't feed documents into anyone's model training. It's less polished than Microsoft's suite, but capable enough for most of what I actually do.</p>
+    </div>
+
+    <div class="blog-post-tags">
+      <span class="blog-tag">AI Sovereignty</span>
+      <span class="blog-tag">Data Governance</span>
+      <span class="blog-tag">Canada</span>
+      <span class="blog-tag">Frontier AI</span>
+    </div>
+
+    <div class="share-section">
+      <div class="share-title">Share this post</div>
+      <div class="share-buttons">
+        <a href="#" class="share-btn" onclick="shareTwitter(event)">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+          Twitter
+        </a>
+        <a href="#" class="share-btn" onclick="shareLinkedIn(event)">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="#" class="share-btn" onclick="copyLink(event)">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+          </svg>
+          Copy Link
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <custom-footer></custom-footer>
+  <script src="/components/navbar.js"></script>
+  <script src="/components/footer.js"></script>
+
+  <script>
+    function shareTwitter(e) {
+      e.preventDefault();
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.title);
+      window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, '_blank', 'width=550,height=420');
+    }
+
+    function shareLinkedIn(e) {
+      e.preventDefault();
+      const url = encodeURIComponent(window.location.href);
+      window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=550,height=420');
+    }
+
+    function copyLink(e) {
+      e.preventDefault();
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = e.currentTarget;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = `
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+          Copied!
+        `;
+        setTimeout(() => { btn.innerHTML = originalText; }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>

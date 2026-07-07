@@ -98,12 +98,14 @@
       line-height: 1.8;
       margin-bottom: 20px;
       padding-left: 22px;
+      list-style: disc !important;
     }
 
-    .post-content ul li {
-      margin-bottom: 10px;
+     .post-content ul li {
+       margin-bottom: 10px;
+       display: list-item !important;
     }
-
+    
     .blog-post-tags {
       display: flex;
       gap: 10px;
@@ -223,7 +225,7 @@
 
       <p><span class="subheading">Email:</span> I moved from Gmail and Outlook to Tuta, which encrypts the message body and subject line by default on my end. Google could read my inbox to train models or serve ads, and Tuta structurally cannot, since the encryption means Tuta cannot read the contents either.</p>
 
-      <p><span class="subheading">Two-factor authentication:</span> I moved from Google and Microsoft Authenticator to Aegis, which is free, open source, and stores codes locally rather than syncing them through a company account. The dependency here is on a piece of software rather than a company, so if the developers walked away, the code is public and the community can keep maintaining it.</p>
+      <p><span class="subheading">Two-factor Authentication:</span> I moved from Google and Microsoft Authenticator to Aegis, which is free, open source, and stores codes locally rather than syncing them through a company account. The dependency here is on a piece of software rather than a company, so if the developers walked away, the code is public and the community can keep maintaining it.</p>
 
       <p><span class="subheading">Password Manager:</span> I moved from LastPass, which suffered a major data breach in 2022, to Bitwarden, which is also open source. I can self-host it if I want to remove the server dependency entirely, an option LastPass never gave me.</p>
 

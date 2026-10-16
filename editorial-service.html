@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Editorial Service | Roxana Akhmetova</title>
+<title>Essay &amp; Thesis Coaching | Roxana Akhmetova</title>
+<meta name="description" content="Essay and thesis coaching for undergraduate and master's students. Learn how to build a stronger argument and structure. Live sessions or written feedback." />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
+<!-- Only keep this if navbar.js / footer.js use Tailwind classes. Test the page without it. -->
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,7 +74,7 @@
     overflow:visible;
   }
 
-  /* "clear thesis!" label — anchored off the SAME .arrow-mark point as the
+  /* "clear thesis!" label, anchored off the SAME .arrow-mark point as the
      SVG (not off the whole "rough idea" phrase), positioned to sit right at
      the arrow's tip. The arrow path ends at (86,4) inside a 90x40 viewBox
      that itself sits at left:-6px / bottom:0.85em, so the tip in real pixels
@@ -150,13 +152,13 @@
   .rate-row:last-child{ border-bottom:none; }
   .rate-row-left{ color:var(--ink); font-size:0.98rem; }
   .rate-badge{
-    display:inline-block; font-family:'Inter',ui-sans-serif,sans-serif; font-size:0.7rem; font-weight:600;
+    display:inline-block; font-family:'Libre Franklin',ui-sans-serif,sans-serif; font-size:0.7rem; font-weight:600;
     letter-spacing:0.04em; text-transform:uppercase; color:var(--mark-gold); border:1px solid rgba(179,174,163,0.4);
     border-radius:999px; padding:2px 9px; margin-left:8px; vertical-align:middle;
   }
   .rate-row-note{ color:var(--muted); font-size:0.85rem; margin-top:2px; }
   .rate-row-price{ color:var(--mark-gold); font-size:1.1rem; font-weight:500; white-space:nowrap; font-family:'Fraunces', 'Playfair Display', serif; }
-  .rate-row-price span{ font-size:0.85rem; color:var(--muted); font-weight:400; font-family:'Inter',sans-serif; }
+  .rate-row-price span{ font-size:0.85rem; color:var(--muted); font-weight:400; font-family:'Libre Franklin',ui-sans-serif,sans-serif; }
   .disclaimer{ color:var(--muted); font-size:0.85rem; line-height:1.6; margin-top:24px; }
 
   .info-row{ padding:18px 0; border-bottom:2px solid var(--hair); }
@@ -170,7 +172,7 @@
 
   <section class="hero">
     <div class="ms-texture">
-      <svg width="100%" height="100%" viewBox="0 0 500 600" preserveAspectRatio="none">
+      <svg width="100%" height="100%" viewBox="0 0 500 600" preserveAspectRatio="none" aria-hidden="true">
         <g stroke="#d8d4cb" stroke-opacity="0.16" stroke-width="1">
           <line x1="40" y1="60" x2="460" y2="60"/>
           <line x1="40" y1="90" x2="420" y2="90"/>
@@ -195,7 +197,7 @@
 
     <div class="hero-inner">
       <div class="eyebrow">Essay &amp; thesis coaching</div>
-      <h1>Turn a <span class="struck-anchor"><span class="struck">rough<span class="arrow-mark">
+      <h1>Turn a <span class="struck-anchor"><span class="struck">rough<span class="arrow-mark" aria-hidden="true">
             <svg width="90" height="40" viewBox="0 0 90 40" style="overflow:visible;">
               <path d="M 6 36 C 14 14, 40 4, 86 4" stroke="#c9633f" stroke-width="1.5" fill="none" opacity="0.85" marker-end="url(#ah)"/>
               <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c9633f" opacity="0.85"/></marker></defs>
@@ -203,7 +205,7 @@
             <span class="margin-note annot">clear thesis!</span>
           </span> idea</span></span> into an unshakeable argument.</h1>
       <p class="lede">
-       I am a former University of Manitoba Writing Tutor, University of Winnipeg teaching assistant, University of Oxford PhD graduate, and a Trudeau Scholar. I work with undergraduate and master's students on essays and thesis-level writing.
+       I am a former University of Manitoba Writing Tutor, University of Winnipeg teaching assistant, University of Oxford PhD graduate, and a Trudeau Scholar. I coach undergraduate and master's students on essay and thesis writing, helping you build the argument yourself.
       </p>
       <p class="credentials-line">
         MSc and DPhil from University of Oxford<span class="sep">·</span>Cited in UK Government's 2024 Ethics Framework<span class="sep">·</span>Advised Canadian Government officials
@@ -227,7 +229,7 @@
         <div class="track-card-head">
           <h3>Live Sessions</h3>
         </div>
-        <p>A video call where we work through your essay or thesis chapter together, in real time. 30-minute, 1-hour, or small-group formats.</p>
+        <p>A video call where we talk through your essay or thesis chapter together, in real time. You make all the changes. 30-minute, 1-hour, or small-group formats.</p>
         <div class="track-meta">
           <span class="track-cta">See rates →</span>
         </div>
@@ -250,12 +252,12 @@
       <div class="kicker">Rates</div>
       <h2 style="font-size:1.9rem; color:#fff; font-weight:500;">Live sessions</h2>
       <p style="color:var(--sub); line-height:1.6; margin-top:10px; max-width:85ch;">Over video call. Online only. Book a 30-minute or 1-hour session one-on-one, join a small group, or book a 5-session package for ongoing work.</p>
-      <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-top:10px; max-width:110ch; font-style:italic;">Note: I don't read your draft in advance of a live session. We go through it together in real time. If you'd like written feedback ahead of a call, add an async review below.</p>
+      <p style="color:var(--muted); font-size:0.88rem; line-height:1.6; margin-top:10px; max-width:110ch; font-style:italic;">Note: I don't read your draft in advance of a live session. We go through it together in real time. I ask questions and point out issues, and you decide on and make every change. If you'd like written feedback ahead of a call, add an async review below.</p>
     </div>
 
     <div style="margin-top:10px;">
-      <div class="rate-group-title">Essays</div>
-      <div class="rate-group-desc">Undergraduate and master's level essays in political science, international relations, and related social science and humanities subjects.</div>
+      <div class="rate-group-title">Essay Coaching</div>
+      <div class="rate-group-desc">For undergraduate and master's students in political science, international relations, and related social science and humanities subjects. Undergraduate sessions focus on how to write a strong paper: thesis, structure, evidence and revising. Master's sessions focus on argument, structure and logic.</div>
       <div class="rate-row">
         <div><div class="rate-row-left">First Session <span class="rate-badge">New clients</span></div><div class="rate-row-note">One-time introductory rate for your first booking. Full 1-hour session.</div></div>
         <div class="rate-row-price">$35<span>/hour</span></div>
@@ -275,17 +277,17 @@
     </div>
 
     <div style="margin-top:32px;">
-      <div class="rate-group-title">Group Essay Sessions</div>
-      <div class="rate-group-desc">Live, one-hour sessions for small groups — up to 4 students share a session at a lower per-person rate. Book together with classmates, friends, or a study group. Essays only.</div>
+      <div class="rate-group-title">Group Coaching Sessions</div>
+      <div class="rate-group-desc">Small-group sessions on essay writing skills like thesis, structure and evidence. Up to 4 students share a session at a lower per-person rate. Book together with classmates, friends, or a study group.</div>
       <div class="rate-row">
-        <div><div class="rate-row-left">Group Session </div><div class="rate-row-note">Priced per student, per hour. This is for a group essay project where everyone works on different parts of the same essay.</div></div>
+        <div><div class="rate-row-left">Group Session </div><div class="rate-row-note">Priced per student, per hour. For group assignments, only where your instructor has set the work up as a group project and each student works on their own part.</div></div>
         <div class="rate-row-price">$20<span>/person/hour</span></div>
       </div>
     </div>
 
     <div style="margin-top:32px;">
-      <div class="rate-group-title">Thesis Writing</div>
-      <div class="rate-group-desc">Thesis chapters and other long-form thesis-level writing.</div>
+      <div class="rate-group-title">Thesis Coaching</div>
+      <div class="rate-group-desc">Thesis chapters and other long-form work. Feedback on argument, structure and logic. Check with your supervisor about outside feedback.</div>
       <div class="rate-row">
         <div><div class="rate-row-left">First Session <span class="rate-badge">New clients</span></div><div class="rate-row-note">One-time introductory rate for your first booking. Full 1-hour session.</div></div>
         <div class="rate-row-price">$50<span>/hour</span></div>
@@ -313,11 +315,11 @@
     <div class="track-head">
       <div class="kicker">Rates</div>
       <h2 style="font-size:1.9rem; color:#fff; font-weight:500;">Async written feedback</h2>
-      <p style="color:var(--sub); line-height:1.6; margin-top:10px; max-width:110ch;">Send your draft and assignment by email. I return it with comments and a written summary. Turnaround scales with length, from a couple of days for a short piece up to a week or more for a full chapter, exact timing is listed by tier below.</p>
+      <p style="color:var(--sub); line-height:1.6; margin-top:10px; max-width:110ch;">Send your draft and assignment by email. I return it with comments and a written summary focused on argument, structure and clarity. Comments are questions and pointers, not rewrites. Turnaround scales with length, from a couple of days for a short piece up to a week or more for a full chapter, exact timing is listed by tier below.</p>
     </div>
 
     <div style="margin-top:10px;">
-      <div class="rate-group-title">Essays</div>
+      <div class="rate-group-title">Essay Coaching</div>
       <div class="rate-group-desc">$50 per 1,000 words base rate.</div>
       <div class="rate-row">
         <div><div class="rate-row-left">Up to 1,000 words</div><div class="rate-row-note">Turnaround: 2–3 business days.</div></div>
@@ -334,7 +336,7 @@
     </div>
 
     <div style="margin-top:32px;">
-      <div class="rate-group-title">Thesis Writing</div>
+      <div class="rate-group-title">Thesis Coaching</div>
       <div class="rate-group-desc">$70 per 1,000 words base rate.</div>
       <div class="rate-row">
         <div><div class="rate-row-left">Up to 1,000 words</div><div class="rate-row-note">A short section or chapter excerpt. Turnaround: 2–3 business days.</div></div>
@@ -356,6 +358,10 @@
     <div class="info-row">
       <div class="info-label">Session Format</div>
       <div class="info-text">The work and final wording remain the student's own. I do not complete assignments on a student's behalf.</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Academic Integrity</div>
+      <div class="info-text">I teach and give feedback. I don't write or rewrite sentences, supply thesis statements, arguments or sources, or make changes to your draft. Rules on outside help differ by course and instructor, so it's your responsibility to confirm it's allowed for your assignment (or with your supervisor) before booking.</div>
     </div>
     <div class="info-row">
       <div class="info-label">Turnaround Time</div>

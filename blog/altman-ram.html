@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<script src="/components/analytics.js"></script>
-<google-analytics></google-analytics>
-  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lessons from High-Frequency Trading for AI Governance | Roxana Akhmetova</title>
-  <meta name="description" content="Lessons from High-Frequency Trading for AI Governance" />
+
+  <title>Who Gets the RAM? Altman, Data Centres, and the Case for Memory Oversight | Roxana Akhmetova</title>
+  <meta name="description" content="Sam Altman says it's quite terrible that RAM sits idle in consumer devices. But if memory concentrates in a handful of the biggest buyers, should it come with disclosure and oversight?" />
   <meta name="author" content="Roxana Akhmetova" />
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -33,7 +30,7 @@
 
   <style>
     html, body {
-      background-color: #1a1a1a !important;
+      background-color: #000 !important;
       min-height: 100%;
       color: #ffffff;
     }
@@ -52,6 +49,9 @@
       margin-bottom: 24px !important;
       color: #ffffff !important;
       font-weight: 600 !important;
+      -webkit-text-fill-color: #ffffff !important;
+      text-shadow: none !important;
+      opacity: 1 !important;
       border-bottom: 3px solid #e6eefb;
       display: inline-block;
       padding-bottom: 8px;
@@ -71,12 +71,15 @@
       margin-bottom: 20px;
     }
 
-    .post-content strong {
+    .post-content a {
+      color: #9fc0ff;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.3s ease;
+    }
+
+    .post-content a:hover {
       color: #ffffff;
-      display: block;
-      margin-top: 25px;
-      margin-bottom: 8px;
-      font-weight: 600;
     }
 
     .blog-post-tags {
@@ -161,26 +164,33 @@
   <custom-navbar></custom-navbar>
 
   <main>
-    <a href="/blog.html" class="back-link">&larr; Back to Blog</a>
+    <a href="/blog" class="back-link">&larr; Back to Blog</a>
 
-    <h1>Lessons from High-Frequency Trading for AI Governance</h1>
-    <div class="post-date">September 29, 2025</div>
+    <h1>Who Gets the RAM? Altman, Data Centres, and the Case for Memory Oversight</h1>
+    <div class="post-date">November 2026</div>
 
     <div class="post-content">
-      <p>On May 6, 2010, the U.S. stock market lost nearly $1 trillion in value in minutes before partially recovering, all driven by automated trading algorithms. Yet, human oversight and circuit breakers were already in place, but neither could react in time to stop automated trading systems from making billions of trades within seconds.</p>
 
-      <p>As algorithmic tools were gaining popularity between 2000 and 2010s, the finance world kept up by adopting autonomous trading tools to make and cancel orders automatically. Fintech AI operated at microsecond to millisecond timescales. By the time humans notice a problem and respond, the automated system has already made millions of trades. Algorithmic decision rules and statistical models could pick up on small price discrepancies and make fast decisions. Regulators didn't have visibility into automated trading because algorithms were proprietary and couldn't be audited. Safeguards and existing frameworks assumed human-in-the-loop who could trigger manual interventions, but regulators couldn't intervene in real time because there weren't any automated safety mechanisms for microsecond-timescale decisions.</p>
+      <p>Last week, Sam Altman said it’s “quite terrible” that scarce RAM for local AI sits idle in everyone’s devices most of the time. Better to allocate it to data centres.</p>
 
-      <p>After the crash, regulators adopted circuit breakers and other market controls that could pause the system if prices move rapidly again. Regulators and exchanges also started to share data and monitor markets together in real-time instead of working separately.</p>
+      <p>Altman’s point on the Cheeky Pint podcast about efficiency is that memory should go into racks rather than into consumer devices. I’d add that having compute in one place can be easier to monitor and audit.</p>
 
-      <p>Advanced AIs are outpacing regulation in a similar way. This 2010 crash showed that systems that operate faster than human oversight need automated safety mechanisms. AI regulations are lagging behind, and may be similarly reactive in nature, waiting for a big crisis to trigger serious regulation. Advanced AI may require AI 'circuit breakers,' capability registries, mandatory audit trails, shared telemetry, automated oversight systems, or transnational safety boards to intervene at machine speed before harms occur.</p>
+      <p>But concentration also means that a handful of the biggest RAM buyers end up choosing what the world’s memory is used for, leaving the rest of us to scramble for RAM leftovers at higher prices. Run-of-the-mill market economics, one could argue.</p>
+
+      <p>Normal or not, I feel it. AI labs are partly responsible for the scarcity that we’ve seen since last year, driving up consumer prices for memory in personal devices. I paid around 20-30% more for my NAS this year, partly because of higher memory costs.</p>
+
+      <p>If RAM gets concentrated in a handful of the biggest memory buyers, it should be subject to an appropriate level of scrutiny and oversight.</p>
+
+      <p>Should labs and big cloud providers have to disclose how much memory they’ve committed to? Should policymakers then have oversight of long-term supply agreements, so they can see how much supply is already spoken for?</p>
+
     </div>
 
     <div class="blog-post-tags">
-      <span class="blog-tag">Technology Governance</span>
-      <span class="blog-tag">Financial Regulation</span>
-      <span class="blog-tag">Case Study</span>
-      <span class="blog-tag">Policy Lessons</span>
+      <span class="blog-tag">RAM</span>
+      <span class="blog-tag">Compute Governance</span>
+      <span class="blog-tag">Data Centres</span>
+      <span class="blog-tag">AI Policy</span>
+      <span class="blog-tag">Sam Altman</span>
     </div>
 
     <div class="share-section">
@@ -206,11 +216,12 @@
         </a>
       </div>
     </div>
+
   </main>
 
   <custom-footer></custom-footer>
-  <script src="/components/navbar.js"></script>
-  <script src="/components/footer.js"></script>
+  <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
+  <script src="https://roxanaakhmetova.com/components/footer.js"></script>
 
   <script>
     function shareTwitter(e) {

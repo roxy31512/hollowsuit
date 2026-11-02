@@ -45,7 +45,7 @@
 
     /* ---- Left: intro + photo ---- */
     .intro { display:flex; gap:3rem; align-items:flex-start; }
-    .intro-text { flex:1 1 auto; min-width:0; }
+    .intro-text { flex:0 1 auto; min-width:0; }
     .photo { flex:0 0 clamp(200px, 21vw, 270px); }
     .photo img { width:100%; aspect-ratio:4 / 5; object-fit:cover; object-position:65% 18%; display:block; border-radius:0; }
     @media (max-width:560px){ .intro{ flex-direction:column-reverse; } .photo{ flex-basis:auto; width:220px; } }

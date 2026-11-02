@@ -1,339 +1,208 @@
 <!doctype html>
 <html lang="en">
 <head>
-
   <meta charset="utf-8" />
   <title>Roxana Akhmetova | AI Governance Researcher</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="Roxana Akhmetova - AI governance researcher, Oxford DPhil. Advises governments on AI adoption in high-stakes, politicised domains including immigration and border control.">
-  <meta name="keywords" content="Roxana Akhmetova, AI policy researcher, AI governance, Oxford AI Gala, AI Gala, Oxford Gala, Oxford AI Society, Oxford Artificial Intelligence Society, frontier AI, semiconductor export controls, US China AI policy, compute governance, BIS export controls, AI safety policy, Georgia Tech AI Safety, Pierre Elliott Trudeau Scholar, University of Oxford, AI policy strategist, tech diplomacy, CHIPS Act, congressional affairs, automated decision-making">
   <meta name="author" content="Roxana Akhmetova">
-
   <meta property="og:title" content="Roxana Akhmetova | AI Governance Researcher">
   <meta property="og:description" content="Oxford DPhil. Advises governments on AI adoption in high-stakes, politicised domains. Research cited by the UK Government's Fairness Framework.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://roxanaakhmetova.com/">
   <meta property="og:image" content="https://raw.githubusercontent.com/roxy31512/personal-website/main/images/Profile%20Image.jpg">
-
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Roxana Akhmetova | AI Governance Researcher">
-  <meta name="twitter:description" content="Oxford DPhil. Advises governments on AI adoption in high-stakes, politicised domains.">
-
   <link rel="canonical" href="https://roxanaakhmetova.com/" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Roxana Akhmetova",
-    "url": "https://roxanaakhmetova.com",
+    "@context": "https://schema.org", "@type": "Person",
+    "name": "Roxana Akhmetova", "url": "https://roxanaakhmetova.com",
     "image": "https://raw.githubusercontent.com/roxy31512/personal-website/main/images/Profile%20Image.jpg",
     "jobTitle": "AI Governance Researcher",
-    "alumniOf": [
-      { "@type": "Organization", "name": "University of Oxford" }
-    ],
+    "alumniOf": [{ "@type": "Organization", "name": "University of Oxford" }],
     "description": "AI governance researcher with a DPhil from the University of Oxford. Advises governments on AI adoption in high-stakes, politicised domains including immigration and border control.",
-    "knowsAbout": [
-      "AI Policy", "AI Governance", "Semiconductor Export Controls", "Frontier AI",
-      "Compute Governance", "US-China AI Relations", "Technology Regulation",
-      "AI Safety", "BIS Export Controls", "CHIPS Act", "Immigration Policy"
-    ],
+    "knowsAbout": ["AI Policy", "AI Governance", "Compute Governance", "Technology Regulation", "AI Safety", "Immigration Policy"],
     "award": "Pierre Elliott Trudeau Foundation Scholar",
-    "sameAs": [
-      "https://www.linkedin.com/in/akhmetovaroxana",
-      "https://scholar.google.com/citations?user=uxvwJb4AAAAJ&hl=en"
-    ]
+    "sameAs": ["https://www.linkedin.com/in/akhmetovaroxana", "https://scholar.google.com/citations?user=uxvwJb4AAAAJ&hl=en"]
   }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
-
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
+
   <style>
-    html, body {
-      background: #000000 !important;
-      color: #f5f3ef !important;
-      font-family: 'Libre Franklin', sans-serif;
-    }
+    html, body { background:#000 !important; color:#f5f3ef; font-family:'Libre Franklin',sans-serif; min-height:100%; }
+    main.shelf-page { max-width:1152px; margin:100px auto 80px; padding:0 24px; }
 
-    main {
-      background: #000000 !important;
-    }
+    .layout { display:block; }
+    .shelf-section { margin-top:4.5rem; }
+    @media (max-width:900px){ .layout{ grid-template-columns:1fr; gap:3rem; } }
 
-    .rx-hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 3.5rem;
-      align-items: start;
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-      background: #000000;
-    }
+    /* ---- Left: intro + photo ---- */
+    .intro { display:flex; gap:3rem; align-items:flex-start; }
+    .intro-text { flex:1 1 auto; min-width:0; }
+    .photo { flex:0 0 190px; }
+    .photo img { width:100%; aspect-ratio:4 / 5; object-fit:cover; object-position:65% 18%; display:block; border-radius:0; }
+    @media (max-width:560px){ .intro{ flex-direction:column-reverse; } .photo{ flex-basis:auto; width:140px; } }
 
-    @media (max-width: 860px) {
-      .rx-hero-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-    }
+    .name { font-family:'Fraunces',serif !important; font-size:clamp(2.75rem,6vw,4.5rem); line-height:1.05; font-weight:500; color:#f5f3ef !important; margin-bottom:2rem; display:inline-block; padding-bottom:.6rem; border-bottom:3px solid #e6eefb; }
+    .intro p { color:#f5f3ef; font-size:1.15rem; line-height:1.7; margin-bottom:1.1rem; max-width:34em; }
+    .links { display:flex; gap:1.75rem; flex-wrap:wrap; margin-top:2rem; }
+    .links a { color:#f5f3ef; text-decoration:none; font-weight:500; border-bottom:1px solid rgba(245,243,239,.4); padding-bottom:2px; }
+    .links a:hover { border-bottom-color:#9fc0ff; }
 
-    .rx-hero-name {
-      font-family: 'Fraunces', serif !important;
-      font-size: clamp(2.75rem, 6vw, 4.5rem);
-      line-height: 1.05;
-      font-weight: 500;
-      color: #f5f3ef !important;
-      margin-bottom: 2rem;
+    /* ---- Right: the shelf ---- */
+    .shelf-title { font-family:'Fraunces',serif !important; font-size:2rem; font-weight:500; color:#f5f3ef !important; margin-bottom:1.5rem; }
+    .shelf {
+      display:flex; align-items:flex-end; gap:3px; padding:44px 14px 0;
+      border-bottom:12px solid #2a2118;
+      background:linear-gradient(to bottom, transparent 70%, rgba(255,255,255,.04));
+      box-shadow:0 14px 18px -12px rgba(255,255,255,.07);
     }
+    .book {
+      --w:56px; --h:290px; --c:#1d2f4f; --ink:#f0e9d6; --gilt:#c8b27a; --r:0deg; --lift:0px;
+      position:relative; flex:0 1 var(--w); min-width:16px; width:var(--w); height:var(--h);
+      display:flex; flex-direction:column; align-items:center; justify-content:space-between;
+      padding:26px 0 24px; border:0; cursor:pointer; color:var(--ink);
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.45) 0%, rgba(255,255,255,.10) 16%, rgba(255,255,255,0) 45%, rgba(0,0,0,.30) 100%),
+        var(--c);
+      border-radius:3px 3px 1px 1px / 6px 6px 1px 1px;
+      transform-origin:bottom left; transform:rotate(var(--r)) translateY(var(--lift));
+      transition:transform .2s ease;
+      font-family:'Fraunces',serif;
+    }
+    /* gilt bands at head and tail of the spine */
+    .book::before, .book::after {
+      content:""; position:absolute; left:0; right:0; height:5px;
+      border-top:1px solid var(--gilt); border-bottom:1px solid var(--gilt); opacity:.75;
+    }
+    .book::before { top:10px; }
+    .book::after  { bottom:10px; }
+    .book:hover, .book:focus-visible { --lift:-14px; outline:none; }
+    .book[aria-pressed="true"] { --lift:-22px; box-shadow:0 0 0 2px #f5f3ef; }
+    .book .t {
+      writing-mode:vertical-rl; font-size:.88rem; line-height:1.2; letter-spacing:.01em;
+      max-height:100%; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; padding:0 4px;
+    }
+    .book .y { font-family:'Libre Franklin',sans-serif; font-size:.68rem; letter-spacing:.06em; color:var(--gilt); }
 
-    .rx-hero-sub p {
-      color: #f5f3ef !important;
-      font-size: 1.15rem;
-      line-height: 1.7;
-    }
+    /* book types: blog = slim grey, policy = red, chapter = green, thesis = navy */
+    .thesis  { --w:84px; --h:310px; --c:#1d2f4f; }
+    .thesis .t { font-size:1.05rem; font-weight:500; }
+    .policy  { --w:40px; --h:268px; --c:#8b2332; }
+    .chapter { --w:46px; --h:250px; --c:#2c4a3b; z-index:2; }
+    .post    { --w:24px; --h:226px; --c:#4a4f57; --gilt:#9aa0a8; padding:20px 0 18px; }
+    .post::before { top:7px; } .post::after { bottom:7px; }
+    .post .t { font-size:.76rem; padding:0; }
+    .post .y { writing-mode:vertical-rl; font-size:.6rem; letter-spacing:.04em; }
+    .post.tall { --h:246px; } .post.short { --h:204px; }
 
-    .rx-hero-sub p + p {
-      margin-top: 1.1rem;
-    }
+    /* ---- Opened book ---- */
+    .opened { max-width:640px; margin-top:2rem; min-height:150px; border-left:3px solid rgba(245,243,239,.35); padding:.25rem 0 .25rem 1.25rem; }
+    .opened .kind { font-size:.8rem; color:#9fc0ff; font-weight:600; margin-bottom:.4rem; }
+    .opened h2 { font-family:'Fraunces',serif !important; font-size:1.35rem; font-weight:500; color:#f5f3ef !important; margin-bottom:.6rem; line-height:1.3; }
+    .opened p { color:#b8c4d3; line-height:1.65; font-size:.98rem; margin-bottom:.9rem; }
+    .opened a { color:#f5f3ef; font-weight:500; text-decoration:none; border-bottom:1px solid rgba(245,243,239,.4); }
+    .opened a:hover { border-bottom-color:#9fc0ff; }
+    .opened:empty { display:none; }
 
-    .rx-photo-frame {
-      max-width: 340px;
-      margin-left: auto;
-    }
-
-    .rx-photo-frame img {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      object-position: 65% 18%;
-      display: block;
-      border-radius: 0 !important;
-    }
-
-    @media (max-width: 860px) {
-      .rx-photo-frame {
-        max-width: 260px;
-        margin-left: 0;
-      }
-    }
-
-    .rx-section {
-      padding: 3.5rem 0;
-      border-top: 2px solid rgba(245, 243, 239, 0.18);
-      background: #000000;
-    }
-
-    .rx-section-heading {
-      font-family: 'Fraunces', serif !important;
-      color: #f5f3ef !important;
-      font-size: 1.5rem;
-      font-weight: 500;
-      margin-bottom: 1.75rem;
-    }
-
-    .rx-card-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .rx-card-grid.rx-two-col {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: 860px) {
-      .rx-card-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .rx-card {
-      border: 1px solid rgba(245, 243, 239, 0.14);
-      padding: 1.5rem;
-      text-decoration: none;
-      display: block;
-      transition: border-color 0.15s;
-      background: #000000;
-    }
-
-    .rx-card:hover {
-      border-color: rgba(245, 243, 239, 0.4);
-    }
-
-    .rx-card-title {
-      font-family: 'Fraunces', serif !important;
-      color: #f5f3ef !important;
-      font-size: 1.15rem;
-      font-weight: 500;
-      margin-bottom: 0.6rem;
-    }
-
-    .rx-card-desc {
-      color: #9a958a !important;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .rx-card-link {
-      color: #f5f3ef !important;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.92rem;
-      border-bottom: 1px solid rgba(245, 243, 239, 0.4);
-    }
-
-    .rx-blog-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .rx-blog-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 1.5rem;
-      padding: 1.4rem 1.6rem;
-      border: 1px solid rgba(245, 243, 239, 0.14);
-      text-decoration: none;
-      transition: border-color 0.15s;
-      background: #000000;
-    }
-
-    .rx-blog-card:hover {
-      border-color: rgba(245, 243, 239, 0.4);
-    }
-
-    .rx-blog-title {
-      font-family: 'Fraunces', serif !important;
-      color: #f5f3ef !important;
-      font-size: 1.15rem;
-      font-weight: 400;
-      line-height: 1.4;
-    }
-
-    .rx-blog-date {
-      color: #79746a !important;
-      font-size: 0.85rem;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .rx-link-secondary {
-      color: #79746a !important;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.98rem;
-      transition: color 0.15s;
-    }
-
-    .rx-link-secondary:hover {
-      color: #f5f3ef !important;
-    }
+    @media (prefers-reduced-motion:reduce){ .book{ transition:none; } }
   </style>
-
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-
 </head>
 <body>
-
   <custom-navbar></custom-navbar>
 
-  <main class="container mx-auto px-6 py-12 max-w-6xl">
+  <main class="shelf-page">
+    <div class="layout">
 
-    <section class="rx-hero-grid">
-      <div>
-        <h1 class="rx-hero-name">Roxana<br>Akhmetova</h1>
-        <div class="rx-hero-sub">
-          <p>I completed my DPhil at the University of Oxford, researching how governments adopt AI in immigration, border control, and<br>other high-stakes, politically sensitive domains.</p>
-          <p>I advised the Canadian federal government on AI adoption in immigration decision-making, and my research was cited by the UK Government's Fairness Framework.</p>
+      <section class="intro">
+        <div class="intro-text">
+        <h1 class="name">Roxana<br>Akhmetova</h1>
+        <p>I completed my DPhil at the University of Oxford, researching how governments adopt AI in immigration, border control, and other high-stakes, politically sensitive domains.</p>
+        <p>I advised the Canadian federal government on AI adoption in immigration decision-making, and my research was cited by the UK Government's Fairness Framework.</p>
+        <div class="links">
+          <a href="publications.html">All publications</a>
+          <a href="/blog">Writing</a>
+          <a href="https://roxanaakhmetova.com/projects">Past projects</a>
         </div>
-      </div>
+        </div>
+        <div class="photo">
+          <img src="/images/Roxana_Akhmetova.jpg" alt="Roxana Akhmetova">
+        </div>
+      </section>
 
-      <div class="rx-photo-frame">
-        <img src="https://huggingface.co/spaces/roxy31512/oxford-ai-policy-luminary/resolve/main/images/Profile%20Image.jpg" alt="Roxana Akhmetova">
-      </div>
-    </section>
+      <section class="shelf-section" aria-labelledby="stack-label">
+        <h2 class="shelf-title" id="stack-label">Writing</h2>
+        <div class="shelf" id="stack" role="group" aria-label="Publications"></div>
+        <div class="opened" id="opened" aria-live="polite"></div>
+      </section>
 
-    <section class="rx-section">
-      <h2 class="rx-section-heading">Services</h2>
-      <div class="rx-card-grid">
-
-        <a href="consulting.html" class="rx-card">
-          <div class="rx-card-title">Policy consulting</div>
-          <div class="rx-card-desc">Advising governments and organizations on AI adoption in high-stakes, politically sensitive domains.</div>
-        </a>
-
-        <a href="essay-coaching.html" class="rx-card">
-          <div class="rx-card-title">Essay Coaching</div>
-          <div class="rx-card-desc">Writing coaching for policy research, reports, and public-facing analysis.</div>
-        </a>
-
-        <a href="mentorship.html" class="rx-card">
-          <div class="rx-card-title">Mentorship</div>
-          <div class="rx-card-desc">Free 15-minute calls on AI governance, policy fellowships, Oxford applications, and doctoral funding.</div>
-        </a>
-
-      </div>
-    </section>
-
-    <section class="rx-section">
-      <h2 class="rx-section-heading">Writing</h2>
-      <div class="rx-blog-grid">
-
-        <a href="/blog/anything-you-want.html" class="rx-blog-card">
-          <span class="rx-blog-title">Anything You Want, Sweetheart: Borders, Data, and the Business of Bordering</span>
-          <span class="rx-blog-date">Nov 2024</span>
-        </a>
-
-        <a href="/blog/west-bank-fieldnotes.html" class="rx-blog-card">
-          <span class="rx-blog-title">Concrete and Code: West Bank Field Notes</span>
-          <span class="rx-blog-date">Aug 2023</span>
-        </a>
-
-      </div>
-      <div style="margin-top: 1.75rem;">
-        <a href="/blog" class="rx-link-secondary">View all writing →</a>
-      </div>
-    </section>
-
-    <section class="rx-section">
-      <h2 class="rx-section-heading">More</h2>
-      <div class="rx-card-grid rx-two-col">
-
-        <a href="publications.html" class="rx-card">
-          <div class="rx-card-title">Research & publications</div>
-          <div class="rx-card-desc">Selected papers on governance and policy.</div>
-          <span class="rx-card-link">View publications →</span>
-        </a>
-
-        <a href="https://roxanaakhmetova.com/projects" class="rx-card">
-        <div class="rx-card-title">Past projects</div>
-        <div class="rx-card-desc">Oxford AI Governance Conference — convening for AI governance professionals in Oxford.</div>
-        <span class="rx-card-link">View past projects →</span>
-      </a>
-
-      </div>
-    </section>
-
+    </div>
   </main>
 
   <custom-footer></custom-footer>
-
   <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
-  <script>
-    if (window.feather) { try { feather.replace(); } catch(e) {} }
-  </script>
-  <script>
-  if (window.location.pathname === '/index.html') {
-    window.history.replaceState(null, '', '/');
-  }
-  </script>
 
+  <script>
+    /* EDIT HERE: one entry per book, newest first. type: thesis | paper | article | post */
+    const books = [
+      { type:'policy', cls:'', spine:'Governments and AI in Immigration', title:'On How Governments Use Artificial Intelligence in Immigration', year:'2020', kind:'Policy piece',
+        note:'Oxford COMPAS Working Paper Series.', href:'publications.html' },
+      { type:'chapter', cls:'', r:'6deg', spine:'Politics of Technology', title:'Politics of Technology: The Use of Artificial Intelligence by US and Canadian Immigration Agencies and their Impacts on Human Rights', year:'2021', kind:'Book chapter',
+        note:'With E. Harris. In Digital Identity, Virtual Borders and Social Media, edited by E. Korkmaz.', href:'publications.html' },
+      { type:'post', cls:'', spine:'Concrete and Code', title:'Concrete and Code: West Bank Field Notes', year:'2023', kind:'Field notes',
+        note:'How surveillance technologies shape movement, space and daily life at one of the most heavily monitored borders in the world.', href:'/blog/west-bank-fieldnotes.html' },
+      { type:'post', cls:'short', spine:'Beyond the Funding', title:'Beyond the Funding: The Pierre Elliott Trudeau Foundation Scholarship', year:'2024', kind:'Blog post',
+        note:'Highlights of my journey as a 2021 Trudeau Scholar, from application to completion.', href:'/blog/beyondthefunding.html' },
+      { type:'post', cls:'tall', spine:'Anything You Want, Sweetheart', title:'Anything You Want, Sweetheart: Borders, Data, and the Business of Bordering', year:'2024', kind:'Blog post',
+        note:'Six border security expos across the US, Europe and Turkey, and the industry\u2019s claim that technologies are neutral.', href:'/blog/anything-you-want.html' },
+      { type:'policy', cls:'', spine:'Challenging Mandated AI', title:'Challenging Mandated AI in the Public Sector', year:'2025', kind:'Policy piece',
+        note:'In The State of AI Ethics Report (Volume 7), Montreal AI Ethics Institute.', href:'publications.html' },
+      { type:'post', cls:'', spine:'Canada\u2019s Bet on Cohere', title:'Can a Middle Power Buy AI Sovereignty? Canada\u2019s $1.6B Bet on Cohere', year:'2026', kind:'Blog post',
+        note:'Can a middle power get AI sovereignty without matching hyperscale spending?', href:'/blog/data-sovereignty-ai.html' },
+      { type:'post', cls:'short', spine:'Who Gets the RAM?', title:'Who Gets the RAM? Altman, Data Centres, and the Case for Memory Oversight', year:'2026', kind:'Blog post',
+        note:'If memory concentrates in a handful of the biggest buyers, should it come with disclosure and oversight?', href:'/blog/altman-ram.html' },
+      { type:'thesis', cls:'', spine:'DPhil Thesis', title:'DPhil thesis', year:'2025', kind:'Doctoral thesis',
+        note:'How and why governments adopt AI in immigration and border control decision-making.', href:'publications.html' }
+    ];
+
+    const stack = document.getElementById('stack');
+    const opened = document.getElementById('opened');
+
+    function openBook(b, btn) {
+      stack.querySelectorAll('.book').forEach(el => el.setAttribute('aria-pressed', el === btn));
+      opened.textContent = '';
+      const kind = document.createElement('div'); kind.className = 'kind'; kind.textContent = b.kind + (b.year ? ' \u00b7 ' + b.year : '');
+      const h = document.createElement('h2'); h.textContent = b.title;
+      const p = document.createElement('p'); p.textContent = b.note;
+      const a = document.createElement('a'); a.href = b.href; a.textContent = 'Read it';
+      if (/^https?:/.test(b.href)) { a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+      opened.append(kind, h, p, a);
+    }
+
+    books.forEach(b => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'book ' + b.type + (b.cls ? ' ' + b.cls : '');
+      btn.style.setProperty('--r', b.r || '0deg');
+      if (b.type === 'chapter') btn.style.marginRight = '16px';
+      btn.setAttribute('aria-label', b.title + (b.year ? ', ' + b.year : ''));
+      btn.setAttribute('aria-pressed', 'false');
+      const t = document.createElement('span'); t.className = 't'; t.textContent = b.spine;
+      const y = document.createElement('span'); y.className = 'y'; y.textContent = b.year;
+      btn.append(t, y);
+      btn.addEventListener('click', () => openBook(b, btn));
+      stack.appendChild(btn);
+    });
+
+    if (window.location.pathname === '/index.html') window.history.replaceState(null, '', '/');
+  </script>
 </body>
 </html>

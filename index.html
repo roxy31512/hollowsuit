@@ -31,7 +31,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Libre+Franklin:wght@400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
 
@@ -46,9 +46,9 @@
     /* ---- Left: intro + photo ---- */
     .intro { display:flex; gap:3rem; align-items:flex-start; }
     .intro-text { flex:1 1 auto; min-width:0; }
-    .photo { flex:0 0 190px; }
+    .photo { flex:0 0 clamp(240px, 27vw, 340px); }
     .photo img { width:100%; aspect-ratio:4 / 5; object-fit:cover; object-position:65% 18%; display:block; border-radius:0; }
-    @media (max-width:560px){ .intro{ flex-direction:column-reverse; } .photo{ flex-basis:auto; width:140px; } }
+    @media (max-width:560px){ .intro{ flex-direction:column-reverse; } .photo{ flex-basis:auto; width:220px; } }
 
     .name { font-family:'Fraunces',serif !important; font-size:clamp(2.75rem,6vw,4.5rem); line-height:1.05; font-weight:500; color:#f5f3ef !important; margin-bottom:2rem; display:inline-block; padding-bottom:.6rem; border-bottom:3px solid #e6eefb; }
     .intro p { color:#f5f3ef; font-size:1.15rem; line-height:1.7; margin-bottom:1.1rem; max-width:34em; }
@@ -97,11 +97,49 @@
     .thesis .t { font-size:1.05rem; font-weight:500; }
     .policy  { --w:40px; --h:268px; --c:#8b2332; }
     .chapter { --w:46px; --h:250px; --c:#2c4a3b; z-index:2; }
-    .post    { --w:24px; --h:226px; --c:#4a4f57; --gilt:#9aa0a8; padding:20px 0 18px; }
-    .post::before { top:7px; } .post::after { bottom:7px; }
-    .post .t { font-size:.76rem; padding:0; }
-    .post .y { writing-mode:vertical-rl; font-size:.6rem; letter-spacing:.04em; }
-    .post.tall { --h:246px; } .post.short { --h:204px; }
+
+    /* Blog posts: stapled school notebooks (tetradka) seen from the spine.
+       Flat matte card, page edges peeking out the top, two staples, handwritten paper label. */
+    .tetrad {
+      --w:26px; --h:236px; --cover:#5d636c; --lift:0px;
+      position:relative; flex:0 1 var(--w); min-width:18px; width:var(--w); height:var(--h);
+      display:flex; flex-direction:column; justify-content:center; align-items:center;
+      padding:0; border:0; border-top:3px solid #e9e6dc; border-radius:0; cursor:pointer;
+      background:var(--cover); box-shadow:inset 0 0 0 1px rgba(0,0,0,.2);
+      transform:translateY(var(--lift)); transition:transform .2s ease;
+    }
+    .tetrad::before, .tetrad::after {
+      content:""; position:absolute; left:50%; margin-left:-7px; width:14px; height:2px;
+      background:#d3d6da; box-shadow:0 1px 0 rgba(0,0,0,.55);
+    }
+    .tetrad::before { top:9px; }
+    .tetrad::after  { bottom:9px; }
+    .tetrad:hover, .tetrad:focus-visible { --lift:-14px; outline:none; }
+    .tetrad[aria-pressed="true"] { --lift:-20px; box-shadow:0 0 0 2px #f5f3ef; }
+    .tetrad .label {
+      display:flex; flex-direction:column; justify-content:space-between; align-items:center;
+      width:calc(100% - 8px); height:calc(100% - 38px); padding:5px 0;
+      background:#f4f1e8; border:1px solid rgba(0,0,0,.25);
+    }
+    .tetrad .t { writing-mode:vertical-rl; font-family:'Caveat',cursive; font-weight:600; font-size:.92rem; line-height:1; color:#1c1f24; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .tetrad .y { writing-mode:vertical-rl; font-family:'Libre Franklin',sans-serif; font-size:.56rem; letter-spacing:.04em; color:#4a4f57; }
+    .tetrad.tall { --h:250px; } .tetrad.short { --h:212px; }
+
+    /* Reports / working papers: slim, flat, perfect-bound. Cream header block, sans-serif title. */
+    .report {
+      --w:32px; --h:254px; --c:#8b2332; --lift:0px;
+      position:relative; flex:0 1 var(--w); min-width:20px; width:var(--w); height:var(--h);
+      display:flex; flex-direction:column; align-items:center; justify-content:space-between;
+      padding:0 0 12px; border:0; border-radius:0; cursor:pointer; color:#fff;
+      background:var(--c); box-shadow:inset -2px 0 0 rgba(0,0,0,.2);
+      transform:translateY(var(--lift)); transition:transform .2s ease;
+    }
+    .report .head { width:100%; height:30px; flex:0 0 auto; background:#f4f1e8; border-bottom:3px solid rgba(255,255,255,.35); display:flex; align-items:center; justify-content:center; }
+    .report .head::before { content:""; width:9px; height:9px; background:#8b2332; }
+    .report .t { writing-mode:vertical-rl; font-family:'Libre Franklin',sans-serif; font-weight:600; font-size:.7rem; letter-spacing:.03em; line-height:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-top:10px; }
+    .report .y { writing-mode:vertical-rl; font-family:'Libre Franklin',sans-serif; font-size:.58rem; letter-spacing:.05em; opacity:.8; }
+    .report:hover, .report:focus-visible { --lift:-14px; outline:none; }
+    .report[aria-pressed="true"] { --lift:-20px; box-shadow:0 0 0 2px #f5f3ef; }
 
     /* ---- Opened book ---- */
     .opened { max-width:640px; margin-top:2rem; min-height:150px; border-left:3px solid rgba(245,243,239,.35); padding:.25rem 0 .25rem 1.25rem; }
@@ -153,7 +191,7 @@
   <script>
     /* EDIT HERE: one entry per book, newest first. type: thesis | paper | article | post */
     const books = [
-      { type:'policy', cls:'', spine:'Governments and AI in Immigration', title:'On How Governments Use Artificial Intelligence in Immigration', year:'2020', kind:'Policy piece',
+      { type:'report', cls:'', spine:'Governments and AI in Immigration', title:'On How Governments Use Artificial Intelligence in Immigration', year:'2020', kind:'Policy piece',
         note:'Oxford COMPAS Working Paper Series.', href:'publications.html' },
       { type:'chapter', cls:'', r:'6deg', spine:'Politics of Technology', title:'Politics of Technology: The Use of Artificial Intelligence by US and Canadian Immigration Agencies and their Impacts on Human Rights', year:'2021', kind:'Book chapter',
         note:'With E. Harris. In Digital Identity, Virtual Borders and Social Media, edited by E. Korkmaz.', href:'publications.html' },
@@ -161,7 +199,7 @@
         note:'How surveillance technologies shape movement, space and daily life at one of the most heavily monitored borders in the world.', href:'/blog/west-bank-fieldnotes.html' },
       { type:'post', cls:'short', spine:'Beyond the Funding', title:'Beyond the Funding: The Pierre Elliott Trudeau Foundation Scholarship', year:'2024', kind:'Blog post',
         note:'Highlights of my journey as a 2021 Trudeau Scholar, from application to completion.', href:'/blog/beyondthefunding.html' },
-      { type:'post', cls:'tall', spine:'Anything You Want, Sweetheart', title:'Anything You Want, Sweetheart: Borders, Data, and the Business of Bordering', year:'2024', kind:'Blog post',
+      { type:'post', cls:'tall', spine:'Anything You Want', title:'Anything You Want, Sweetheart: Borders, Data, and the Business of Bordering', year:'2024', kind:'Blog post',
         note:'Six border security expos across the US, Europe and Turkey, and the industry\u2019s claim that technologies are neutral.', href:'/blog/anything-you-want.html' },
       { type:'policy', cls:'', spine:'Challenging Mandated AI', title:'Challenging Mandated AI in the Public Sector', year:'2025', kind:'Policy piece',
         note:'In The State of AI Ethics Report (Volume 7), Montreal AI Ethics Institute.', href:'publications.html' },
@@ -177,7 +215,7 @@
     const opened = document.getElementById('opened');
 
     function openBook(b, btn) {
-      stack.querySelectorAll('.book').forEach(el => el.setAttribute('aria-pressed', el === btn));
+      stack.querySelectorAll('.book, .tetrad, .report').forEach(el => el.setAttribute('aria-pressed', el === btn));
       opened.textContent = '';
       const kind = document.createElement('div'); kind.className = 'kind'; kind.textContent = b.kind + (b.year ? ' \u00b7 ' + b.year : '');
       const h = document.createElement('h2'); h.textContent = b.title;
@@ -190,14 +228,29 @@
     books.forEach(b => {
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'book ' + b.type + (b.cls ? ' ' + b.cls : '');
-      btn.style.setProperty('--r', b.r || '0deg');
-      if (b.type === 'chapter') btn.style.marginRight = '16px';
-      btn.setAttribute('aria-label', b.title + (b.year ? ', ' + b.year : ''));
       btn.setAttribute('aria-pressed', 'false');
-      const t = document.createElement('span'); t.className = 't'; t.textContent = b.spine;
-      const y = document.createElement('span'); y.className = 'y'; y.textContent = b.year;
-      btn.append(t, y);
+      btn.setAttribute('aria-label', b.title + (b.year ? ', ' + b.year : ''));
+      if (b.type === 'post') {
+        btn.className = 'tetrad' + (b.cls ? ' ' + b.cls : '');
+        const label = document.createElement('span'); label.className = 'label';
+        const t = document.createElement('span'); t.className = 't'; t.textContent = b.spine;
+        const y = document.createElement('span'); y.className = 'y'; y.textContent = b.year;
+        label.append(t, y);
+        btn.append(label);
+      } else if (b.type === 'report') {
+        btn.className = 'report' + (b.cls ? ' ' + b.cls : '');
+        const head = document.createElement('span'); head.className = 'head';
+        const t = document.createElement('span'); t.className = 't'; t.textContent = b.spine;
+        const y = document.createElement('span'); y.className = 'y'; y.textContent = b.year;
+        btn.append(head, t, y);
+      } else {
+        btn.className = 'book '  + b.type + (b.cls ? ' ' + b.cls : '');
+        btn.style.setProperty('--r', b.r || '0deg');
+        if (b.type === 'chapter') btn.style.marginRight = '16px';
+        const t = document.createElement('span'); t.className = 't'; t.textContent = b.spine;
+        const y = document.createElement('span'); y.className = 'y'; y.textContent = b.year;
+        btn.append(t, y);
+      }
       btn.addEventListener('click', () => openBook(b, btn));
       stack.appendChild(btn);
     });

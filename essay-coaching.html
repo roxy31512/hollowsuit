@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Essay &amp; Thesis Coaching | Roxana Akhmetova</title>
-<meta name="description" content="Essay and thesis coaching for undergraduate and master's students. Learn how to build a stronger argument and structure. Live sessions or written feedback." />
+<title>Fellowship &amp; Essay Coaching | Roxana Akhmetova</title>
+<meta name="description" content="Coaching for fellowship applications and academic essays. Build a stronger argument, narrative and structure. Live calls or written feedback." />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <!-- Only keep this if navbar.js / footer.js use Tailwind classes. Test the page without it. -->
 <script src="https://cdn.tailwindcss.com"></script>
@@ -21,11 +21,12 @@
     --hero-mark:#c9633f;
     --hair:rgba(255,255,255,0.18);
   }
+  html{ scroll-behavior:smooth; }
   body{ background:var(--bg); color:var(--ink); font-family:'Libre Franklin',ui-sans-serif,system-ui,sans-serif; margin:0; }
   h1,h2,h3{ font-family:'Fraunces', 'Playfair Display', serif; font-weight:500; letter-spacing:-0.01em; }
   .annot{ font-family:'Caveat', cursive; }
 
-  /* ---------- Hero (unchanged) ---------- */
+  /* ---------- Hero ---------- */
   .hero{
     position:relative; overflow:hidden; padding:110px 0 90px;
     background: radial-gradient(ellipse 900px 500px at 78% -10%, rgba(245,243,239,0.06), transparent 60%);
@@ -48,7 +49,6 @@
   .credentials-line{ color:var(--muted); font-size:0.9rem; margin-top:22px; }
   .credentials-line .sep{ color:#3c4250; margin:0 10px; }
 
-  /* Zero-width inline anchor right after "rough"; arrow and note position off this point. */
   .arrow-mark{ position:relative; display:inline-block; width:0; height:0; }
   .arrow-mark svg{ position:absolute; left:-6px; bottom:0.85em; overflow:visible; }
   .margin-note{
@@ -62,6 +62,21 @@
     -webkit-mask-image: linear-gradient(to left, black, transparent 85%);
     mask-image: linear-gradient(to left, black, transparent 85%);
   }
+
+  /* ---------- Jump nav ---------- */
+  .jump{ max-width:1152px; margin:0 auto; padding:0 24px 56px; }
+  .jump-label{ color:var(--muted); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.14em; font-weight:600; margin-bottom:14px; }
+  .jump-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--hair); border:2px solid var(--hair); }
+  @media (max-width:800px){ .jump-grid{ grid-template-columns:1fr; } }
+  .jump-card{
+    background:var(--bg); padding:28px 34px; text-decoration:none; color:inherit; display:block;
+    transition:background 0.15s ease;
+  }
+  .jump-card:hover, .jump-card:focus-visible{ background:#111; }
+  .jump-card .num{ color:var(--hero-mark); font-family:'Fraunces',serif; font-size:0.95rem; font-weight:600; }
+  .jump-card h3{ color:#fff; font-size:1.4rem; margin:6px 0 8px; }
+  .jump-card p{ color:var(--sub); font-size:0.95rem; line-height:1.6; margin:0 0 12px; }
+  .jump-card .go{ color:var(--oxford-accent); font-size:0.9rem; font-weight:500; }
 
   /* ---------- Contact bar + button ---------- */
   .contact-bar{
@@ -77,17 +92,36 @@
   .btn-square:hover{ background:#1a1a1a; color:#ffffff; }
 
   /* ---------- Sections ---------- */
-  .section{ max-width:1152px; margin:0 auto; padding:56px 24px; }
+  .section{ max-width:1152px; margin:0 auto; padding:56px 24px; scroll-margin-top:24px; }
   .section + .section, .contact-bar + .section{ border-top:2px solid var(--hair); }
-  .section h2{ font-size:1.9rem; color:#fff; font-weight:500; margin-bottom:28px; }
+  .section h2{ font-size:1.9rem; color:#fff; font-weight:500; margin-bottom:12px; }
+  .section .intro{ color:var(--sub); font-size:1.05rem; line-height:1.7; max-width:80ch; margin:0 0 28px; }
+  .back-top{ display:inline-block; margin-top:26px; color:var(--muted); font-size:0.85rem; text-decoration:none; }
+  .back-top:hover{ color:#fff; }
 
-  .track-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--hair); border:2px solid var(--hair); }
+  /* Option cards */
+  .track-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--hair); border:2px solid var(--hair); margin-bottom:32px; }
   @media (max-width:800px){ .track-grid{ grid-template-columns:1fr; } }
-  .track-card{ background:var(--bg); padding:36px 38px; text-align:left; }
-  .track-card h3{ font-size:1.5rem; color:#fff; font-weight:500; margin-bottom:12px; }
-  .track-card p{ color:var(--sub); font-size:0.98rem; line-height:1.65; margin:0 0 12px; max-width:44ch; }
+  .track-card{ background:var(--bg); padding:32px 34px; text-align:left; }
+  .track-card h3{ font-size:1.35rem; color:#fff; font-weight:500; margin:0 0 4px; }
+  .track-card .tag{ color:var(--hero-mark); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; margin-bottom:12px; display:block; }
+  .track-card p{ color:var(--sub); font-size:0.97rem; line-height:1.65; margin:0 0 12px; }
   .track-card p:last-child{ margin-bottom:0; }
+  .track-card ul{ margin:0 0 12px; padding-left:1.1rem; color:var(--sub); font-size:0.97rem; line-height:1.65; }
+  .track-card li{ margin-bottom:8px; }
+  .track-card strong{ color:#fff; font-weight:500; }
 
+  /* Pricing tables */
+  .table-wrap{ overflow-x:auto; border:2px solid var(--hair); }
+  table.price{ width:100%; border-collapse:collapse; min-width:560px; }
+  table.price th, table.price td{ text-align:left; padding:14px 18px; border-bottom:1px solid var(--hair); font-size:0.95rem; vertical-align:top; }
+  table.price th{ color:var(--muted); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; }
+  table.price td{ color:var(--sub); line-height:1.5; }
+  table.price td:first-child{ color:#fff; font-weight:500; }
+  table.price tr:last-child td{ border-bottom:none; }
+  table.price .amt{ color:#fff; white-space:nowrap; }
+
+  /* Info rows */
   .info-row{ padding:18px 0; border-bottom:2px solid var(--hair); }
   .info-row:last-child{ border-bottom:none; }
   .info-label{ color:#fff; font-size:0.95rem; font-weight:500; margin-bottom:6px; }
@@ -138,7 +172,7 @@
     </div>
 
     <div class="hero-inner">
-      <div class="eyebrow">Essay &amp; thesis coaching</div>
+      <div class="eyebrow">Fellowship, admissions &amp; essay coaching</div>
       <h1>Turn a <span class="struck-anchor"><span class="struck">rough<span class="arrow-mark" aria-hidden="true">
             <svg width="90" height="40" viewBox="0 0 90 40" style="overflow:visible;">
               <path d="M 6 36 C 14 14, 40 4, 86 4" stroke="#c9633f" stroke-width="1.5" fill="none" opacity="0.85" marker-end="url(#ah)"/>
@@ -147,50 +181,141 @@
             <span class="margin-note annot">clear thesis!</span>
           </span> idea</span></span> into an unshakeable argument.</h1>
       <p class="lede">
-        I am a former University of Manitoba Writing Tutor, University of Winnipeg teaching assistant, University of Oxford PhD graduate, and a Trudeau Scholar. I coach undergraduate and master's students on essay and thesis writing, helping you build the argument yourself.
+        I have a DPhil and a master's degree from the University of Oxford, and a master's degree from the University of Manitoba. I am a former University of Manitoba Writing Tutor and University of Winnipeg teaching assistant, where I helped students develop the arguments in their essays. I now coach students and applicants, helping you build the argument yourself.
       </p>
       <p class="credentials-line">
-        MSc and DPhil from University of Oxford<span class="sep">·</span>Cited in UK Government's 2024 Ethics Framework<span class="sep">·</span>Advised Canadian Government officials
+        MSc and DPhil from University of Oxford<span class="sep">·</span>Trudeau Scholar<span class="sep">·</span>Cited in UK Government's 2024 Ethics Framework<span class="sep">·</span>Advised Canadian Government officials
       </p>
     </div>
   </section>
+
+  <!-- Jump nav -->
+  <nav class="jump" aria-label="Choose a service">
+    <div class="jump-label">What are you working on?</div>
+    <div class="jump-grid">
+      <a class="jump-card" href="#fellowships">
+        <span class="num">1</span>
+        <h3>Fellowships &amp; Admissions</h3>
+        <p>Selling your personal and research potential in fellowship, scholarship and admissions applications.</p>
+        <span class="go">See options &amp; pricing &darr;</span>
+      </a>
+      <a class="jump-card" href="#essays">
+        <span class="num">2</span>
+        <h3>Academic Writing &amp; Course Essays</h3>
+        <p>Thesis strength, evidence integration, structural flow and scholarly tone.</p>
+        <span class="go">See options &amp; pricing &darr;</span>
+      </a>
+    </div>
+  </nav>
 
   <div class="contact-bar">
     <a href="/contact.html" class="btn-square">Contact Me</a>
-    <p>Available for one-off sessions or ongoing work. Get in touch for rates and availability.</p>
+    <p>Available for one-off sessions or ongoing work. Get in touch with questions or availability.</p>
   </div>
 
-  <section class="section">
-    <h2>How would you like to work together?</h2>
+  <!-- ===== 1. Fellowships ===== -->
+  <section class="section" id="fellowships">
+    <h2>Fellowships &amp; Admissions</h2>
+    <p class="intro">Fellowship applications are about selling your personal and research potential. Please review the <a href="#important" style="color:var(--oxford-accent);text-decoration:underline;">Important information</a> section below before booking.</p>
+
     <div class="track-grid">
       <div class="track-card">
-        <h3>Live sessions</h3>
-        <p>A video call where we talk through your essay or thesis chapter together, in real time. One-on-one or in a small group.</p>
-        <p>I don't read your draft beforehand. I ask questions and point out issues, and you decide on and make every change.</p>
+        <h3>Option A: Brainstorm &amp; Strategy</h3>
+        <span class="tag">30-minute call</span>
+        <ul>
+          <li>Bring your ideas, bullet points or rough draft. We use the 30 minutes to ask targeted questions, find the core narrative hook, and evaluate your eligibility and fit for the fellowship or scholarship.</li>
+          <li>I have personal experience with the Trudeau and SSHRC fellowships.</li>
+        </ul>
+        <p>Best for early-stage applicants who are unsure where to start, or anyone who wants quick feedback on their eligibility and positioning.</p>
       </div>
       <div class="track-card">
-        <h3>Written feedback</h3>
-        <p>Send your draft and assignment by email. I return it with comments and a written summary on argument, structure and clarity.</p>
-        <p>Comments are questions and pointers, not rewrites. Turnaround depends on length.</p>
+        <h3>Option B: Deep-Dive Proposal Review</h3>
+        <span class="tag">Async review + live call</span>
+        <ul>
+          <li><strong>Step 1:</strong> You send me a draft, which I annotate for structural and narrative gaps.</li>
+          <li><strong>Step 2:</strong> You schedule a 45-minute live call to go through my suggestions and ask questions.</li>
+        </ul>
+        <p>Drafts are limited to 2,000 words of body text.</p>
       </div>
     </div>
+
+    <div class="table-wrap">
+      <table class="price">
+        <thead><tr><th>Service</th><th>Scope</th><th>USD</th><th>CAD</th></tr></thead>
+        <tbody>
+          <tr><td>Option A: Brainstorm &amp; Strategy</td><td>30-min live call (no pre- or post-reading)</td><td class="amt">$125</td><td class="amt">$170</td></tr>
+          <tr><td>Option B: Deep-Dive Proposal Review</td><td>1 async review + 45-min live call (up to 2,000 words)</td><td class="amt">$295</td><td class="amt">$400</td></tr>
+          <tr><td>Optional add-on (Option B)</td><td>Follow-up async review (post-call revision review)</td><td class="amt">+$100</td><td class="amt">+$135</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <a class="back-top" href="#top-nav" onclick="window.scrollTo({top:0});return false;">&uarr; Back to top</a>
   </section>
 
-  <section class="section">
-    <h2>What I help with</h2>
+  <!-- ===== 2. Essays ===== -->
+  <section class="section" id="essays">
+    <h2>Academic Writing &amp; Course Essays</h2>
+    <p class="intro">Academic course essays are about thesis strength, evidence integration, structural flow and scholarly tone. Best suited to political science, international relations, and related social science and humanities subjects.</p>
+
+    <div class="track-grid">
+      <div class="track-card">
+        <h3>Option A: Strategy &amp; Outline Session</h3>
+        <span class="tag">30-minute call</span>
+        <ul>
+          <li><strong>Best for:</strong> early stages: brainstorming, refining a thesis statement, structuring an outline, or getting unblocked.</li>
+          <li><strong>Scope:</strong> no pre- or post-reading. Bring your essay prompt, rough notes or bullet points to the call.</li>
+        </ul>
+        <p><strong>$125 USD</strong> (~$170 CAD)</p>
+      </div>
+      <div class="track-card">
+        <h3>Option B: Essay Deep-Dive</h3>
+        <span class="tag">Async + call + async</span>
+        <ul>
+          <li><strong>Best for:</strong> complete drafts that need structural feedback and argumentative rigour.</li>
+          <li><strong>Scope:</strong> pre-read and annotation, then a 30&ndash;45 minute Zoom call, then a final follow-up review.</li>
+          <li><strong>Pricing:</strong> tiered by word count (below).</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="price">
+        <thead><tr><th>Draft length</th><th>Ideal for</th><th>Price</th><th>Total time</th></tr></thead>
+        <tbody>
+          <tr><td>Short essay (up to 2,000 words)</td><td>Standard undergrad/grad course papers</td><td class="amt">$225 USD (~$300 CAD)</td><td>~1.5&ndash;2 hrs</td></tr>
+          <tr><td>Medium essay (2,001&ndash;4,000 words)</td><td>Advanced seminar papers, MA essays</td><td class="amt">$350 USD (~$475 CAD)</td><td>~2.5&ndash;3 hrs</td></tr>
+          <tr><td>Long essay / chapter (4,001&ndash;7,000 words)</td><td>Thesis chapters, journal submissions</td><td class="amt">$500 USD (~$675 CAD)</td><td>~4&ndash;5 hrs</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <a class="back-top" href="#top-nav" onclick="window.scrollTo({top:0});return false;">&uarr; Back to top</a>
+  </section>
+
+  <!-- ===== Important information (shared) ===== -->
+  <section class="section" id="important">
+    <h2>Important information</h2>
+    <p class="intro">This applies to both fellowship and essay services.</p>
+
     <div class="info-row">
-      <div class="info-label">Undergraduate essays</div>
-      <div class="info-text">How to write a strong paper: thesis, structure, evidence and revising.</div>
+      <div class="info-label">The work stays yours</div>
+      <div class="info-text">I do not write, rewrite or ghostwrite. My role is to help you develop your ideas, structure and argument. I will not write sentences, edit grammar or spelling, or format bibliographies and citations.</div>
     </div>
     <div class="info-row">
-      <div class="info-label">Master's essays</div>
-      <div class="info-text">Argument, structure and logic.</div>
+      <div class="info-label">No guaranteed outcomes</div>
+      <div class="info-text">Application outcomes, admissions and grading decisions cannot be guaranteed. My coaching helps you present your strongest work, but all writing, original ideas and final submissions remain your sole responsibility.</div>
     </div>
     <div class="info-row">
-      <div class="info-label">Thesis chapters</div>
-      <div class="info-text">Feedback on argument, structure and logic for chapters and other long-form work. Check with your supervisor about outside feedback.</div>
+      <div class="info-label">Check the rules first</div>
+      <div class="info-text">Rules on outside help differ by course, instructor and program. It's your responsibility to confirm that coaching is allowed for your assignment, or to check with your supervisor, before booking.</div>
     </div>
-    <p class="info-text" style="margin-top:18px; color:var(--muted);">Best suited to political science, international relations, and related social science and humanities subjects.</p>
+    <div class="info-row">
+      <div class="info-label">Drafts and word limits (Option B)</div>
+      <div class="info-text">Drafts must be submitted at least 72 hours before the scheduled call. If it isn't sent in time, the call is rescheduled or converted to an Option A strategy session without an async review. Word limits apply to body text only. For fellowship reviews, the limit is 2,000 words and I stop reading at the limit. For essays, pricing follows the word-count tiers above.</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Payment &amp; cancellation</div>
+      <div class="info-text">Full payment is required at booking to confirm your session and secure your slot, and all payments are non-refundable once booked. Cancellations or rescheduling requests must be made at least 48 hours in advance; otherwise the session is forfeited without a refund.</div>
+    </div>
   </section>
 
   <section class="section">
@@ -199,7 +324,7 @@
       <div class="step-number">1</div><div class="step-line"></div>
       <div class="step-content">
         <h3>Get in touch</h3>
-        <p>Tell me what you're working on, your deadline, and whether you'd like a live session or written feedback.</p>
+        <p>Tell me what you're working on, your deadline, and which option you're interested in.</p>
       </div>
     </div>
     <div class="process-step">
@@ -213,20 +338,8 @@
       <div class="step-number">3</div>
       <div class="step-content">
         <h3>We work on your draft</h3>
-        <p>You get a live session or written comments, and you make the changes yourself.</p>
+        <p>You get a live session and/or written annotations, and you make the changes yourself.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Good to know</h2>
-    <div class="info-row">
-      <div class="info-label">The work stays yours</div>
-      <div class="info-text">I teach and give feedback. I don't write or rewrite sentences, supply thesis statements, arguments or sources, or make changes to your draft, and I can't guarantee specific grades.</div>
-    </div>
-    <div class="info-row">
-      <div class="info-label">Check the rules first</div>
-      <div class="info-text">Rules on outside help differ by course and instructor. It's your responsibility to confirm it's allowed for your assignment, or with your supervisor, before booking.</div>
     </div>
   </section>
 

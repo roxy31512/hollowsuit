@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Libre+Franklin:wght@400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
 <style>
   :root{
     --bg:#000000;
@@ -18,12 +19,13 @@
     --muted:#8a97a8;
     --oxford-accent:#d8d4cb;
     --mark-red:#8c877e;
-    --hero-mark:#c9633f;
+    --hero-mark:#9fc0ff;
     --hair:rgba(255,255,255,0.18);
   }
   html{ scroll-behavior:smooth; }
-  body{ background:var(--bg); color:var(--ink); font-family:'Libre Franklin',ui-sans-serif,system-ui,sans-serif; margin:0; }
-  h1,h2,h3{ font-family:'Fraunces', 'Playfair Display', serif; font-weight:500; letter-spacing:-0.01em; }
+  /* fonts now come from style.css (--font-body / --font-head) */
+  body{ background:var(--bg); color:var(--ink); margin:0; }
+  h1,h2,h3{ font-weight:500; letter-spacing:-0.01em; }
   .annot{ font-family:'Caveat', cursive; }
 
   /* ---------- Hero ---------- */
@@ -73,7 +75,7 @@
     transition:background 0.15s ease;
   }
   .jump-card:hover, .jump-card:focus-visible{ background:#111; }
-  .jump-card .num{ color:var(--hero-mark); font-family:'Fraunces',serif; font-size:0.95rem; font-weight:600; }
+  .jump-card .num{ color:var(--hero-mark); font-family:var(--font-head); font-size:0.95rem; font-weight:600; }
   .jump-card h3{ color:#fff; font-size:1.4rem; margin:6px 0 8px; }
   .jump-card p{ color:var(--sub); font-size:0.95rem; line-height:1.6; margin:0 0 12px; }
   .jump-card .go{ color:var(--oxford-accent); font-size:0.9rem; font-weight:500; }
@@ -131,7 +133,7 @@
   .step-number{
     width:40px; height:40px; border-radius:50%; background:rgba(245,243,239,0.08); border:1px solid rgba(245,243,239,0.35);
     color:var(--oxford-accent); display:flex; align-items:center; justify-content:center; font-weight:600; font-size:1rem; z-index:1;
-    font-family:'Fraunces', 'Playfair Display', serif;
+    font-family:var(--font-head);
   }
   .step-line{ position:absolute; left:19px; top:40px; bottom:-8px; width:1px; background:var(--hair); }
   .process-step:last-child .step-line{ display:none; }
@@ -175,8 +177,8 @@
       <div class="eyebrow">Fellowship, admissions &amp; essay coaching</div>
       <h1>Turn a <span class="struck-anchor"><span class="struck">rough<span class="arrow-mark" aria-hidden="true">
             <svg width="90" height="40" viewBox="0 0 90 40" style="overflow:visible;">
-              <path d="M 6 36 C 14 14, 40 4, 86 4" stroke="#c9633f" stroke-width="1.5" fill="none" opacity="0.85" marker-end="url(#ah)"/>
-              <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#c9633f" opacity="0.85"/></marker></defs>
+              <path d="M 6 36 C 14 14, 40 4, 86 4" stroke="#9fc0ff" stroke-width="1.5" fill="none" opacity="0.85" marker-end="url(#ah)"/>
+              <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#9fc0ff" opacity="0.85"/></marker></defs>
             </svg>
             <span class="margin-note annot">clear thesis!</span>
           </span> idea</span></span> into an unshakeable argument.</h1>

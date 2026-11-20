@@ -14,9 +14,9 @@
 <style>
   :root{
     --bg:#000000;
-    --ink:#f0f4ff;
-    --sub:#b8c4d3;
-    --muted:#8a97a8;
+    --ink:#ffffff;
+    --sub:#ffffff;
+    --muted:#ffffff;
     --oxford-accent:#d8d4cb;
     --mark-red:#8c877e;
     --hero-mark:#9fc0ff;
@@ -75,10 +75,11 @@
     transition:background 0.15s ease;
   }
   .jump-card:hover, .jump-card:focus-visible{ background:#111; }
-  .jump-card .num{ color:var(--hero-mark); font-family:var(--font-head); font-size:0.95rem; font-weight:600; }
-  .jump-card h3{ color:#fff; font-size:1.4rem; margin:6px 0 8px; }
+  .jump-card .num{ color:var(--hero-mark); font-family:var(--font-head); font-size:1.4rem; font-weight:600; }
+  .jump-head{ display:flex; align-items:baseline; gap:14px; margin:0 0 8px; }
+  .jump-card h3{ color:var(--hero-mark); font-size:1.4rem; margin:0; }
   .jump-card p{ color:var(--sub); font-size:0.95rem; line-height:1.6; margin:0 0 12px; }
-  .jump-card .go{ color:var(--oxford-accent); font-size:0.9rem; font-weight:500; }
+  .jump-card .go{ color:#fff; font-size:0.9rem; font-weight:500; }
 
   /* ---------- Contact bar + button ---------- */
   .contact-bar{
@@ -96,8 +97,9 @@
   /* ---------- Sections ---------- */
   .section{ max-width:1152px; margin:0 auto; padding:56px 24px; scroll-margin-top:24px; }
   .section + .section, .contact-bar + .section{ border-top:2px solid var(--hair); }
-  .section h2{ font-size:1.9rem; color:#fff; font-weight:500; margin-bottom:12px; }
-  .section .intro{ color:var(--sub); font-size:1.05rem; line-height:1.7; max-width:80ch; margin:0 0 28px; }
+  .section h2{ font-size:1.9rem; color:var(--hero-mark); font-weight:500; margin-bottom:12px; }
+  #how h2{ color:#fff; }
+  .section .intro{ color:var(--sub); font-size:1.05rem; line-height:1.7; max-width:none; margin:0 0 28px; }
   .back-top{ display:inline-block; margin-top:26px; color:var(--muted); font-size:0.85rem; text-decoration:none; }
   .back-top:hover{ color:#fff; }
 
@@ -112,6 +114,18 @@
   .track-card ul{ margin:0 0 12px; padding-left:1.1rem; color:var(--sub); font-size:0.97rem; line-height:1.65; }
   .track-card li{ margin-bottom:8px; }
   .track-card strong{ color:#fff; font-weight:500; }
+  .track-card{ display:flex; flex-direction:column; }
+  .track-card .price-block{ margin:8px 0 24px; }
+  .track-card .price-line{ color:#fff; font-size:1.15rem; font-weight:500; }
+  .track-card .price-sub{ color:#fff; font-size:0.9rem; margin-top:4px; }
+  .track-card .tiers{ list-style:none; padding:0; margin:0; }
+  .track-card .tiers li{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; padding:9px 0; margin:0; border-bottom:1px solid var(--hair); color:#fff; font-size:0.97rem; }
+  .track-card .tiers li:last-child{ border-bottom:none; }
+  .track-card .tiers .t-label{ flex:1 1 150px; }
+  .track-card .tiers .btn-square{ margin:0; padding:7px 18px; font-size:0.85rem; }
+  .track-card .btn-square{ margin-top:auto; align-self:flex-start; border-color:var(--hero-mark); }
+  .top-note{ max-width:1152px; margin:0 auto; padding:0 24px 40px; color:#fff; font-size:1.05rem; line-height:1.7; }
+  .top-note a{ color:var(--hero-mark); text-decoration:underline; }
 
   /* Pricing tables */
   .table-wrap{ overflow-x:auto; border:2px solid var(--hair); }
@@ -191,19 +205,19 @@
     </div>
   </section>
 
+  <p class="top-note">Please review the <a href="#important">Important information</a> section below before booking.</p>
+
   <!-- Jump nav -->
   <nav class="jump" aria-label="Choose a service">
     <div class="jump-label">What are you working on?</div>
     <div class="jump-grid">
       <a class="jump-card" href="#fellowships">
-        <span class="num">1</span>
-        <h3>Fellowships &amp; Admissions</h3>
+        <div class="jump-head"><span class="num">1</span><h3>Fellowships &amp; Admissions</h3></div>
         <p>Selling your personal and research potential in fellowship, scholarship and admissions applications.</p>
         <span class="go">See options &amp; pricing &darr;</span>
       </a>
       <a class="jump-card" href="#essays">
-        <span class="num">2</span>
-        <h3>Academic Writing &amp; Course Essays</h3>
+        <div class="jump-head"><span class="num">2</span><h3>Academic Writing &amp; Course Essays</h3></div>
         <p>Thesis strength, evidence integration, structural flow and scholarly tone.</p>
         <span class="go">See options &amp; pricing &darr;</span>
       </a>
@@ -211,45 +225,34 @@
   </nav>
 
   <div class="contact-bar">
-    <a href="/contact.html" class="btn-square">Contact Me</a>
     <p>Available for one-off sessions or ongoing work. Get in touch with questions or availability.</p>
   </div>
 
   <!-- ===== 1. Fellowships ===== -->
   <section class="section" id="fellowships">
     <h2>Fellowships &amp; Admissions</h2>
-    <p class="intro">Fellowship applications are about selling your personal and research potential. Please review the <a href="#important" style="color:var(--oxford-accent);text-decoration:underline;">Important information</a> section below before booking.</p>
+    <p class="intro">Fellowship applications are about selling your personal and research potential. I have won major fellowships myself: the Pierre Elliott Trudeau Foundation Scholarship ($180,000 CAD), a SSHRC Doctoral Fellowship ($93,000 CAD) and a SSHRC Master's Fellowship ($17,500 CAD).</p>
 
     <div class="track-grid">
       <div class="track-card">
         <h3>Option A: Brainstorm &amp; Strategy</h3>
         <span class="tag">45-minute call</span>
-        <ul>
-          <li>Bring your ideas, bullet points or rough draft. We use the 45 minutes to ask targeted questions, find the core narrative hook, and evaluate your eligibility and fit for the fellowship or scholarship.</li>
-          <li>I have personal experience with major fellowships: I was awarded the Pierre Elliott Trudeau Foundation Scholarship ($180,000 CAD; 15 scholars selected globally), a SSHRC Doctoral Fellowship ($93,000 CAD), and SSHRC masters fellowship ($17,500 CAD).</li>
-        </ul>
-        <p>Best for early-stage applicants who are unsure where to start, or anyone who wants quick feedback on their eligibility and positioning.</p>
+        <p>Find your core narrative hook and test your eligibility and fit. Bring ideas, bullet points or a rough draft. Best for early-stage applicants.</p>
+        <div class="price-block">
+          <div class="price-line">$125 USD · $170 CAD</div>
+        </div>
+        <a href="https://cal.com/roxana-akhmetova/fellowship-call" class="btn-square">Book this option</a>
       </div>
       <div class="track-card">
         <h3>Option B: Deep-Dive Proposal Review</h3>
-        <span class="tag">Async review + live call</span>
-        <ul>
-          <li><strong>Step 1:</strong> You send me a draft, which I annotate for structural and narrative gaps.</li>
-          <li><strong>Step 2:</strong> You schedule a 45-minute live call to go through my suggestions and ask questions.</li>
-        </ul>
-        <p>Drafts are limited to 2,000 words of body text.</p>
+        <span class="tag">Async review + 45-minute call</span>
+        <p>Send a draft (up to 2,000 words) for annotation, then go through the feedback on a live call.</p>
+        <div class="price-block">
+          <div class="price-line">$375 USD · $510 CAD</div>
+          <div class="price-sub">Optional follow-up review: +$100 USD · +$135 CAD</div>
+        </div>
+        <a href="https://cal.com/roxana-akhmetova/fellowship-async-review-and-call" class="btn-square">Book this option</a>
       </div>
-    </div>
-
-    <div class="table-wrap">
-      <table class="price">
-        <thead><tr><th>Service</th><th>Scope</th><th>USD</th><th>CAD</th></tr></thead>
-        <tbody>
-          <tr><td>Option A: Brainstorm &amp; Strategy</td><td>45-min live call (no pre- or post-reading)</td><td class="amt">$125</td><td class="amt">$170</td></tr>
-          <tr><td>Option B: Deep-Dive Proposal Review</td><td>1 async review + 45-min live call (up to 2,000 words)</td><td class="amt">$375</td><td class="amt">$510</td></tr>
-          <tr><td>Optional add-on (Option B)</td><td>Follow-up async review (post-call revision review)</td><td class="amt">+$100</td><td class="amt">+$135</td></tr>
-        </tbody>
-      </table>
     </div>
     <a class="back-top" href="#top-nav" onclick="window.scrollTo({top:0});return false;">&uarr; Back to top</a>
   </section>
@@ -263,32 +266,24 @@
       <div class="track-card">
         <h3>Option A: Strategy &amp; Outline Session</h3>
         <span class="tag">45-minute call</span>
-        <ul>
-          <li><strong>Best for:</strong> early stages: brainstorming, refining a thesis statement, structuring an outline, or getting unblocked.</li>
-          <li><strong>Scope:</strong> no pre- or post-reading. Bring your essay prompt, rough notes or bullet points to the call.</li>
-        </ul>
-        <p><strong>$95 USD</strong> (~$130 CAD)</p>
+        <p>Brainstorm, refine your thesis, build an outline or get unblocked. Bring your essay prompt and rough notes. Best for early-stage essays.</p>
+        <div class="price-block">
+          <div class="price-line">$95 USD (~$130 CAD)</div>
+        </div>
+        <a href="https://cal.com/roxana-akhmetova/academic-writing-45-minute-call" class="btn-square">Book this option</a>
       </div>
       <div class="track-card">
         <h3>Option B: Essay Deep-Dive</h3>
-        <span class="tag">Async review + live call</span>
-        <ul>
-          <li><strong>Best for:</strong> complete drafts that need structural feedback and argumentative rigour.</li>
-          <li><strong>Scope:</strong> pre-read and annotation, then a 45 minute online call.</li>
-          <li><strong>Pricing:</strong> tiered by word count (below).</li>
-        </ul>
+        <span class="tag">Async review + 45-minute call</span>
+        <p>For complete drafts: annotated feedback on structure and argument, then a live call. Priced by length:</p>
+        <div class="price-block">
+          <ul class="tiers">
+            <li><span class="t-label">Up to 2,000 words</span><span>$165 USD (~$225 CAD)</span><a href="https://cal.com/roxana-akhmetova/short-review-and-call" class="btn-square">Book</a></li>
+            <li><span class="t-label">2,001&ndash;4,000 words</span><span>$260 USD (~$355 CAD)</span><a href="https://cal.com/roxana-akhmetova/medium-review-and-call" class="btn-square">Book</a></li>
+            <li><span class="t-label">4,001&ndash;7,000 words</span><span>$380 USD (~$515 CAD)</span><a href="https://cal.com/roxana-akhmetova/long-review-and-call" class="btn-square">Book</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
-
-    <div class="table-wrap">
-      <table class="price">
-        <thead><tr><th>Draft length</th><th>Ideal for</th><th>Price</th></tr></thead>
-        <tbody>
-          <tr><td>Short essay (up to 2,000 words)</td><td>Standard undergrad/grad course papers</td><td class="amt">$165 USD (~$225 CAD)</td></tr>
-          <tr><td>Medium essay (2,001&ndash;4,000 words)</td><td>Advanced seminar papers, MA essays</td><td class="amt">$260 USD (~$355 CAD)</td></tr>
-          <tr><td>Long essay / chapter (4,001&ndash;7,000 words)</td><td>Thesis chapters, journal submissions</td><td class="amt">$380 USD (~$515 CAD)</td></tr>
-        </tbody>
-      </table>
     </div>
     <a class="back-top" href="#top-nav" onclick="window.scrollTo({top:0});return false;">&uarr; Back to top</a>
   </section>
@@ -329,7 +324,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="how">
     <h2>How it works</h2>
     <div class="process-step">
       <div class="step-number">1</div><div class="step-line"></div>
@@ -351,13 +346,6 @@
         <h3>We work on your draft</h3>
         <p>You get a live session and/or written annotations, and you make the changes yourself.</p>
       </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="closing">
-      <a href="/contact.html" class="btn-square">Contact Me</a>
-      <p>Send me a message with your topic and deadline, and I'll reply with next steps.</p>
     </div>
   </section>
 

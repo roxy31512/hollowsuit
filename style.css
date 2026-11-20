@@ -5,8 +5,8 @@
   --muted: #8c877e;
   --accent: #f5f3ef;
   --text: #f5f3ef;
-  --font-head: 'Times New Roman', Times, serif;
-  --font-body: 'Times New Roman', Times, serif;
+  --font-head: Georgia, 'Times New Roman', serif;
+  --font-body: Georgia, 'Times New Roman', serif;
 }
 
 html,body {

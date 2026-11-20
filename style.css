@@ -5,8 +5,8 @@
   --muted: #8c877e;
   --accent: #f5f3ef;
   --text: #f5f3ef;
-  --font-head: Georgia, 'Times New Roman', serif;
-  --font-body: Georgia, 'Times New Roman', serif;
+  --font-head: 'Times New Roman', Times, serif;
+  --font-body: 'Times New Roman', Times, serif;
 }
 
 html,body {
@@ -21,6 +21,10 @@ html,body {
 /* site-wide fonts: change them here and every page updates */
 body, .font-sans { font-family: var(--font-body) !important; }
 h1, h2, h3, h4, .hero-name { font-family: var(--font-head) !important; }
+
+/* reading comfort on black: larger text, softer white, more line spacing */
+body { font-size: 19px; line-height: 1.75; color: #e8e4dc; }
+main p { font-size: 1.2rem; line-height: 1.75; color: #e8e4dc; }
 
 .container { max-width:1100px; }
 

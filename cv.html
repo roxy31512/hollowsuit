@@ -1,317 +1,152 @@
 <!doctype html>
 <html lang="en">
-<head> 
+<head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>CV — Roxana Akhmetova</title>
-  
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
-  
+
   <script>
-    tailwind.config = { 
-      theme: { 
-        extend: { 
-          colors: { 
-            dark: '#1a1a1a', 
-            mid: '#4d4d4d', 
-            light: '#f7f7f8', 
-            oxford: '#002147', 
-            'oxford-100': '#e6eefb', 
-            'oxford-600': '#234e85' 
-          } 
-        } 
-      } 
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: '#1a1a1a',
+            mid: '#4d4d4d',
+            light: '#f7f7f8',
+            oxford: '#002147',
+            'oxford-100': '#e6eefb',
+            'oxford-600': '#234e85'
+          }
+        }
+      }
     }
   </script>
-  
+
   <style>
-    /* Typography */
-    h1, h2 {
+    /* CV page only. Nothing here affects other pages. */
+    :root {
+      --cv-grey: #b3aea3;
+      --cv-dim: #8c877e;
+      --cv-body: #d8d4cb;
+      --cv-rule: rgba(255,255,255,0.25);
+      --cv-rule-soft: rgba(255,255,255,0.12);
+      --cv-blue: #9fc0ff;
+      --cv-gold: #c8b27a;
+    }
+
+    html { scroll-behavior: smooth; background: #000 !important; }
+    body { background: #000 !important; }
+
+    /* Title: same underline as the home page name (3px pale blue, .6rem padding) */
+    main h1.page-title {
+      font-size: 2.5rem;
+      font-weight: 500;
+      line-height: 1.2;
       color: #ffffff !important;
-      -webkit-text-fill-color: #ffffff !important;
-    }
-    
-    h3 {
-      color: #9fc0ff !important;
-    }
-
-    /* Page is fully black (the grey/brown tint came from the filled boxes below) */
-    html, body {
-      background: #000000 !important;
-    }
-
-    /* Underline under "Curriculum Vitae": same colour as under the name on the home page */
-    main h1 {
+      display: inline-block;
+      margin: 0 0 40px;
+      padding-bottom: .6rem;
       border-bottom: 3px solid #e6eefb;
     }
 
     /* Layout */
-    .cv-container {
-      display: flex;
-      gap: 3rem;
-      position: relative;
-    }
-    
-    .cv-content {
-      flex: 1;
-      min-width: 0;
-    }
+    .cv-container { display: flex; gap: 3rem; align-items: flex-start; }
+    .cv-content { flex: 1; min-width: 0; line-height: 1.5; }
 
-    /* Sections: no boxes, just a hairline rule above each one
-       (same look as the "Work with me" list on the home page) */
-    .cv-section {
-      background: none !important;
-      border: none !important;
-      border-top: 1px solid rgba(255, 255, 255, 0.25) !important;
-      border-radius: 0;
-      padding: 36px 0 12px;
-      margin-bottom: 24px;
-      scroll-margin-top: 100px;
-    }
+    /* Side nav */
+    .side-nav { width: 200px; flex: none; position: sticky; top: 100px; }
+    .side-nav h3 { font-size: .8rem; font-weight: 600; color: var(--cv-dim) !important; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 12px; }
+    .side-nav a { display: block; color: #f5f3ef; padding: 10px 0; border-bottom: 1px solid var(--cv-rule); font-size: .95rem; line-height: 1.3; }
+    .side-nav h3 + a { border-top: 1px solid var(--cv-rule); }
+    .side-nav a:hover, .side-nav a.active { color: var(--cv-gold); }
+    .side-nav a.active { font-weight: 500; }
 
-    .cv-section h2 {
-      font-size: 2rem;
-      font-weight: 500;
-      margin-bottom: 1.25rem;
-    }
+    /* Sections */
+    .cv-section { border-top: 1px solid var(--cv-rule); padding: 28px 0 8px; margin-bottom: 16px; scroll-margin-top: 90px; }
+    .cv-section h2 { font-size: 1.75rem; font-weight: 500; line-height: 1.25; color: #ffffff !important; margin: 0 0 1rem; }
+    .cv-section h3 { font-size: .8rem; font-weight: 600; line-height: 1.3; color: var(--cv-dim) !important; text-transform: uppercase; letter-spacing: .14em; margin: 28px 0 12px; }
 
-    /* CV Items */
-    .cv-item {
-      margin-bottom: 24px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    /* Entries and awards: title left, year(s) right, detail underneath */
+    .cv-item, .award-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      column-gap: 24px;
     }
-    
-    .cv-item:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-    }
-    
-    /* Text sizes (smaller than before; adjust to taste) */
-    .cv-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 4px;
-    }
-    
-    .cv-organization {
-      font-size: 0.95rem;
-      color: #9fc0ff;
-      margin-bottom: 4px;
-    }
-    
-    .cv-date {
-      font-size: 0.85rem;
-      color: #a0a0a0;
-      margin-bottom: 10px;
-    }
-    
-    .cv-description {
-      font-size: 0.95rem;
-      color: #d8e1eb;
-      line-height: 1.65;
-      margin-bottom: 8px;
-    }
-    
-    .cv-bullet {
-      font-size: 0.95rem;
-      margin-left: 20px;
-      margin-bottom: 6px;
-      color: #d8e1eb;
-      line-height: 1.55;
-    }
+    .cv-item { padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--cv-rule-soft); }
+    .cv-item:last-child { border-bottom: 0; margin-bottom: 0; }
+    .award-item { margin-bottom: 14px; }
 
-    /* Header */
-    .header-section {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-    }
+    .cv-title, .award-title { grid-column: 1; grid-row: 1; font-size: 1.05rem; font-weight: 600; color: #ffffff; }
+    .cv-item > .cv-date, .award-item > .cv-date { grid-column: 2; grid-row: 1; font-size: .9rem; color: var(--cv-dim); white-space: nowrap; align-self: baseline; }
+    .cv-organization, .award-amount { grid-column: 1; grid-row: 2; font-size: .95rem; color: var(--cv-grey); margin-bottom: 4px; }
+    .cv-item > .cv-description, .cv-item > .cv-bullet,
+    .award-item > .cv-description { grid-column: 1 / -1; }
 
-    .header-left h1 {
-      margin-bottom: 0;
-    }
+    /* Text */
+    .cv-description { font-size: 1rem; line-height: 1.5; color: var(--cv-body); margin: 0 0 4px; }
+    .award-item > .cv-description { margin: 2px 0 0; }
+    .cv-section > .cv-description { margin: 0 0 6px; }
 
-    /* Awards */
-    .award-item {
-      margin-bottom: 18px;
-    }
-    
-    .award-title {
-      font-weight: 600;
-      color: #ffffff;
-      font-size: 1rem;
-    }
-    
-    .award-amount {
-      font-size: 0.9rem;
-      color: #9fc0ff;
-      font-weight: 500;
-    }
-    
-    .award-entry {
-      margin-bottom: 16px;
-    }
-    
-    .award-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 4px;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    
-    .award-entry .award-title {
-      font-size: 0.95rem;
-      flex: 1;
-    }
-    
-    .award-entry .award-date {
-      color: #a0a0a0;
-      font-size: 0.9rem;
-      white-space: nowrap;
-    }
-    
-    .award-entry .award-description {
-      color: #d8e1eb;
-      font-size: 0.9rem;
-      margin-left: 0;
-    }
+    /* Bullets: hanging indent, tight spacing */
+    .cv-bullet { position: relative; font-size: 1rem; line-height: 1.4; color: var(--cv-body); margin: 0 0 1px; padding-left: 1.1em; }
+    .cv-bullet::before { content: "•"; position: absolute; left: 0; color: var(--cv-dim); }
+    .cv-description + .cv-bullet { margin-top: 3px; }
+
+    /* Links: white, thin underline, blue on hover (as on the home page) */
+    .cv-content a { color: #f5f3ef; border-bottom: 1px solid rgba(245,243,239,.4); padding-bottom: 1px; }
+    .cv-content a:hover { color: #f5f3ef; border-bottom-color: var(--cv-blue); }
 
     /* Publications */
-    .publication-item {
-      margin-bottom: 18px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
-    }
-    
-    .publication-item:last-child {
-      border-bottom: none;
-    }
+    .publication-item { padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--cv-rule-soft); }
+    .publication-item:last-child { border-bottom: 0; }
+    .publication-item .cv-description { margin: 0; }
 
-    /* Institution Headers */
-    .institution {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #9fc0ff;
-      margin-top: 32px;
-      margin-bottom: 16px;
-    }
-
-    /* Side Navigation: contents-page style, no box */
-    .side-nav {
-      width: 200px;
-      position: sticky;
-      top: 120px;
-      align-self: flex-start;
-      height: fit-content;
-    }
-    
-    .side-nav-inner {
-      background: none !important;
-      border: none !important;
-      border-radius: 0;
-      padding: 0;
-    }
-    
-    .side-nav h3 {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #a0a0a0 !important;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-    }
-    
-    .side-nav a {
-      display: block;
-      color: #f5f3ef;
-      text-decoration: none;
-      padding: 11px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 0;
-      font-size: 0.95rem;
-      line-height: 1.3;
-      transition: color 0.15s ease;
-    }
-
-    .side-nav h3 + a {
-      border-top: 1px solid rgba(255, 255, 255, 0.25);
-    }
-    
-    .side-nav a:hover {
-      background: none;
-      color: #c8b27a;
-    }
-    
-    .side-nav a.active {
-      background: none;
-      color: #c8b27a;
-      font-weight: 500;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .side-nav {
-        display: none;
-      }
-    }
-
+    @media (max-width: 1024px) { .side-nav { display: none; } }
     @media (max-width: 768px) {
-      .header-section {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-      }
+      .cv-item, .award-item { grid-template-columns: 1fr; }
+      .cv-item > .cv-date, .award-item > .cv-date { grid-column: 1; grid-row: auto; }
     }
   </style>
 </head>
 
 <body class="text-light font-sans">
   <custom-navbar></custom-navbar>
-  
-  <main class="container mx-auto px-6 py-12" style="margin-top: 100px; max-width: 1200px;">
-    <div class="header-section">
-      <div class="header-left">
-        <h1 class="text-4xl font-semibold">Curriculum Vitae</h1>
-      </div>
-    </div>
+
+  <main class="page">
+    <h1 class="page-title">Curriculum Vitae</h1>
 
     <div class="cv-container">
       <!-- Side Navigation -->
       <nav class="side-nav">
-        <div class="side-nav-inner">
-          <h3>Sections</h3>
-          <a href="#education">Education</a>
-          <a href="#experience">Experience</a>
-          <a href="#awards">Awards</a>
-          <a href="#publications">Publications</a>
-          <a href="#skills">Research Skills</a>
-          <a href="#conferences">Conferences</a>
-          <a href="#teaching">Teaching</a>
-          <a href="#professional-development">Professional Development</a>
-        </div>
+        <h3>Sections</h3>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#awards">Awards</a>
+        <a href="#publications">Publications</a>
+        <a href="#skills">Research Skills</a>
+        <a href="#conferences">Conferences</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#professional-development">Professional Development</a>
       </nav>
 
       <!-- Main Content -->
       <div class="cv-content">
+
         <!-- Education -->
         <section id="education" class="cv-section">
-          <h2 class="text-2xl font-semibold mb-6">Education</h2>
-          
+          <h2>Education</h2>
+
           <div class="cv-item">
             <div class="cv-title">DPhil</div>
             <div class="cv-organization">University of Oxford</div>
             <p class="cv-description"><strong>Thesis:</strong> The Invisible Border Wall: The Use of AI in Canada's Immigration and Border Control</p>
-            <div class="cv-bullet">• Adoption of AI in high-stakes, highly politicised public sector decision-making</div>
-            <div class="cv-bullet">• Conducted 35 semi-structured interviews and fieldwork</div>
-            <div class="cv-bullet">• Research cited in the U.K. Government's Ethics, Transparency and Accountability Framework for Automated Decision-Making (2024)</div>
-            <div class="cv-bullet">• Supervised by Dr Ruben Andersson (ODID) and Dr Helen Margetts (OII)</div>
+            <div class="cv-bullet">Adoption of AI in high-stakes, highly politicised public sector decision-making</div>
+            <div class="cv-bullet">Conducted 35 semi-structured interviews and fieldwork</div>
+            <div class="cv-bullet">Research cited in the U.K. Government's Ethics, Transparency and Accountability Framework for Automated Decision-Making (2024)</div>
+            <div class="cv-bullet">Supervised by Dr Ruben Andersson (ODID) and Dr Helen Margetts (OII)</div>
           </div>
 
           <div class="cv-item">
@@ -334,105 +169,106 @@
 
         <!-- Experience -->
         <section id="experience" class="cv-section">
-          <h2 class="text-2xl font-semibold mb-6">Experience</h2>
+          <h2>Experience</h2>
 
           <div class="cv-item">
             <div class="cv-title">Program Lead, AI Governance</div>
+            <div class="cv-date">2026 – Present</div>
             <div class="cv-organization">Harvard-MIT Impact Research Initiative</div>
-            <div class="cv-date">February 2026 – Present</div>
-            <div class="cv-bullet">• Worked with 3 Harvard researchers on AI governance research.</div>
+            <div class="cv-bullet">Worked with 3 Harvard researchers on AI governance research.</div>
           </div>
-          
+
           <div class="cv-item">
             <div class="cv-title">Policy Analyst, Technology and Export Controls</div>
+            <div class="cv-date">2025</div>
             <div class="cv-organization">AI Safety Initiative at Georgia Tech (U.S. – remote)</div>
-            <div class="cv-date">September 2025 – November 2025</div>
           </div>
 
           <div class="cv-item">
-          <div class="cv-title">Founder and Chair</div>
-          <div class="cv-organization">
-              <a href="https://roxanaakhmetova.com/oxford-ai-gala" style="color: #9fc0ff; text-decoration: underline;">Oxford AI Gala (U.K.)</a>
+            <div class="cv-title">Founder and Chair</div>
+            <div class="cv-date">2024 – 2025</div>
+            <div class="cv-organization"><a href="https://roxanaakhmetova.com/oxford-ai-gala">Oxford AI Gala (U.K.)</a></div>
+            <div class="cv-bullet">Founded inaugural AI governance conference for 200 AI governance stakeholders including government officials, academics, and AI developers</div>
+            <div class="cv-bullet">Built and managed relations with Anthropic as title sponsor and speakers from Anthropic, Sony AI, RAND Europe, Tony Blair Institute, and University of Oxford, as well as University of Oxford academic partners</div>
+            <div class="cv-bullet">Set thematic agenda on AI governance and moderated the AI governance panel</div>
           </div>
-          <div class="cv-date">June 2024 – June 2025</div>
-          <div class="cv-bullet">• Founded inaugural AI governance conference for 200 AI governance stakeholders including government officials, academics, and AI developers</div>
-          <div class="cv-bullet">• Built and managed relations with Anthropic as title sponsor and speakers from Anthropic, Sony AI, RAND Europe, Tony Blair Institute, and University of Oxford, as well as University of Oxford academic partners</div>
-          <div class="cv-bullet">• Set thematic agenda on AI governance and moderated the AI governance panel</div>
-      </div>
 
           <div class="cv-item">
-          <div class="cv-title">Independent Policy Consultant </div>
-          <div class="cv-organization">Independent (U.K.)</div>
-          <div class="cv-date">January 2022 – November 2024</div>
-          <div class="cv-bullet">• Authored two AI policy consultations for the Canadian federal government, addressing the adoption of algorithmic tools in high-stakes decision-making.</div>
-          <div class="cv-bullet">• Conducted research on automated decision-making cited in UK Government's Ethics, Transparency and Accountability Framework for Automated Decision-Making.</div>
-     </div>          
+            <div class="cv-title">Independent Policy Consultant</div>
+            <div class="cv-date">2022 – 2024</div>
+            <div class="cv-organization">Independent (U.K.)</div>
+            <div class="cv-bullet">Authored two AI policy consultations for the Canadian federal government, addressing the adoption of algorithmic tools in high-stakes decision-making.</div>
+            <div class="cv-bullet">Conducted research on automated decision-making cited in UK Government's Ethics, Transparency and Accountability Framework for Automated Decision-Making.</div>
+          </div>
 
           <div class="cv-item">
             <div class="cv-title">President</div>
+            <div class="cv-date">2022 – 2023</div>
             <div class="cv-organization">Oxford Artificial Intelligence Society (U.K.)</div>
-            <div class="cv-date">April 2022 – May 2023</div>
-            <div class="cv-bullet">• Led Europe's largest AI student society, managing 7 cross-functional teams and recognised as 2023 'U.K. Society of the Year'</div>
-            <div class="cv-bullet">• Facilitated $60,000 Amazon compute grant for AI bias research by building corporate partnerships</div>
-            <div class="cv-bullet">• Developed and managed a mentorship programme connecting 87 students with 66 professionals from Microsoft, Google, Apple, and QuantumBlack</div>
+            <div class="cv-bullet">Led Europe's largest AI student society, managing 7 cross-functional teams and recognised as 2023 'U.K. Society of the Year'</div>
+            <div class="cv-bullet">Facilitated $60,000 Amazon compute grant for AI bias research by building corporate partnerships</div>
+            <div class="cv-bullet">Developed and managed a mentorship programme connecting 87 students with 66 professionals from Microsoft, Google, Apple, and QuantumBlack</div>
           </div>
 
           <div class="cv-item">
             <div class="cv-title">Research Assistant</div>
+            <div class="cv-date">2020 – 2021</div>
             <div class="cv-organization">Oxford Department of International Development (U.K.)</div>
-            <div class="cv-date">August 2020 – August 2021</div>
-            <div class="cv-bullet">• Co-authored 2 policy briefs on content moderation, platform regulation, and misinformation</div>
-            <div class="cv-bullet">• Co-facilitated a multi-stakeholder workshop with 20+ participants from U.K. government agencies, technology companies (including Facebook), and civil society organisations</div>
+            <div class="cv-bullet">Co-authored 2 policy briefs on content moderation, platform regulation, and misinformation</div>
+            <div class="cv-bullet">Co-facilitated a multi-stakeholder workshop with 20+ participants from U.K. government agencies, technology companies (including Facebook), and civil society organisations</div>
           </div>
         </section>
 
         <!-- Awards -->
         <section id="awards" class="cv-section">
-          <h2 class="text-2xl font-semibold mb-6">Scholarships and Awards</h2>
-       
-          <h3 class="text-lg font-semibold mb-4" style="color: #9fc0ff; margin-top: 32px;">Leadership & Recognition</h3>
+          <h2>Scholarships and Awards</h2>
 
-        <div class="award-item">
-          <div class="award-title"><a href="https://roxanaakhmetova.com/oxford-ai-leadership" target="_blank" style="color: #ffffff; text-decoration: underline;">Society of the Year</a></div>
-          <div class="award-amount">Topgrad Gold Award | Natural and Applied Sciences | 2022-2023</div>
-          <p class="cv-description">First Place (Gold): Oxford AI Society</p>
-        </div>
+          <h3>Leadership &amp; Recognition</h3>
 
-          <h3 class="text-lg font-semibold mb-4" style="color: #9fc0ff; margin-top: 32px;">Doctoral Awards</h3>
-          
           <div class="award-item">
-            <div class="award-title"><a href="https://www.trudeaufoundation.ca/member/roxana-akhmetova" target="_blank" style="color: #ffffff; text-decoration: underline;">The Pierre Elliott Trudeau Foundation Scholarship</a></div>
-            <div class="award-amount">$180,000 | 2021</div>
+            <div class="award-title"><a href="https://roxanaakhmetova.com/oxford-ai-leadership" target="_blank">Society of the Year</a></div>
+            <div class="cv-date">2022-2023</div>
+            <div class="award-amount">Topgrad Gold Award | Natural and Applied Sciences</div>
+            <p class="cv-description">First Place (Gold): Oxford AI Society</p>
+          </div>
+
+          <h3>Doctoral Awards</h3>
+
+          <div class="award-item">
+            <div class="award-title"><a href="https://www.trudeaufoundation.ca/member/roxana-akhmetova" target="_blank">The Pierre Elliott Trudeau Foundation Scholarship</a></div>
+            <div class="cv-date">2021</div>
+            <div class="award-amount">$180,000</div>
             <p class="cv-description">Top 2.5%. Funding to support the advancement of outstanding, cutting-edge PhDs</p>
           </div>
 
           <div class="award-item">
-            <div class="award-title"><a href="https://search.open.canada.ca/grants/record/sshrc-crsh%2C207-2021-2022-Q1-01468%2Ccurrent" target="_blank" style="color: #ffffff; text-decoration: underline;">Doctoral Fellowship</a></div>
-            <div class="award-amount">$93,000 | Canadian Social Sciences and Humanities Research Council (SSHRC) | 2021</div>
+            <div class="award-title"><a href="https://search.open.canada.ca/grants/record/sshrc-crsh%2C207-2021-2022-Q1-01468%2Ccurrent" target="_blank">Doctoral Fellowship</a></div>
+            <div class="cv-date">2021</div>
+            <div class="award-amount">$93,000 | Canadian Social Sciences and Humanities Research Council (SSHRC)</div>
             <p class="cv-description">Funding for high-calibre students engaged in doctoral programs in the social sciences.</p>
           </div>
 
           <div class="award-item">
-            <div class="award-title"><a href="https://www.keble.ox.ac.uk/wp-content/uploads/Record-2020-21-WEB.pdf" target="_blank" style="color: #ffffff; text-decoration: underline;">Sloane Robinson Graduate Scholarship</a></div>
-            <div class="award-amount">£23,000 | Keble College, University of Oxford | 2020</div>
+            <div class="award-title"><a href="https://www.keble.ox.ac.uk/wp-content/uploads/Record-2020-21-WEB.pdf" target="_blank">Sloane Robinson Graduate Scholarship</a></div>
+            <div class="cv-date">2020</div>
+            <div class="award-amount">£23,000 | Keble College, University of Oxford</div>
             <p class="cv-description">Support for graduate studies at Keble College.</p>
           </div>
 
           <div class="award-item">
             <div class="award-title">Ethnography Travel Awards</div>
-            <div class="award-amount">£2,000 | Oxford School of Anthropology & Museum Ethnography | 2022 and 2023</div>
+            <div class="cv-date">2022 and 2023</div>
+            <div class="award-amount">£2,000 | Oxford School of Anthropology &amp; Museum Ethnography</div>
             <p class="cv-description">Two £1,000 awards to support fieldwork at border security expos and visits to 2 border sites.</p>
           </div>
 
-          <h3 class="text-lg font-semibold mb-4" style="color: #9fc0ff; margin-top: 32px;">Master's Degree Awards</h3>
-          
+          <h3>Master's Degree Awards</h3>
+
           <div class="award-item">
-            <div class="award-title">
-              <a href="https://sshrc-crsh.canada.ca/results-resultats/recipients-recipiendaires/2017/cgs_masters-maitrise_bes-eng.aspx" target="_blank" style="color: #ffffff; text-decoration: underline;">Joseph Armand Bombardier Canada Graduate Scholarship</a>
-         </div>
-          <div class="award-amount">$17,500 | SSHRC</div>
-          <p class="cv-description">Master's degree funding for research on the role of Canadian newcomers in Reconciliation with Indigenous Peoples.</p>
-         </div>
+            <div class="award-title"><a href="https://sshrc-crsh.canada.ca/results-resultats/recipients-recipiendaires/2017/cgs_masters-maitrise_bes-eng.aspx" target="_blank">Joseph Armand Bombardier Canada Graduate Scholarship</a></div>
+            <div class="award-amount">$17,500 | SSHRC</div>
+            <p class="cv-description">Master's degree funding for research on the role of Canadian newcomers in Reconciliation with Indigenous Peoples.</p>
+          </div>
 
           <div class="award-item">
             <div class="award-title">Top-up Award</div>
@@ -440,10 +276,10 @@
             <p class="cv-description">Master's degree funding for research on the role of Canadian newcomers in Reconciliation with Indigenous Peoples.</p>
           </div>
 
-          <h3 class="text-lg font-semibold mb-4" style="color: #9fc0ff; margin-top: 32px;">Undergraduate Awards</h3>
-          
+          <h3>Undergraduate Awards</h3>
+
           <div class="award-item">
-            <div class="award-title"><a href="https://ipac.ca/Manitoba/Manitoba/Events___Awards/Willard_J_Condo_Award.aspx" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline;">The W. J. Condo Essay Award</a></div>
+            <div class="award-title"><a href="https://ipac.ca/Manitoba/Manitoba/Events___Awards/Willard_J_Condo_Award.aspx" target="_blank" rel="noopener noreferrer">The W. J. Condo Essay Award</a></div>
             <div class="award-amount">Institute of Public Administration of Canada</div>
             <p class="cv-description">Paper "That Wasn't Uber Nice: The Uberisation of Local and Global Political Economy"</p>
           </div>
@@ -489,7 +325,7 @@
           </div>
 
           <div class="award-item">
-            <div class="award-title"><a href="https://www.goldenkey.org/2020/02/19/golden-key-spotlight-breanne-cadham-odion-kalaci-and-roxana-akhmetova/" target="_blank" rel="noopener noreferrer" style="color: #ffffff; text-decoration: underline;">Golden Key International Honour Society Membership</a></div>
+            <div class="award-title"><a href="https://www.goldenkey.org/2020/02/19/golden-key-spotlight-breanne-cadham-odion-kalaci-and-roxana-akhmetova/" target="_blank" rel="noopener noreferrer">Golden Key International Honour Society Membership</a></div>
             <div class="award-amount">Golden Key International Honour Society</div>
             <p class="cv-description">Offered to top 15%</p>
           </div>
@@ -501,7 +337,7 @@
 
           <div class="award-item">
             <div class="award-title">University of Winnipeg Special Entrance Scholarship</div>
-            <div class="award-amount">University of Winnipeg</div>        
+            <div class="award-amount">University of Winnipeg</div>
             <p class="cv-description">High academic standing in high school (94%)</p>
           </div>
 
@@ -512,7 +348,7 @@
 
           <div class="award-item">
             <div class="award-title">River East Transcona School Division Humanitarian Award</div>
-            <div class="award-amount">Miles Macdonell Collegiate</div>        
+            <div class="award-amount">Miles Macdonell Collegiate</div>
           </div>
 
           <div class="award-item">
@@ -529,10 +365,10 @@
 
         <!-- Publications -->
         <section id="publications" class="cv-section">
-          <h2 class="text-2xl font-semibold mb-6">Publications</h2>
-          
+          <h2>Publications</h2>
+
           <div class="publication-item">
-            <p class="cv-description">Akhmetova, R. (2025), <a href="https://montrealethics.ai/wp-content/uploads/2025/11/MAIEI_SAIER_2025_Volume7.pdf" target="_blank" style="color: #9fc0ff; text-decoration: underline;">"Challenging Mandated AI in the Public Sector"</a> in <em>The State of AI Ethics Report (Volume 7)</em>, Montreal AI Ethics Institute.</p>
+            <p class="cv-description">Akhmetova, R. (2025), <a href="https://montrealethics.ai/wp-content/uploads/2025/11/MAIEI_SAIER_2025_Volume7.pdf" target="_blank">"Challenging Mandated AI in the Public Sector"</a> in <em>The State of AI Ethics Report (Volume 7)</em>, Montreal AI Ethics Institute.</p>
           </div>
 
           <div class="publication-item">
@@ -550,33 +386,33 @@
           <div class="publication-item">
             <p class="cv-description">Akhmetova, R. (2020), "How AI Is Being Used in Canada's Immigration Decision-Making". Blog. University of Oxford's Centre on Migration, Policy, and Society.</p>
           </div>
-          
+
           <div class="publication-item">
-            <p class="cv-description">Al-ubeady, H. and Akhmetova, R*. (2019), <a href="https://www.uwinnipeg.ca/ceri-network/docs/building-indigenous-newcomer-relationships-report.pdf" target="_blank" style="color: #9fc0ff; text-decoration: underline;">"Building Indigenous-Newcomer Relationships: Visit to Brokenhead Ojibway Nation"</a>. Report. University of Winnipeg CERI Network.</p>
+            <p class="cv-description">Al-ubeady, H. and Akhmetova, R*. (2019), <a href="https://www.uwinnipeg.ca/ceri-network/docs/building-indigenous-newcomer-relationships-report.pdf" target="_blank">"Building Indigenous-Newcomer Relationships: Visit to Brokenhead Ojibway Nation"</a>. Report. University of Winnipeg CERI Network.</p>
           </div>
         </section>
 
         <!-- Research Skills -->
         <section id="skills" class="cv-section">
-          <h2 class="text-2xl font-semibold mb-6">Key Research Skills & Interests</h2>
-          
-          <h3 class="text-lg font-semibold mb-3" style="margin-top: 16px;">Research Methods</h3>
+          <h2>Key Research Skills &amp; Interests</h2>
+
+          <h3>Research Methods</h3>
           <p class="cv-description">Qualitative interviewing; interview design; institutional and policy ethnography; document and policy analysis; qualitative coding; thematic analysis.</p>
 
-          <h3 class="text-lg font-semibold mb-3" style="margin-top: 16px;">Research Interests</h3>
+          <h3>Research Interests</h3>
           <p class="cv-description">AI governance; sociotechnical systems; algorithmic accountability; public sector automation; organisational ethnography; AI law and policy; AI transparency; human-AI interaction.</p>
 
-          <h3 class="text-lg font-semibold mb-3" style="margin-top: 16px;">Policy & Governance Analysis</h3>
+          <h3>Policy &amp; Governance Analysis</h3>
           <p class="cv-description">Algorithmic impact evaluation; AI risk assessment; evaluation of public-sector automation; analysis of regulatory processes; technology governance; comparative policy analysis.</p>
 
-          <h3 class="text-lg font-semibold mb-3" style="margin-top: 16px;">Technical Skills</h3>
+          <h3>Technical Skills</h3>
           <p class="cv-description">STATA; NVivo; R; Git/GitHub; Web development (HTML, CSS, JavaScript); Zotero/Mendeley.</p>
         </section>
 
         <!-- Conferences -->
         <section id="conferences" class="cv-section">
-          <h2 class="text-2xl font-semibold mb-6">Conference Proceedings</h2>
-          
+          <h2>Conference Proceedings</h2>
+
           <div class="cv-item">
             <div class="cv-title">25th Annual Family Law Conference (South Africa)</div>
             <div class="cv-date">April 2023</div>
@@ -598,37 +434,37 @@
 
         <!-- Teaching -->
         <section id="teaching" class="cv-section">
-          <h2 class="text-2xl font-semibold mb-6">Teaching Experience & Public Outreach</h2>
-          
+          <h2>Teaching Experience &amp; Public Outreach</h2>
+
           <div class="cv-item">
             <div class="cv-title">Inclusive AI Workshop</div>
-            <div class="cv-organization">Institute for Ethics in Technology (Germany – remote)</div>
             <div class="cv-date">2024</div>
+            <div class="cv-organization">Institute for Ethics in Technology (Germany – remote)</div>
           </div>
 
           <div class="cv-item">
             <div class="cv-title">POLS-7300: Comparative Indigenous Politics Seminar</div>
-            <div class="cv-organization">University of Manitoba (Canada)</div>
             <div class="cv-date">2018</div>
+            <div class="cv-organization">University of Manitoba (Canada)</div>
             <p class="cv-description">Led graduate-level seminar discussions for 7 students over 1 semester.</p>
           </div>
         </section>
 
         <!-- Professional Development -->
         <section id="professional-development" class="cv-section">
-          <h2 class="text-2xl font-semibold mb-6">Professional Development Programs</h2>
-          
+          <h2>Professional Development Programs</h2>
+
           <div class="cv-item">
             <div class="cv-title">Future Leaders Innovation Programme</div>
-            <div class="cv-organization">Careers Service and EnSpire Oxford, University of Oxford</div>
             <div class="cv-date">December 2023 – June 2024</div>
+            <div class="cv-organization">Careers Service and EnSpire Oxford, University of Oxford</div>
             <p class="cv-description">A skills development programme from the Careers Service, in partnership with EnSpire Oxford, open to students who want to gain skills, knowledge, and positive behaviours to innovate and drive change in the future. At the end of the programme, participants get recognition with a formal qualification: ILM Level 3 Award in Leadership and Management.</p>
           </div>
 
           <div class="cv-item">
             <div class="cv-title">Insights into Start-up</div>
-            <div class="cv-organization">Careers Service and EnSpire Oxford, University of Oxford</div>
             <div class="cv-date">October 2023 – June 2024</div>
+            <div class="cv-organization">Careers Service and EnSpire Oxford, University of Oxford</div>
             <p class="cv-description">The Insight into Start-ups programme aims to inspire and equip Oxford University students with the skills, knowledge and positive behaviours to start, work in and lead a new venture.</p>
           </div>
 
@@ -641,22 +477,22 @@
 
           <div class="cv-item">
             <div class="cv-title">Impact Lab</div>
-            <div class="cv-organization">Saïd Business School, University of Oxford</div>
             <div class="cv-date">January – June 2022</div>
+            <div class="cv-organization">Saïd Business School, University of Oxford</div>
             <p class="cv-description">Co-curricular Impact Leadership programme for students who want an impact-driven career.</p>
           </div>
 
           <div class="cv-item">
             <div class="cv-title">Entrepreneurial Fellowship Initiative</div>
-            <div class="cv-organization">Oxford Foundry</div>
             <div class="cv-date">July – August 2021</div>
+            <div class="cv-organization">Oxford Foundry</div>
             <p class="cv-description">One of 29 Fellows on the Oxford Foundry's Entrepreneurial Fellowship Initiative. The Fellowship involved an 8-week, funded placement at a startup (Oxwash) in the Oxford Foundry's Elevate accelerator portfolio, mentorship and coaching from world-leading entrepreneurs and experts (Biz Stone, Jeff Wong, among others), and personal and professional goal setting and leadership support (Yo Percale, among others).</p>
           </div>
 
           <div class="cv-item">
             <div class="cv-title">United Nations Study Program</div>
-            <div class="cv-organization">Seton Hall University School of Diplomacy</div>
             <div class="cv-date">June 3-7, 2019</div>
+            <div class="cv-organization">Seton Hall University School of Diplomacy</div>
             <p class="cv-description">Immerses participants in the political dynamics of the United Nations by bringing them together with distinguished practitioners working in the field of multilateral diplomacy.</p>
           </div>
 
@@ -666,6 +502,7 @@
             <p class="cv-description">5-week government-funded French immersion program at Université Laval and 1-week program at Western University (Trois Pistoles, Quebec), and York University.</p>
           </div>
         </section>
+
       </div>
     </div>
   </main>
@@ -675,44 +512,18 @@
   <!-- Scripts -->
   <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
-  
+
   <script>
-    // Smooth scroll and active state for side nav
-    document.querySelectorAll('.side-nav a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          
-          // Update active state
-          document.querySelectorAll('.side-nav a').forEach(l => l.classList.remove('active'));
-          this.classList.add('active');
-        }
-      });
-    });
-    
-    // Update active state on scroll
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('.cv-section');
-      let current = '';
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
-        if (window.pageYOffset >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
-      
-      document.querySelectorAll('.side-nav a').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    });
+    // Highlight the current section in the side nav while scrolling
+    const navLinks = document.querySelectorAll('.side-nav a');
+    const sections = document.querySelectorAll('.cv-section');
+    function updateActive() {
+      let current = sections[0].id;
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 150) current = s.id; });
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+    }
+    window.addEventListener('scroll', updateActive);
+    updateActive();
   </script>
 </body>
 </html>

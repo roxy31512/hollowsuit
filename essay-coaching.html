@@ -23,9 +23,9 @@
     --hair:rgba(255,255,255,0.18);
   }
   html{ scroll-behavior:smooth; }
-  /* fonts now come from style.css (--font-body / --font-head) */
-  body{ background:var(--bg); color:var(--ink); margin:0; }
-  h1,h2,h3{ font-weight:500; letter-spacing:-0.01em; }
+  /* fonts now come from style.css (--font-body / --font-head); fallbacks below only apply if style.css isn't loaded */
+  body{ background:var(--bg); color:var(--ink); margin:0; font-family:var(--font-body, 'Libre Franklin', ui-sans-serif, system-ui, sans-serif); }
+  h1,h2,h3{ font-weight:500; letter-spacing:-0.01em; font-family:var(--font-head, 'Fraunces', serif); }
   .annot{ font-family:'Caveat', cursive; }
 
   /* ---------- Hero ---------- */
@@ -75,7 +75,7 @@
     transition:background 0.15s ease;
   }
   .jump-card:hover, .jump-card:focus-visible{ background:#111; }
-  .jump-card .num{ color:var(--hero-mark); font-family:var(--font-head); font-size:1.4rem; font-weight:600; }
+  .jump-card .num{ color:var(--hero-mark); font-family:var(--font-head, 'Fraunces', serif); font-size:1.4rem; font-weight:600; }
   .jump-head{ display:flex; align-items:baseline; gap:14px; margin:0 0 8px; }
   .jump-card h3{ color:var(--hero-mark); font-size:1.4rem; margin:0; }
   .jump-card p{ color:var(--sub); font-size:0.95rem; line-height:1.6; margin:0 0 12px; }
@@ -127,6 +127,22 @@
   .top-note{ max-width:1152px; margin:0 auto; padding:0 24px 40px; color:#fff; font-size:1.05rem; line-height:1.7; }
   .top-note a{ color:var(--hero-mark); text-decoration:underline; }
 
+  /* ---------- Testimonial ---------- */
+  .testimonial{ border:2px solid var(--hair); padding:32px 34px; }
+  .testimonial .t-label-top{ color:var(--hero-mark); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.14em; font-weight:600; margin-bottom:16px; }
+  .testimonial blockquote{ margin:0; }
+  .testimonial blockquote p{ color:#fff; font-size:1.05rem; line-height:1.75; margin:0 0 16px; max-width:90ch; }
+  .testimonial details summary{
+    list-style:none; cursor:pointer; display:inline-block; margin:0 0 16px;
+    color:var(--hero-mark); font-size:0.92rem; font-weight:500; text-decoration:underline; text-underline-offset:3px;
+  }
+  .testimonial details summary::-webkit-details-marker{ display:none; }
+  .testimonial details summary:focus-visible{ outline:2px solid var(--hero-mark); outline-offset:3px; }
+  .testimonial .less{ display:none; }
+  .testimonial details[open] .more-t{ display:none; }
+  .testimonial details[open] .less{ display:inline; }
+  .testimonial .who{ color:#fff; font-size:0.95rem; font-weight:600; margin-top:4px; }
+
   /* Pricing tables */
   .table-wrap{ overflow-x:auto; border:2px solid var(--hair); }
   table.price{ width:100%; border-collapse:collapse; min-width:560px; }
@@ -147,7 +163,7 @@
   .step-number{
     width:40px; height:40px; border-radius:50%; background:rgba(245,243,239,0.08); border:1px solid rgba(245,243,239,0.35);
     color:var(--oxford-accent); display:flex; align-items:center; justify-content:center; font-weight:600; font-size:1rem; z-index:1;
-    font-family:var(--font-head);
+    font-family:var(--font-head, 'Fraunces', serif);
   }
   .step-line{ position:absolute; left:19px; top:40px; bottom:-8px; width:1px; background:var(--hair); }
   .process-step:last-child .step-line{ display:none; }
@@ -224,7 +240,7 @@
     </div>
   </nav>
 
-    <!-- ===== 1. Fellowships ===== -->
+  <!-- ===== 1. Fellowships ===== -->
   <section class="section" id="fellowships">
     <h2>Fellowships &amp; Admissions</h2>
     <p class="intro">Fellowship applications are about selling your personal and research potential. I have won major fellowships myself: the Pierre Elliott Trudeau Foundation Scholarship ($180,000 CAD), a SSHRC Doctoral Fellowship ($93,000 CAD), and a SSHRC Master's Fellowship ($17,500 CAD).</p>
@@ -250,6 +266,23 @@
         <a href="https://cal.com/roxana-akhmetova/fellowship-async-review-and-call" class="btn-square">Book this option</a>
       </div>
     </div>
+
+    <!-- Testimonial -->
+    <div class="testimonial">
+      <div class="t-label-top">What a client says</div>
+      <blockquote>
+        <p>“I reached out to Roxana hoping to learn more about her experience as a Pierre Trudeau Foundation scholar. From our very first conversation, she was incredibly generous with her knowledge, tips, and insights.</p>
+        <details>
+          <summary><span class="more-t">Read more &darr;</span><span class="less">Show less &uarr;</span></summary>
+          <p>I really appreciate how intentional she was about getting to know me, understanding my experiences, and helping me reflect my story, strengths, and aspirations in my application. She didn't just help me edit my writing; she helped me see how to communicate my experiences more meaningfully and compellingly. She shared practical yet powerful writing strategies, offered direct and thoughtful feedback, and even provided concrete examples to help me understand how to put her suggestions into practice.</p>
+          <p>I reached out just a few days before the application deadline, fully aware of how busy she must have been, and honestly didn't expect she would be able to accommodate my request. Yet, she graciously made time for me and delivered incredibly helpful feedback within such a short turnaround. Her responsiveness, encouragement, and genuine willingness to go the extra mile meant so much to me.</p>
+          <p>Roxana's mentorship went far beyond polishing my application, she challenged me to think more deeply about my experiences, helped me recognize the value of my own story, and showed me how to communicate it with greater clarity, confidence, and purpose. She helped strengthen my application in ways I hadn't even imagined, and I came away from our conversations feeling much more confident in what I had to offer.</p>
+          <p>I am incredibly grateful to have experienced her mentorship, even within such a short time. She is knowledgeable, thoughtful, approachable, and genuinely invested in helping other scholars succeed. Anyone would be so lucky to cross paths with her and learn from her.”</p>
+        </details>
+      </blockquote>
+      <div class="who">Deanna, PhD Student</div>
+    </div>
+
     <a class="back-top" href="#top-nav" onclick="window.scrollTo({top:0});return false;">&uarr; Back to top</a>
   </section>
 
@@ -306,15 +339,14 @@
     </div>
     <div class="info-row">
       <div class="info-label">Full payment is required at the time of booking to reserve your spot. Because I take only a small number of clients each week to give each person dedicated attention, refunds are not provided for change of mind, late cancellations, or missed sessions once a booking is confirmed.</div>
-       <div class="info-label">You may reschedule a session once, free of charge, with at least 24 hours’ notice. The new session must take place (not just be booked) within 30 days of the original session date. Any further change is treated as a late cancellation. For sessions with a draft review, the review is carried over at no extra cost, and the draft is due 72 hours before the new session date.</div>
-       <div class="info-label">Sessions cancelled or rescheduled with less than 24 hours’ notice, or where you arrive more than 15 minutes late, are forfeited. If you arrive late, the session ends at its scheduled time. A rescheduled session not completed within the 30-day window is also forfeited. Notice is measured against the session time shown in the booking confirmation.</div>
-       <div class="info-label">In the unlikely event that I need to cancel or move a session, you may choose between a full refund or a free reschedule at a time that works for you.</div>
-       <div class="info-label">Nothing in this policy affects any statutory consumer rights that cannot be excluded under the laws of your country of residence.</div>
-      </div>
+      <div class="info-label">You may reschedule a session once, free of charge, with at least 24 hours’ notice. The new session must take place (not just be booked) within 30 days of the original session date. Any further change is treated as a late cancellation. For sessions with a draft review, the review is carried over at no extra cost, and the draft is due 72 hours before the new session date.</div>
+      <div class="info-label">Sessions cancelled or rescheduled with less than 24 hours’ notice, or where you arrive more than 15 minutes late, are forfeited. If you arrive late, the session ends at its scheduled time. A rescheduled session not completed within the 30-day window is also forfeited. Notice is measured against the session time shown in the booking confirmation.</div>
+      <div class="info-label">In the unlikely event that I need to cancel or move a session, you may choose between a full refund or a free reschedule at a time that works for you.</div>
+      <div class="info-label">Nothing in this policy affects any statutory consumer rights that cannot be excluded under the laws of your country of residence.</div>
     </div>
   </section>
 
-    <custom-footer></custom-footer>
+  <custom-footer></custom-footer>
   <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
 </body>

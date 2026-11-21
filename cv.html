@@ -28,13 +28,12 @@
   <style>
     /* CV page only. Nothing here affects other pages. */
     :root {
-      --cv-grey: #b3aea3;
-      --cv-dim: #8c877e;
-      --cv-body: #d8d4cb;
+      --cv-grey: #b8b8b8;
+      --cv-dim: #8f8f8f;
+      --cv-body: #ffffff;
       --cv-rule: rgba(255,255,255,0.25);
       --cv-rule-soft: rgba(255,255,255,0.12);
       --cv-blue: #9fc0ff;
-      --cv-gold: #c8b27a;
     }
 
     html { scroll-behavior: smooth; background: #000 !important; }
@@ -59,9 +58,9 @@
     /* Side nav */
     .side-nav { width: 200px; flex: none; position: sticky; top: 100px; }
     .side-nav h3 { font-size: .8rem; font-weight: 600; color: var(--cv-dim) !important; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 12px; }
-    .side-nav a { display: block; color: #f5f3ef; padding: 10px 0; border-bottom: 1px solid var(--cv-rule); font-size: .95rem; line-height: 1.3; }
+    .side-nav a { display: block; color: #ffffff; padding: 10px 0; border-bottom: 1px solid var(--cv-rule); font-size: .95rem; line-height: 1.3; }
     .side-nav h3 + a { border-top: 1px solid var(--cv-rule); }
-    .side-nav a:hover, .side-nav a.active { color: var(--cv-gold); }
+    .side-nav a:hover, .side-nav a.active { color: var(--cv-blue); }
     .side-nav a.active { font-weight: 500; }
 
     /* Sections */
@@ -96,8 +95,8 @@
     .cv-description + .cv-bullet { margin-top: 3px; }
 
     /* Links: white, thin underline, blue on hover (as on the home page) */
-    .cv-content a { color: #f5f3ef; border-bottom: 1px solid rgba(245,243,239,.4); padding-bottom: 1px; }
-    .cv-content a:hover { color: #f5f3ef; border-bottom-color: var(--cv-blue); }
+    .cv-content a { color: #ffffff; border-bottom: 1px solid rgba(255,255,255,.4); padding-bottom: 1px; }
+    .cv-content a:hover { color: #ffffff; border-bottom-color: var(--cv-blue); }
 
     /* Publications */
     .publication-item { padding-bottom: 12px; margin-bottom: 12px; border-bottom: 1px solid var(--cv-rule-soft); }

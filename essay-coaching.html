@@ -20,6 +20,7 @@
     --oxford-accent:#d8d4cb;
     --mark-red:#8c877e;
     --hero-mark:#9fc0ff;
+    --gold:#c8b27a;
     --hair:rgba(255,255,255,0.18);
   }
   html{ scroll-behavior:smooth; }
@@ -40,14 +41,14 @@
   }
   .eyebrow::before{ content:""; width:22px; height:1px; background:var(--hero-mark); display:inline-block; }
   .hero h1{
-    font-size:clamp(2rem, 4.5vw, 3.2rem); font-weight:500; color:#fff; line-height:1.15; max-width:none; margin-bottom:26px;
+    font-size:clamp(1.9rem, 4vw, 2.8rem); font-weight:500; color:#fff; line-height:1.15; max-width:none; margin-bottom:26px;
   }
   .struck-anchor{ position:relative; display:inline-block; }
   .hero h1 .struck{ position:relative; display:inline-block; color:#7a8496; }
   .hero h1 .struck::after{
     content:""; position:absolute; left:-4%; right:-4%; top:50%; height:2px; background:var(--hero-mark); transform:rotate(-1.5deg);
   }
-  .hero p.lede{ color:var(--sub); font-size:1.15rem; line-height:1.75; max-width:none; }
+  .hero p.lede{ color:var(--sub); font-size:1.05rem; line-height:1.6; max-width:none; }
   .credentials-line{ color:var(--muted); font-size:0.9rem; margin-top:22px; }
   .credentials-line .sep{ color:#3c4250; margin:0 10px; }
 
@@ -65,21 +66,26 @@
     mask-image: linear-gradient(to left, black, transparent 85%);
   }
 
-  /* ---------- Jump nav ---------- */
-  .jump{ max-width:1152px; margin:0 auto; padding:0 24px 56px; }
-  .jump-label{ color:var(--muted); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.14em; font-weight:600; margin-bottom:14px; }
-  .jump-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--hair); border:2px solid var(--hair); }
-  @media (max-width:800px){ .jump-grid{ grid-template-columns:1fr; } }
-  .jump-card{
-    background:var(--bg); padding:28px 34px; text-decoration:none; color:inherit; display:block;
-    transition:background 0.15s ease;
+  /* ---------- Side nav layout (new) ---------- */
+  .page-layout{ max-width:1152px; margin:0 auto; padding:0 24px; display:flex; gap:3rem; align-items:flex-start; }
+  .page-main{ flex:1; min-width:0; }
+  /* inside the content column the blocks no longer need their own centring and side padding */
+  .page-main .top-note, .page-main .section{ max-width:none; padding-left:0; padding-right:0; }
+  .page-main .section{ scroll-margin-top:90px; }
+
+  .side-nav{ width:200px; flex:none; position:sticky; top:100px; padding-top:6px; }
+  .side-nav-label{ color:#8f8f8f; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.14em; font-weight:600; margin:0 0 12px; }
+  .side-nav a{
+    display:block; color:#fff; text-decoration:none; padding:11px 0; font-size:0.95rem; line-height:1.3;
+    border-bottom:1px solid rgba(255,255,255,0.25); transition:color 0.15s ease;
   }
-  .jump-card:hover, .jump-card:focus-visible{ background:#111; }
-  .jump-card .num{ color:var(--hero-mark); font-family:var(--font-head, 'Fraunces', serif); font-size:1.4rem; font-weight:600; }
-  .jump-head{ display:flex; align-items:baseline; gap:14px; margin:0 0 8px; }
-  .jump-card h3{ color:var(--hero-mark); font-size:1.4rem; margin:0; }
-  .jump-card p{ color:var(--sub); font-size:0.95rem; line-height:1.6; margin:0 0 12px; }
-  .jump-card .go{ color:#fff; font-size:0.9rem; font-weight:500; }
+  .side-nav-label + a{ border-top:1px solid rgba(255,255,255,0.25); }
+  .side-nav a:hover, .side-nav a.active{ color:var(--gold); }
+  .side-nav a.active{ font-weight:500; }
+  @media (max-width:1024px){
+    .side-nav{ display:none; }
+    .page-layout{ display:block; }
+  }
 
   /* ---------- Contact bar + button ---------- */
   .contact-bar{
@@ -97,9 +103,9 @@
   /* ---------- Sections ---------- */
   .section{ max-width:1152px; margin:0 auto; padding:56px 24px; scroll-margin-top:24px; }
   .section + .section, .contact-bar + .section{ border-top:2px solid var(--hair); }
-  .section h2{ font-size:1.9rem; color:var(--hero-mark); font-weight:500; margin-bottom:12px; }
+  .section h2{ font-size:1.75rem; color:var(--hero-mark); font-weight:500; margin-bottom:12px; }
   #how h2{ color:#fff; }
-  .section .intro{ color:var(--sub); font-size:1.05rem; line-height:1.7; max-width:none; margin:0 0 28px; }
+  .section .intro{ color:var(--sub); font-size:1rem; line-height:1.55; max-width:none; margin:0 0 28px; }
   .back-top{ display:inline-block; margin-top:26px; color:var(--muted); font-size:0.85rem; text-decoration:none; }
   .back-top:hover{ color:#fff; }
 
@@ -107,11 +113,11 @@
   .track-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2px; background:var(--hair); border:2px solid var(--hair); margin-bottom:32px; }
   @media (max-width:800px){ .track-grid{ grid-template-columns:1fr; } }
   .track-card{ background:var(--bg); padding:32px 34px; text-align:left; }
-  .track-card h3{ font-size:1.35rem; color:#fff; font-weight:500; margin:0 0 4px; }
+  .track-card h3{ font-size:1.2rem; color:#fff; font-weight:500; margin:0 0 4px; }
   .track-card .tag{ color:var(--hero-mark); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; margin-bottom:12px; display:block; }
-  .track-card p{ color:var(--sub); font-size:0.97rem; line-height:1.65; margin:0 0 12px; }
+  .track-card p{ color:var(--sub); font-size:0.95rem; line-height:1.55; margin:0 0 12px; }
   .track-card p:last-child{ margin-bottom:0; }
-  .track-card ul{ margin:0 0 12px; padding-left:1.1rem; color:var(--sub); font-size:0.97rem; line-height:1.65; }
+  .track-card ul{ margin:0 0 12px; padding-left:1.1rem; color:var(--sub); font-size:0.95rem; line-height:1.55; }
   .track-card li{ margin-bottom:8px; }
   .track-card strong{ color:#fff; font-weight:500; }
   .track-card{ display:flex; flex-direction:column; }
@@ -119,19 +125,19 @@
   .track-card .price-line{ color:#fff; font-size:1.15rem; font-weight:500; }
   .track-card .price-sub{ color:#fff; font-size:0.9rem; margin-top:4px; }
   .track-card .tiers{ list-style:none; padding:0; margin:0; }
-  .track-card .tiers li{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; padding:9px 0; margin:0; border-bottom:1px solid var(--hair); color:#fff; font-size:0.97rem; }
+  .track-card .tiers li{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; padding:9px 0; margin:0; border-bottom:1px solid var(--hair); color:#fff; font-size:0.95rem; }
   .track-card .tiers li:last-child{ border-bottom:none; }
   .track-card .tiers .t-label{ flex:1 1 150px; }
   .track-card .tiers .btn-square{ margin:0; padding:7px 18px; font-size:0.85rem; }
   .track-card .btn-square{ margin-top:auto; align-self:flex-start; border-color:var(--hero-mark); }
-  .top-note{ max-width:1152px; margin:0 auto; padding:0 24px 40px; color:#fff; font-size:1.05rem; line-height:1.7; }
+  .top-note{ max-width:1152px; margin:0 auto; padding:0 24px 40px; color:#fff; font-size:1rem; line-height:1.55; }
   .top-note a{ color:var(--hero-mark); text-decoration:underline; }
 
   /* ---------- Testimonial ---------- */
   .testimonial{ border:2px solid var(--hair); padding:32px 34px; }
   .testimonial .t-label-top{ color:var(--hero-mark); font-size:0.78rem; text-transform:uppercase; letter-spacing:0.14em; font-weight:600; margin-bottom:16px; }
   .testimonial blockquote{ margin:0; }
-  .testimonial blockquote p{ color:#fff; font-size:1.05rem; line-height:1.75; margin:0 0 16px; max-width:90ch; }
+  .testimonial blockquote p{ color:#fff; font-size:1rem; line-height:1.6; margin:0 0 16px; max-width:90ch; }
   .testimonial details summary{
     list-style:none; cursor:pointer; display:inline-block; margin:0 0 16px;
     color:var(--hero-mark); font-size:0.92rem; font-weight:500; text-decoration:underline; text-underline-offset:3px;
@@ -156,7 +162,7 @@
   /* Info rows */
   .info-row{ padding:18px 0; border-bottom:2px solid var(--hair); }
   .info-row:last-child{ border-bottom:none; }
-  .info-label{ color:#fff; font-size:0.95rem; font-weight:500; margin-bottom:6px; }
+  .info-label{ color:#fff; font-size:0.95rem; line-height:1.55; font-weight:500; margin-bottom:6px; }
   .info-text{ color:var(--sub); font-size:0.95rem; line-height:1.6; max-width:90ch; }
 
   .process-step{ display:grid; grid-template-columns:60px 1fr; gap:20px; position:relative; }
@@ -221,133 +227,144 @@
     </div>
   </section>
 
-  <p class="top-note">Please review the <a href="#important">Important information</a> section below before booking.</p>
+  <div class="page-layout">
 
-  <!-- Jump nav -->
-  <nav class="jump" aria-label="Choose a service">
-    <div class="jump-label">What are you working on?</div>
-    <div class="jump-grid">
-      <a class="jump-card" href="#fellowships">
-        <div class="jump-head"><span class="num">1</span><h3>Fellowships &amp; Admissions</h3></div>
-        <p>Selling your personal and research potential in fellowship, scholarship, and admissions applications.</p>
-        <span class="go">See options &amp; pricing &darr;</span>
-      </a>
-      <a class="jump-card" href="#essays">
-        <div class="jump-head"><span class="num">2</span><h3>Academic Writing &amp; Course Essays</h3></div>
-        <p>Thesis strength, evidence integration, structural flow, and scholarly tone.</p>
-        <span class="go">See options &amp; pricing &darr;</span>
-      </a>
-    </div>
-  </nav>
+    <!-- Side navigation -->
+    <nav class="side-nav" aria-label="Page sections">
+      <div class="side-nav-label">Sections</div>
+      <a href="#fellowships">Fellowships &amp; Admissions</a>
+      <a href="#essays">Academic Writing &amp; Essays</a>
+      <a href="#important">Important information</a>
+    </nav>
 
-  <!-- ===== 1. Fellowships ===== -->
-  <section class="section" id="fellowships">
-    <h2>Fellowships &amp; Admissions</h2>
-    <p class="intro">Fellowship applications are about selling your personal and research potential. I have won major fellowships myself: the Pierre Elliott Trudeau Foundation Scholarship ($180,000 CAD), a SSHRC Doctoral Fellowship ($93,000 CAD), and a SSHRC Master's Fellowship ($17,500 CAD).</p>
+    <div class="page-main">
 
-    <div class="track-grid">
-      <div class="track-card">
-        <h3>Option A: Brainstorm &amp; Strategy</h3>
-        <span class="tag">45-minute call</span>
-        <p>Find your core narrative hook and test your eligibility and fit. Bring ideas, bullet points, or a rough draft. Best for early-stage applicants.</p>
-        <div class="price-block">
-          <div class="price-line">$125 USD</div>
+      <p class="top-note">Please review the <a href="#important">Important information</a> section below before booking.</p>
+
+      <!-- ===== 1. Fellowships ===== -->
+      <section class="section" id="fellowships">
+        <h2>Fellowships &amp; Admissions</h2>
+        <p class="intro">Fellowship applications are about selling your personal and research potential. I have won major fellowships myself: the Pierre Elliott Trudeau Foundation Scholarship ($180,000 CAD), a SSHRC Doctoral Fellowship ($93,000 CAD), and a SSHRC Master's Fellowship ($17,500 CAD).</p>
+
+        <div class="track-grid">
+          <div class="track-card">
+            <h3>Option A: Brainstorm &amp; Strategy</h3>
+            <span class="tag">45-minute call</span>
+            <p>Find your core narrative hook and test your eligibility and fit. Bring ideas, bullet points, or a rough draft. Best for early-stage applicants.</p>
+            <div class="price-block">
+              <div class="price-line">$125 USD</div>
+            </div>
+            <a href="https://cal.com/roxana-akhmetova/fellowship-call" class="btn-square">Book this option</a>
+          </div>
+          <div class="track-card">
+            <h3>Option B: Deep-Dive Proposal Review</h3>
+            <span class="tag">Async review + 45-minute call</span>
+            <p>You send a draft (up to 2,000 words) for annotation; we then go through the feedback on a live 45-minute call.</p>
+            <div class="price-block">
+              <div class="price-line">$375 USD</div>
+              <div class="price-sub">Optional follow-up review: +$100 USD</div>
+            </div>
+            <a href="https://cal.com/roxana-akhmetova/fellowship-async-review-and-call" class="btn-square">Book this option</a>
+          </div>
         </div>
-        <a href="https://cal.com/roxana-akhmetova/fellowship-call" class="btn-square">Book this option</a>
-      </div>
-      <div class="track-card">
-        <h3>Option B: Deep-Dive Proposal Review</h3>
-        <span class="tag">Async review + 45-minute call</span>
-        <p>You send a draft (up to 2,000 words) for annotation; we then go through the feedback on a live 45-minute call.</p>
-        <div class="price-block">
-          <div class="price-line">$375 USD</div>
-          <div class="price-sub">Optional follow-up review: +$100 USD</div>
+
+        <!-- Testimonial -->
+        <div class="testimonial">
+          <div class="t-label-top">What a client says</div>
+          <blockquote>
+            <p>“I reached out to Roxana hoping to learn more about her experience as a Pierre Trudeau Foundation scholar. From our very first conversation, she was incredibly generous with her knowledge, tips, and insights.</p>
+            <details>
+              <summary><span class="more-t">Read more &darr;</span><span class="less">Show less &uarr;</span></summary>
+              <p>I really appreciate how intentional she was about getting to know me, understanding my experiences, and helping me reflect my story, strengths, and aspirations in my application. She didn't just help me edit my writing; she helped me see how to communicate my experiences more meaningfully and compellingly. She shared practical yet powerful writing strategies, offered direct and thoughtful feedback, and even provided concrete examples to help me understand how to put her suggestions into practice.</p>
+              <p>I reached out just a few days before the application deadline, fully aware of how busy she must have been, and honestly didn't expect she would be able to accommodate my request. Yet, she graciously made time for me and delivered incredibly helpful feedback within such a short turnaround. Her responsiveness, encouragement, and genuine willingness to go the extra mile meant so much to me.</p>
+              <p>Roxana's mentorship went far beyond polishing my application, she challenged me to think more deeply about my experiences, helped me recognize the value of my own story, and showed me how to communicate it with greater clarity, confidence, and purpose. She helped strengthen my application in ways I hadn't even imagined, and I came away from our conversations feeling much more confident in what I had to offer.</p>
+              <p>I am incredibly grateful to have experienced her mentorship, even within such a short time. She is knowledgeable, thoughtful, approachable, and genuinely invested in helping other scholars succeed. Anyone would be so lucky to cross paths with her and learn from her.”</p>
+            </details>
+          </blockquote>
+          <div class="who">Deanna, PhD Student</div>
         </div>
-        <a href="https://cal.com/roxana-akhmetova/fellowship-async-review-and-call" class="btn-square">Book this option</a>
-      </div>
-    </div>
 
-    <!-- Testimonial -->
-    <div class="testimonial">
-      <div class="t-label-top">What a client says</div>
-      <blockquote>
-        <p>“I reached out to Roxana hoping to learn more about her experience as a Pierre Trudeau Foundation scholar. From our very first conversation, she was incredibly generous with her knowledge, tips, and insights.</p>
-        <details>
-          <summary><span class="more-t">Read more &darr;</span><span class="less">Show less &uarr;</span></summary>
-          <p>I really appreciate how intentional she was about getting to know me, understanding my experiences, and helping me reflect my story, strengths, and aspirations in my application. She didn't just help me edit my writing; she helped me see how to communicate my experiences more meaningfully and compellingly. She shared practical yet powerful writing strategies, offered direct and thoughtful feedback, and even provided concrete examples to help me understand how to put her suggestions into practice.</p>
-          <p>I reached out just a few days before the application deadline, fully aware of how busy she must have been, and honestly didn't expect she would be able to accommodate my request. Yet, she graciously made time for me and delivered incredibly helpful feedback within such a short turnaround. Her responsiveness, encouragement, and genuine willingness to go the extra mile meant so much to me.</p>
-          <p>Roxana's mentorship went far beyond polishing my application, she challenged me to think more deeply about my experiences, helped me recognize the value of my own story, and showed me how to communicate it with greater clarity, confidence, and purpose. She helped strengthen my application in ways I hadn't even imagined, and I came away from our conversations feeling much more confident in what I had to offer.</p>
-          <p>I am incredibly grateful to have experienced her mentorship, even within such a short time. She is knowledgeable, thoughtful, approachable, and genuinely invested in helping other scholars succeed. Anyone would be so lucky to cross paths with her and learn from her.”</p>
-        </details>
-      </blockquote>
-      <div class="who">Deanna, PhD Student</div>
-    </div>
+        <a class="back-top" href="#top-nav" onclick="window.scrollTo({top:0});return false;">&uarr; Back to top</a>
+      </section>
 
-    <a class="back-top" href="#top-nav" onclick="window.scrollTo({top:0});return false;">&uarr; Back to top</a>
-  </section>
+      <!-- ===== 2. Essays ===== -->
+      <section class="section" id="essays">
+        <h2>Academic Writing &amp; Course Essays</h2>
+        <p class="intro">Academic course essays are about thesis strength, evidence integration, structural flow, and scholarly tone. This service is best suited to social science and humanities subjects.</p>
 
-  <!-- ===== 2. Essays ===== -->
-  <section class="section" id="essays">
-    <h2>Academic Writing &amp; Course Essays</h2>
-    <p class="intro">Academic course essays are about thesis strength, evidence integration, structural flow, and scholarly tone. This service is best suited to social science and humanities subjects.</p>
-
-    <div class="track-grid">
-      <div class="track-card">
-        <h3>Option A: Strategy &amp; Outline Session</h3>
-        <span class="tag">45-minute call</span>
-        <p>Brainstorm, refine your thesis, build an outline, or get unblocked. Bring your essay prompt and rough notes. Best for early-stage essays.</p>
-        <div class="price-block">
-          <div class="price-line">$95 USD</div>
+        <div class="track-grid">
+          <div class="track-card">
+            <h3>Option A: Strategy &amp; Outline Session</h3>
+            <span class="tag">45-minute call</span>
+            <p>Brainstorm, refine your thesis, build an outline, or get unblocked. Bring your essay prompt and rough notes. Best for early-stage essays.</p>
+            <div class="price-block">
+              <div class="price-line">$95 USD</div>
+            </div>
+            <a href="https://cal.com/roxana-akhmetova/academic-writing-45-minute-call" class="btn-square">Book this option</a>
+          </div>
+          <div class="track-card">
+            <h3>Option B: Essay Deep-Dive</h3>
+            <span class="tag">Async review + 45-minute call</span>
+            <p>For complete drafts: annotated feedback on structure and argument, then a live call. Priced by length:</p>
+            <div class="price-block">
+              <ul class="tiers">
+                <li><span class="t-label">Up to 2,000 words</span><span>$165 USD</span><a href="https://cal.com/roxana-akhmetova/short-review-and-call" class="btn-square">Book</a></li>
+                <li><span class="t-label">2,001&ndash;4,000 words</span><span>$260 USD</span><a href="https://cal.com/roxana-akhmetova/medium-review-and-call" class="btn-square">Book</a></li>
+                <li><span class="t-label">4,001&ndash;7,000 words</span><span>$380 USD</span><a href="https://cal.com/roxana-akhmetova/long-review-and-call" class="btn-square">Book</a></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <a href="https://cal.com/roxana-akhmetova/academic-writing-45-minute-call" class="btn-square">Book this option</a>
-      </div>
-      <div class="track-card">
-        <h3>Option B: Essay Deep-Dive</h3>
-        <span class="tag">Async review + 45-minute call</span>
-        <p>For complete drafts: annotated feedback on structure and argument, then a live call. Priced by length:</p>
-        <div class="price-block">
-          <ul class="tiers">
-            <li><span class="t-label">Up to 2,000 words</span><span>$165 USD</span><a href="https://cal.com/roxana-akhmetova/short-review-and-call" class="btn-square">Book</a></li>
-            <li><span class="t-label">2,001&ndash;4,000 words</span><span>$260 USD</span><a href="https://cal.com/roxana-akhmetova/medium-review-and-call" class="btn-square">Book</a></li>
-            <li><span class="t-label">4,001&ndash;7,000 words</span><span>$380 USD</span><a href="https://cal.com/roxana-akhmetova/long-review-and-call" class="btn-square">Book</a></li>
-          </ul>
+        <a class="back-top" href="#top-nav" onclick="window.scrollTo({top:0});return false;">&uarr; Back to top</a>
+      </section>
+
+      <!-- ===== Important information (shared) ===== -->
+      <section class="section" id="important">
+        <h2>Important information</h2>
+        <p class="intro">This applies to both fellowship and essay services.</p>
+
+        <div class="info-row">
+          <div class="info-label">I do not write, rewrite, or ghostwrite. My role is to help you develop your ideas, structure, and argument. I will not write sentences, edit grammar or spelling, or format bibliographies and citations.</div>
         </div>
-      </div>
-    </div>
-    <a class="back-top" href="#top-nav" onclick="window.scrollTo({top:0});return false;">&uarr; Back to top</a>
-  </section>
+        <div class="info-row">
+          <div class="info-label">Application outcomes, admissions, and grading decisions cannot be guaranteed. My coaching helps you present your strongest work, but all writing, original ideas, and final submissions remain your sole responsibility.</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Rules on outside help differ by course, instructor, and program. It's your responsibility to confirm that coaching is allowed for your assignment, or to check with your supervisor, before booking.</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Drafts must be submitted at least 72 hours before the scheduled call. If it isn't sent in time, the call is rescheduled or converted to an Option A strategy session without an async review. Word limits apply to body text only. For fellowship reviews, the limit is 2,000 words and I stop reading at the limit. For essays, pricing follows the word-count tiers above.</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Each service ends at the scope listed. I don't offer final polishing, proofreading, or line editing. Any further async review or call after a service is complete is booked and paid for separately.</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">Full payment is required at the time of booking to reserve your spot. Because I take only a small number of clients each week to give each person dedicated attention, refunds are not provided for change of mind, late cancellations, or missed sessions once a booking is confirmed.</div>
+          <div class="info-label">You may reschedule a session once, free of charge, with at least 24 hours’ notice. The new session must take place (not just be booked) within 30 days of the original session date. Any further change is treated as a late cancellation. For sessions with a draft review, the review is carried over at no extra cost, and the draft is due 72 hours before the new session date.</div>
+          <div class="info-label">Sessions cancelled or rescheduled with less than 24 hours’ notice, or where you arrive more than 15 minutes late, are forfeited. If you arrive late, the session ends at its scheduled time. A rescheduled session not completed within the 30-day window is also forfeited. Notice is measured against the session time shown in the booking confirmation.</div>
+          <div class="info-label">In the unlikely event that I need to cancel or move a session, you may choose between a full refund or a free reschedule at a time that works for you.</div>
+          <div class="info-label">Nothing in this policy affects any statutory consumer rights that cannot be excluded under the laws of your country of residence.</div>
+        </div>
+      </section>
 
-  <!-- ===== Important information (shared) ===== -->
-  <section class="section" id="important">
-    <h2>Important information</h2>
-    <p class="intro">This applies to both fellowship and essay services.</p>
-
-    <div class="info-row">
-      <div class="info-label">I do not write, rewrite, or ghostwrite. My role is to help you develop your ideas, structure, and argument. I will not write sentences, edit grammar or spelling, or format bibliographies and citations.</div>
     </div>
-    <div class="info-row">
-      <div class="info-label">Application outcomes, admissions, and grading decisions cannot be guaranteed. My coaching helps you present your strongest work, but all writing, original ideas, and final submissions remain your sole responsibility.</div>
-    </div>
-    <div class="info-row">
-      <div class="info-label">Rules on outside help differ by course, instructor, and program. It's your responsibility to confirm that coaching is allowed for your assignment, or to check with your supervisor, before booking.</div>
-    </div>
-    <div class="info-row">
-      <div class="info-label">Drafts must be submitted at least 72 hours before the scheduled call. If it isn't sent in time, the call is rescheduled or converted to an Option A strategy session without an async review. Word limits apply to body text only. For fellowship reviews, the limit is 2,000 words and I stop reading at the limit. For essays, pricing follows the word-count tiers above.</div>
-    </div>
-    <div class="info-row">
-      <div class="info-label">Each service ends at the scope listed. I don't offer final polishing, proofreading, or line editing. Any further async review or call after a service is complete is booked and paid for separately.</div>
-    </div>
-    <div class="info-row">
-      <div class="info-label">Full payment is required at the time of booking to reserve your spot. Because I take only a small number of clients each week to give each person dedicated attention, refunds are not provided for change of mind, late cancellations, or missed sessions once a booking is confirmed.</div>
-      <div class="info-label">You may reschedule a session once, free of charge, with at least 24 hours’ notice. The new session must take place (not just be booked) within 30 days of the original session date. Any further change is treated as a late cancellation. For sessions with a draft review, the review is carried over at no extra cost, and the draft is due 72 hours before the new session date.</div>
-      <div class="info-label">Sessions cancelled or rescheduled with less than 24 hours’ notice, or where you arrive more than 15 minutes late, are forfeited. If you arrive late, the session ends at its scheduled time. A rescheduled session not completed within the 30-day window is also forfeited. Notice is measured against the session time shown in the booking confirmation.</div>
-      <div class="info-label">In the unlikely event that I need to cancel or move a session, you may choose between a full refund or a free reschedule at a time that works for you.</div>
-      <div class="info-label">Nothing in this policy affects any statutory consumer rights that cannot be excluded under the laws of your country of residence.</div>
-    </div>
-  </section>
+  </div>
 
   <custom-footer></custom-footer>
   <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
+
+  <script>
+    // Highlight the current section in the side nav while scrolling
+    const navLinks = document.querySelectorAll('.side-nav a');
+    const sections = document.querySelectorAll('.page-main .section');
+    function updateActive() {
+      let current = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 150) current = s.id; });
+      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+    }
+    window.addEventListener('scroll', updateActive);
+    updateActive();
+  </script>
 </body>
 </html>

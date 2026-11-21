@@ -41,7 +41,8 @@
     main { max-width: 800px; margin: 4.5rem auto; padding: 1.25rem; line-height: 1.8; }
     h1 { font-size: 2.5rem; margin-bottom: 1.25rem; border-bottom: 3px solid #e6eefb; display: inline-block; color: #f7f7f8; font-weight: 600; }
     h2 { font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #f7f7f8; font-weight: 600; }
-    p { margin-bottom: 1.25rem; color: #e6e6e6; font-size: 1.05rem; }
+    /* "main p" (not just "p") so this beats the "main p" rule in style.css. Change 1.1rem to adjust the text size. */
+    main p { margin-bottom: 1.25rem; color: #e6e6e6; font-size: 1.1rem; }
     a { color: #9fc0ff; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s; }
     a:hover { border-bottom-color: #9fc0ff; }
   </style>
@@ -49,7 +50,8 @@
 <body class="text-light font-sans">
   <custom-navbar></custom-navbar>
 
-  <main class="container mx-auto px-6 py-12 max-w-6xl">
+  <!-- Tailwind width classes removed so the 800px max-width above applies -->
+  <main>
     <h1>About Roxana Akhmetova</h1>
 
     <p>

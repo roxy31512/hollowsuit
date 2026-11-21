@@ -87,8 +87,10 @@ class CustomNavbar extends HTMLElement {
           justify-content: flex-end;
         }
 
+        /* Nav text: white, 1rem (16px) */
         .nav-links a {
-          color: #d8d4cb;
+          color: #ffffff;
+          font-size: 1rem;
           text-decoration: none;
           font-weight: 500;
           padding: 6px 10px;
@@ -125,7 +127,8 @@ class CustomNavbar extends HTMLElement {
           cursor: default;
           padding: 6px 10px;
           border-radius: 6px;
-          color: #d8d4cb;
+          color: #ffffff;
+          font-size: 1rem;
           font-weight: 500;
           transition: all 0.15s ease;
         }
@@ -136,7 +139,8 @@ class CustomNavbar extends HTMLElement {
         }
 
         .dropdown-toggle a {
-          color: #d8d4cb;
+          color: #ffffff;
+          font-size: inherit;
           text-decoration: none;
           font-weight: 500;
           padding: 0;
@@ -144,7 +148,7 @@ class CustomNavbar extends HTMLElement {
         }
 
         .dropdown-arrow {
-          font-size: 0.7rem;
+          font-size: 0.6rem;
           transition: transform 0.2s;
           color: inherit;
         }
@@ -171,7 +175,8 @@ class CustomNavbar extends HTMLElement {
         .dropdown-menu a {
           display: block;
           padding: 10px 16px;
-          color: #d8d4cb;
+          color: #ffffff;
+          font-size: 1rem;
           text-decoration: none;
           font-weight: 500;
           transition: all 0.15s ease;
@@ -195,7 +200,7 @@ class CustomNavbar extends HTMLElement {
         .hamburger span {
           width: 24px;
           height: 2px;
-          background: #d8d4cb;
+          background: #ffffff;
           transition: all 0.3s ease;
           display: block;
         }
@@ -265,7 +270,7 @@ class CustomNavbar extends HTMLElement {
             <a href="https://scholar.google.com/citations?user=uxvwJb4AAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; padding: 4px; border-radius: 6px; transition: all 0.15s ease; opacity: 0.9;" aria-label="Google Scholar" onmouseover="this.style.opacity='1';" onmouseout="this.style.opacity='0.9';">
               <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Google_Scholar_logo.svg" alt="Google Scholar" style="width: 24px; height: 24px;">
             </a>
-            <a class="brand" href="/" aria-label="Home" style="display: flex; align-items: center; gap: 0.6rem; font-weight: 600; font-size: 1.1rem; color: #f5f3ef; text-decoration: none;">
+            <a class="brand" href="/" aria-label="Home" style="display: flex; align-items: center; gap: 0.6rem; font-weight: 600; font-size: 1rem; color: #ffffff; text-decoration: none;">
               Home
             </a>
           </div>

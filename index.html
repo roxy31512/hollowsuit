@@ -65,11 +65,18 @@
     .lower { display:flex; gap:8rem; align-items:flex-start; margin-top:2rem; }
     .lower-main { flex:0 1 34.2rem; min-width:0; margin-top:0; }
     .lower-main .opened { max-width:100%; }
-    .lower-side { flex:0 0 clamp(200px, 21vw, 270px); }
+    /* Services as a contents page. Hover only moves the arrow (no padding change), so text never re-wraps. */
+    .toc { margin-top:.25rem; }
+    .toc a { display:flex; align-items:baseline; gap:8px; padding:13px 0; border-bottom:1px solid rgba(255,255,255,.25); color:#f5f3ef; text-decoration:none; font-size:1.05rem; line-height:1.3; }
+    .toc a:first-child { border-top:1px solid rgba(255,255,255,.25); }
+    .toc .n { color:#c8b27a; font-size:.85rem; width:2.3rem; flex:none; }
+    .toc .lbl { flex:1 1 auto; min-width:0; }
+    .toc .arr { flex:none; margin-left:auto; color:#c8b27a; transition:transform .15s ease; }
+    .toc a:hover .arr, .toc a:focus-visible .arr { transform:translateX(6px); }
+    .toc a:focus-visible { outline:1px solid #c8b27a; outline-offset:2px; }
+    @media (min-width:561px){ .toc .lbl { white-space:nowrap; } }
+    .lower-side { flex:0 0 330px; }
     @media (max-width:560px){ .lower{ flex-direction:column-reverse; gap:2rem; } .lower-side{ flex-basis:auto; width:100%; } }
-    .svc-buttons { display:flex; flex-direction:column; gap:10px; }
-    .svc-btn { display:block; box-sizing:border-box; width:100%; padding:11px 16px; border:1px solid #9fc0ff; color:#fff; text-align:center; text-decoration:none; font-weight:500; font-size:.88rem; line-height:1.3; transition:background .15s ease; }
-    .svc-btn:hover, .svc-btn:focus-visible { background:#111; outline:none; }
 
     /* ---- Right: the shelf ---- */
     .shelf-title { font-size:2rem; font-weight:500; color:#f5f3ef !important; margin-bottom:.75rem; }
@@ -110,11 +117,12 @@
     /* book types: blog = slim grey, policy = red, chapter = green, thesis = navy */
     .thesis  { --w:84px; --h:310px; --c:#1d2f4f; }
     .thesis .t { font-size:1.05rem; font-weight:500; }
-    /* MSc thesis: thinner, slightly lighter blue, leans left onto the DPhil book.
-       Pivots on its bottom-left corner; margin-left (~ height x sin(angle)) lets its top-left corner rest against the DPhil spine.
-       To change the lean, edit the angle in the JS entry (r:'-6deg') and this margin together. */
-    .msc     { --w:34px; --h:262px; --c:#27406b; margin-left:24px; }
+    /* Master's theses: thinner than the DPhil, standing upright.
+       MSc (Oxford) = Oxford blue, lighter than the DPhil navy. MA (Manitoba) = Manitoba brown, with the same gilt bands. */
+    .msc     { --w:38px; --h:262px; --c:#27406b; }
     .msc .t  { font-size:.82rem; font-weight:500; }
+    .ma      { --w:40px; --h:268px; --c:#5b3a1e; }
+    .ma .t   { font-size:.82rem; font-weight:500; }
     .policy  { --w:40px; --h:268px; --c:#8b2332; }
     .chapter { --w:46px; --h:250px; --c:#2c4a3b; z-index:2; }
 
@@ -156,7 +164,7 @@
     }
     .report .head { width:100%; height:30px; flex:0 0 auto; background:#f4f1e8; border-bottom:3px solid rgba(255,255,255,.35); display:flex; align-items:center; justify-content:center; }
     .report .head::before { content:""; width:9px; height:9px; background:#8b2332; }
-    .report .t { writing-mode:vertical-rl; font-family:'Libre Franklin',sans-serif; font-weight:600; font-size:.7rem; letter-spacing:.03em; line-height:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-top:10px; }
+    .report .t { writing-mode:vertical-rl; font-family:'Libre Franklin',sans-serif; font-weight:600; font-size:.64rem; letter-spacing:.02em; line-height:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-top:10px; }
     .report .y { writing-mode:vertical-rl; font-family:'Libre Franklin',sans-serif; font-size:.58rem; letter-spacing:.05em; opacity:.8; }
     .report:hover, .report:focus-visible { --lift:-14px; outline:none; }
     .report[aria-pressed="true"] { --lift:-20px; box-shadow:0 0 0 2px #f5f3ef; }
@@ -202,10 +210,10 @@
         <aside class="lower-side">
           <!-- Change /coaching.html and /contact.html to your real page names -->
           <h2 class="shelf-title" id="services-label">Work with me</h2>
-          <nav class="svc-buttons" aria-labelledby="services-label">
-            <a class="svc-btn" href="/coaching.html#fellowships">Fellowships &amp; Admissions</a>
-            <a class="svc-btn" href="/coaching.html#essays">Academic Writing &amp; Course Essays</a>
-            <a class="svc-btn" href="/contact.html">Government &amp; Policy Consulting</a>
+          <nav class="toc" aria-labelledby="services-label">
+            <a href="/coaching.html#fellowships"><span class="n">I.</span><span class="lbl">Fellowships &amp; Admissions</span><span class="arr">&rarr;</span></a>
+            <a href="/coaching.html#essays"><span class="n">II.</span><span class="lbl">Academic Writing &amp; Essays</span><span class="arr">&rarr;</span></a>
+            <a href="/contact.html"><span class="n">III.</span><span class="lbl">Government Consulting</span><span class="arr">&rarr;</span></a>
           </nav>
         </aside>
       </div>
@@ -218,29 +226,31 @@
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
 
   <script>
-    /* EDIT HERE: one entry per book, shown left to right. type: thesis | msc | chapter | policy | report | post */
+    /* EDIT HERE: one entry per book, shown left to right. type: thesis | msc | ma | chapter | policy | report | post */
     const books = [
-      { type:'report', cls:'', spine:'Governments and AI in Immigration', title:'On How Governments Use Artificial Intelligence in Immigration', year:'2020', kind:'Policy piece',
+      /* Master's theses first (oldest, far left). Update titles/notes as needed. */
+      { type:'ma', cls:'', spine:'MA Thesis', title:'MA thesis', year:'2019', kind:'Master\u2019s thesis',
+        note:'University of Manitoba MA thesis.', href:'https://mspace.lib.umanitoba.ca/items/a2a1d222-c0e0-4abd-adb9-9e9c29731bd5' },
+      { type:'msc', cls:'', spine:'MSc Thesis', title:'MSc thesis', year:'2020', kind:'Master\u2019s thesis',
+        note:'University of Oxford MSc thesis.', href:'https://ora.ox.ac.uk/objects/uuid:41a1d471-3088-43d0-b1e0-15d1de9db886' },
+      { type:'report', cls:'', spine:'Working Paper: Governments & AI', title:'On How Governments Use Artificial Intelligence in Immigration', year:'2020', kind:'Policy piece',
         note:'Oxford COMPAS Working Paper Series.', href:'publications.html' },
-      { type:'chapter', cls:'', r:'6deg', spine:'Politics of Technology', title:'Politics of Technology: The Use of Artificial Intelligence by US and Canadian Immigration Agencies and their Impacts on Human Rights', year:'2021', kind:'Book chapter',
+      { type:'chapter', cls:'', r:'6deg', spine:'Chapter: Politics of Technology', title:'Politics of Technology: The Use of Artificial Intelligence by US and Canadian Immigration Agencies and their Impacts on Human Rights', year:'2021', kind:'Book chapter',
         note:'With E. Harris. In Digital Identity, Virtual Borders and Social Media, edited by E. Korkmaz.', href:'publications.html' },
-      { type:'post', cls:'', spine:'Concrete and Code', title:'Concrete and Code: West Bank Field Notes', year:'2023', kind:'Field notes',
+      { type:'post', cls:'', spine:'Blog: Concrete and Code', title:'Concrete and Code: West Bank Field Notes', year:'2023', kind:'Field notes',
         note:'How surveillance technologies shape movement, space and daily life at one of the most heavily monitored borders in the world.', href:'/blog/west-bank-fieldnotes.html' },
-      { type:'post', cls:'short', spine:'Beyond the Funding', title:'Beyond the Funding: The Pierre Elliott Trudeau Foundation Scholarship', year:'2024', kind:'Blog post',
+      { type:'post', cls:'short', spine:'Blog: Beyond the Funding', title:'Beyond the Funding: The Pierre Elliott Trudeau Foundation Scholarship', year:'2024', kind:'Blog post',
         note:'Highlights of my journey as a 2021 Trudeau Scholar, from application to completion.', href:'/blog/beyondthefunding.html' },
-      { type:'post', cls:'tall', spine:'Anything You Want', title:'Anything You Want, Sweetheart: Borders, Data, and the Business of Bordering', year:'2024', kind:'Blog post',
+      { type:'post', cls:'tall', spine:'Blog: Anything You Want', title:'Anything You Want, Sweetheart: Borders, Data, and the Business of Bordering', year:'2024', kind:'Blog post',
         note:'Six border security expos across the US, Europe and Turkey, and the industry\u2019s claim that technologies are neutral.', href:'/blog/anything-you-want.html' },
-      { type:'policy', cls:'', spine:'Challenging Mandated AI', title:'Challenging Mandated AI in the Public Sector', year:'2025', kind:'Policy piece',
+      { type:'policy', cls:'', spine:'Policy Piece: AI in the Public Sector', title:'Challenging Mandated AI in the Public Sector', year:'2025', kind:'Policy piece',
         note:'In The State of AI Ethics Report (Volume 7), Montreal AI Ethics Institute.', href:'publications.html' },
-      { type:'post', cls:'', spine:'Canada\u2019s Bet on Cohere', title:'Can a Middle Power Buy AI Sovereignty? Canada\u2019s $1.6B Bet on Cohere', year:'2026', kind:'Blog post',
+      { type:'post', cls:'', spine:'Blog: Canada\u2019s Bet on Cohere', title:'Can a Middle Power Buy AI Sovereignty? Canada\u2019s $1.6B Bet on Cohere', year:'2026', kind:'Blog post',
         note:'Can a middle power get AI sovereignty without matching hyperscale spending?', href:'/blog/data-sovereignty-ai.html' },
-      { type:'post', cls:'short', spine:'Who Gets the RAM?', title:'Who Gets the RAM? Altman, Data Centres, and the Case for Memory Oversight', year:'2026', kind:'Blog post',
+      { type:'post', cls:'short', spine:'Blog: Who Gets the RAM?', title:'Who Gets the RAM? Altman, Data Centres, and the Case for Memory Oversight', year:'2026', kind:'Blog post',
         note:'If memory concentrates in a handful of the biggest buyers, should it come with disclosure and oversight?', href:'/blog/altman-ram.html' },
       { type:'thesis', cls:'', spine:'DPhil Thesis', title:'DPhil thesis', year:'2025', kind:'Doctoral thesis',
-        note:'How and why governments adopt AI in immigration and border control decision-making.', href:'https://ora.ox.ac.uk/objects/uuid:bde9271c-3e56-4946-83d4-4f50f4495cc3' },
-      /* MSc thesis: sits to the right of the DPhil and leans left onto it. Update title/note/year as needed. */
-      { type:'msc', cls:'', r:'-6deg', spine:'MSc Thesis', title:'MSc thesis', year:'2020', kind:'Master\u2019s thesis',
-        note:'University of Oxford MSc thesis.', href:'https://ora.ox.ac.uk/objects/uuid:41a1d471-3088-43d0-b1e0-15d1de9db886' }
+        note:'How and why governments adopt AI in immigration and border control decision-making.', href:'https://ora.ox.ac.uk/objects/uuid:bde9271c-3e56-4946-83d4-4f50f4495cc3' }
     ];
 
     const stack = document.getElementById('stack');

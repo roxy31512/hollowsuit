@@ -38,11 +38,13 @@
 
   <link rel="stylesheet" href="style.css">
   <style>
-    main { max-width: 800px; margin: 4.5rem auto; padding: 1.25rem; line-height: 1.8; }
+    /* page width, margins and top spacing now come from .page in style.css (same as the blog) */
+    main { line-height: 1.8; }
     h1 { font-size: 2.5rem; margin-bottom: 1.25rem; border-bottom: 3px solid #e6eefb; display: inline-block; color: #f7f7f8; font-weight: 600; }
     h2 { font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #f7f7f8; font-weight: 600; }
-    /* "main p" (not just "p") so this beats the "main p" rule in style.css. Change 1.1rem to adjust the text size. */
-    main p { margin-bottom: 1.25rem; color: #e6e6e6; font-size: 1.1rem; }
+    /* "main p" (not just "p") so this beats the "main p" rule in style.css. Change 1.1rem to adjust the text size.
+       max-width keeps lines readable inside the wide page; raise or remove it for even wider text. */
+    main p { margin-bottom: 1.25rem; color: #e6e6e6; font-size: 1.1rem; max-width: 60rem; }
     a { color: #9fc0ff; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s; }
     a:hover { border-bottom-color: #9fc0ff; }
   </style>
@@ -50,8 +52,7 @@
 <body class="text-light font-sans">
   <custom-navbar></custom-navbar>
 
-  <!-- Tailwind width classes removed so the 800px max-width above applies -->
-  <main>
+  <main class="page">
     <h1>About Roxana Akhmetova</h1>
 
     <p>

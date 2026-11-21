@@ -7,6 +7,9 @@
   --text: #f5f3ef;
   --font-head: 'Times New Roman', Times, serif;
   --font-body: 'Times New Roman', Times, serif;
+  /* shared page layout: change here and every page that uses .page (and the navbar) updates */
+  --page-max: 1200px;
+  --page-pad: 40px;
 }
 
 html,body {
@@ -27,6 +30,10 @@ body { font-size: 19px; line-height: 1.75; color: #ffffff; }
 main p { font-size: 1.2rem; line-height: 1.75; color: #ffffff; margin: 0 0 1.25rem; }
 
 .container { max-width:1100px; }
+
+/* shared page layout: same width, side margins and top spacing as the blog */
+.page { max-width: var(--page-max); margin: 100px auto 60px; padding: 0 var(--page-pad); }
+@media (max-width: 768px) { .page { padding: 0 20px; } }
 
 /* panels used across pages */
 .text-dark { color: var(--text) !important; }
@@ -168,12 +175,12 @@ body.bg-dark .container { --card-bg: #0f0e0c; }
 }
 
 .nav-inner {
-  max-width: 1100px;
+  max-width: var(--page-max);
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.8rem 1rem;
+  padding: 0.8rem var(--page-pad);
 }
 
 /* --- Brand (left) --- */

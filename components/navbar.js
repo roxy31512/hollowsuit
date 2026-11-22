@@ -288,7 +288,7 @@ class CustomNavbar extends HTMLElement {
             </div>
             <div class="dropdown">
               <span class="dropdown-toggle">
-                <a href="/projects">Projects</a>
+                Projects
                 <span class="dropdown-arrow">▼</span>
               </span>
               <div class="dropdown-menu">

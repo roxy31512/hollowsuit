@@ -32,8 +32,8 @@
     /* Title + underline: same style as the name on the home page */
     main h1 { font-size: 2.5rem; margin-bottom: 1.6rem; padding-bottom: .6rem; border-bottom: 3px solid #e6eefb; font-weight: 500; }
 
-    /* Keep the form a comfortable width, left-aligned with the title */
-    .contact-col { max-width: 640px; }
+    /* Title, intro and form share one centred column */
+    .contact-col { max-width: 640px; margin: 0 auto; }
 
     main p.contact-intro { font-size: 1.1rem; color: #ffffff; margin-bottom: 2rem; }
 
@@ -113,9 +113,9 @@
   <custom-navbar></custom-navbar>
 
   <main class="page">
-    <h1>Contact</h1>
-
     <div class="contact-col">
+      <h1>Contact</h1>
+
       <p class="contact-intro">
         For consulting inquiries, speaking engagements, collaboration opportunities, or general questions about AI policy and governance, please use the form below.
       </p>
@@ -281,6 +281,9 @@
             detail = data.errors ? data.errors.map(x => x.message).join(', ') : (data.error || '');
           } catch (_) {}
           console.error('Formspree error', response.status, detail);
+          // reCAPTCHA is switched on for this form, so Formspree refuses AJAX:
+          // send it as a normal form post instead (Formspree then shows its own check + thank-you page)
+          if (/ajax|recaptcha/i.test(detail)) { form.submit(); return; }
           showStatus('error', 'Oops! There was a problem sending your message. Please try again.' + (detail ? ' (' + detail + ')' : ''));
         }
       } catch (error) {
@@ -294,25 +297,5 @@
     });
   </script>
   
-  <script>
-    // Copy protection (form fields are exempt so people can select what they type)
-    document.addEventListener('selectstart', e => {
-      if (e.target && e.target.closest && e.target.closest('input, textarea, select')) return;
-      e.preventDefault();
-    });
-    document.addEventListener('contextmenu', e => e.preventDefault());
-    document.addEventListener('keydown', e => {
-      if (
-        (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.metaKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u')) ||
-        (e.ctrlKey && e.shiftKey && e.key === 'I') ||
-        (e.ctrlKey && e.shiftKey && e.key === 'J') ||
-        (e.ctrlKey && e.key === 'p')
-      ) {
-        e.preventDefault();
-      }
-    });
-    document.body.style.userSelect = 'none';
-  </script>
 </body>
 </html>

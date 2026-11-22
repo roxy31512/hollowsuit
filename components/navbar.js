@@ -283,8 +283,7 @@ class CustomNavbar extends HTMLElement {
               </span>
               <div class="dropdown-menu">
                 <a href="/consulting">Policy Consulting</a>
-                <a href="/essay-coaching">Essay Coaching</a>
-                <a href="/mentorship">Mentorship</a>
+                <a href="/essay-coaching">Fellowship & Essay Coaching</a>
               </div>
             </div>
             <div class="dropdown">

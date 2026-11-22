@@ -29,89 +29,102 @@
   <link rel="stylesheet" href="/style.css" />
 
   <style>
+    /* Blog post only. Styled to match the CV, blog, bio and other pages. */
+    :root {
+      --cv-grey: #b8b8b8;
+      --cv-dim: #8f8f8f;
+      --cv-body: #ffffff;
+      --cv-rule: rgba(255,255,255,0.25);
+      --cv-rule-soft: rgba(255,255,255,0.12);
+      --cv-blue: #9fc0ff;
+      --gold: #c8b27a;
+    }
+
+    html { scroll-behavior: smooth; }
     html, body {
       background-color: #000 !important;
       min-height: 100%;
       color: #ffffff;
     }
 
-    main {
-      margin-top: 100px;
-      max-width: 1150px;
-      padding: 0 30px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 80px;
-    }
+    /* page width, margins and top spacing come from .page in style.css */
+    main { line-height: 1.5; }
 
-    h1 {
-      font-size: 2.2rem !important;
-      margin-bottom: 24px !important;
+    /* Title: same underline as the CV, blog and bio */
+    main h1.page-title {
+      font-size: 2.5rem;
+      font-weight: 500;
+      line-height: 1.2;
       color: #ffffff !important;
-      font-weight: 600 !important;
       -webkit-text-fill-color: #ffffff !important;
-      text-shadow: none !important;
-      opacity: 1 !important;
-      border-bottom: 1px solid #ffffff !important;
-      display: block !important;
-      width: 100% !important;
-      padding-bottom: 24px !important;
+      display: inline-block;
+      margin: 0 0 16px;
+      padding-bottom: .6rem;
+      border-bottom: 3px solid #e6eefb;
     }
 
     .post-date {
-      color: #9fc0ff;
-      font-size: 0.95rem;
-      margin-bottom: 40px;
-      font-weight: 500;
+      color: var(--cv-dim);
+      font-size: 0.9rem;
+      margin-bottom: 32px;
+      font-weight: 400;
     }
 
     .post-content p {
-      color: #d8e1eb;
-      font-size: 1.05rem;
-      line-height: 1.8;
+      color: var(--cv-body);
+      font-size: 1rem;
+      line-height: 1.5;
       margin-bottom: 16px;
     }
 
+    /* Tags: square, outlined, grey (same as the blog tags) */
     .blog-post-tags {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
-      margin-top: 30px;
+      margin-top: 24px;
     }
 
     .blog-tag {
-      background: rgba(159, 192, 255, 0.1);
-      color: #9fc0ff;
-      padding: 5px 12px;
-      border-radius: 15px;
-      font-size: 0.85rem;
+      background: none;
+      border: 1px solid var(--cv-rule);
+      border-radius: 0;
+      color: var(--cv-grey);
+      padding: 3px 10px;
+      font-size: 0.8rem;
       font-weight: 500;
+      line-height: 1.4;
     }
 
+    /* Back link: white, thin underline, gold on hover */
     a.back-link {
       display: inline-block;
-      color: #9fc0ff;
-      margin-bottom: 40px;
-      font-weight: 600;
-      transition: all 0.3s ease;
+      color: #ffffff;
+      margin-bottom: 32px;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255,255,255,.4);
+      padding-bottom: 1px;
     }
 
     a.back-link:hover {
       color: #ffffff;
-      transform: translateX(-4px);
+      border-bottom-color: var(--gold);
     }
 
+    /* Share */
     .share-section {
-      margin-top: 50px;
-      padding-top: 30px;
-      border-top: 1px solid rgba(159, 192, 255, 0.2);
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--cv-rule);
     }
 
     .share-title {
-      color: #9fc0ff;
-      font-size: 0.95rem;
+      color: var(--cv-dim);
+      font-size: 0.8rem;
       font-weight: 600;
-      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 12px;
     }
 
     .share-buttons {
@@ -120,68 +133,69 @@
       flex-wrap: wrap;
     }
 
+    /* Buttons: same as the fellowship page */
     .share-btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      padding: 10px 16px;
-      background: rgba(159, 192, 255, 0.1);
-      border: 1px solid rgba(159, 192, 255, 0.3);
-      border-radius: 6px;
-      color: #9fc0ff;
+      box-sizing: border-box;
+      min-width: 130px;
+      height: 42px;
+      padding: 0 16px;
+      background: #000000;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 0;
+      color: #ffffff;
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       font-weight: 500;
-      transition: all 0.3s ease;
+      transition: background 0.15s ease;
     }
 
     .share-btn:hover {
-      background: rgba(159, 192, 255, 0.2);
-      border-color: #9fc0ff;
+      background: #1a1a1a;
       color: #ffffff;
-      transform: translateY(-2px);
     }
 
-   @media (max-width: 768px) {
-      main { padding: 0 20px; }
-      h1 { font-size: 1.8rem !important; }
-      .post-content p { font-size: 1rem; }
-    }
+    /* Carousel */
+    .carousel-wrap { margin-top: 40px; }
 
     .carousel-container {
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 40px auto;
-  overflow: hidden !important;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-}
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 24px 0;
+      overflow: hidden !important;
+      border-radius: 0;
+      box-shadow: none;
+      border: 1px solid var(--cv-rule);
+    }
 
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 100%;
-  will-change: transform;
-}
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+      will-change: transform;
+    }
 
-.carousel-slide {
-  min-width: 100%;
-  width: 100%;
-  height: 500px;
-  position: relative;
-  flex-shrink: 0;
-  overflow: hidden;
-  background: #000;
-}
+    .carousel-slide {
+      min-width: 100%;
+      width: 100%;
+      height: 500px;
+      position: relative;
+      flex-shrink: 0;
+      overflow: hidden;
+      background: #000;
+    }
 
-.carousel-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-}
+    .carousel-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
 
     .carousel-caption {
       position: absolute;
@@ -198,30 +212,32 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.6);
       color: white;
-      border: none;
+      border: 1px solid rgba(255,255,255,0.45);
       font-size: 2rem;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      border-radius: 0;
       cursor: pointer;
       z-index: 10;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.3s;
+      transition: background 0.15s ease;
     }
 
-    .carousel-arrow:hover { background: rgba(0,0,0,0.8); }
+    .carousel-arrow:hover { background: #000; }
     .carousel-arrow.prev { left: 20px; }
     .carousel-arrow.next { right: 20px; }
 
     .carousel-dots {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
       gap: 10px;
-      margin-top: 20px;
+      margin-top: 16px;
+      max-width: 800px;
     }
 
     .carousel-dot {
@@ -233,22 +249,23 @@
       transition: background 0.3s;
     }
 
-    .carousel-dot.active { background: #9fc0ff; }
+    .carousel-dot.active { background: var(--gold); }
 
     @media (max-width: 768px) {
+      main h1.page-title { font-size: 2rem; }
       .carousel-slide { height: 300px; }
       .carousel-arrow { width: 40px; height: 40px; font-size: 1.5rem; }
     }
   </style>
 </head>
 
-<body>
+<body class="text-light font-sans">
   <custom-navbar></custom-navbar>
 
-  <main>
-    <a href="/blog" class="back-link">&larr; Back to Blog</a>
+  <main class="page">
+    <a href="/blog" class="back-link">&larr; Back to Blog</a><br>
 
-    <h1>Beyond the Funding: The Pierre Elliott Trudeau Foundation Scholarship</h1>
+    <h1 class="page-title">Beyond the Funding: The Pierre Elliott Trudeau Foundation Scholarship</h1>
     <div class="post-date">October 2024</div>
 
     <div class="post-content">
@@ -297,7 +314,7 @@
     </div>
 
     <!-- Photo Carousel -->
-<div style="margin-top: 60px;">
+<div class="carousel-wrap">
   <div class="carousel-container">
     <button class="carousel-arrow prev" onclick="prevSlide()">‹</button>
 

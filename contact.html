@@ -43,6 +43,7 @@
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
+      line-height: 1.3;
       margin-bottom: 8px;
       font-weight: 600;
     }
@@ -56,7 +57,7 @@
       color: #ffffff;
       font-size: 1.05rem;
       font-family: inherit;
-      margin-bottom: 22px;
+      margin-bottom: 26px;
       user-select: text;
       -webkit-user-select: text;
     }
@@ -283,7 +284,11 @@
           console.error('Formspree error', response.status, detail);
           // reCAPTCHA is switched on for this form, so Formspree refuses AJAX:
           // send it as a normal form post instead (Formspree then shows its own check + thank-you page)
-          if (/ajax|recaptcha/i.test(detail)) { form.submit(); return; }
+          if (/ajax|recaptcha/i.test(detail)) {
+            try { sessionStorage.setItem('contactHandedOff', '1'); } catch (_) {}
+            form.submit();
+            return;
+          }
           showStatus('error', 'Oops! There was a problem sending your message. Please try again.' + (detail ? ' (' + detail + ')' : ''));
         }
       } catch (error) {
@@ -294,6 +299,22 @@
       // Re-enable button
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send Message';
+    });
+
+    // When the visitor returns from Formspree's check page (Back button or "return to site"),
+    // the browser can restore this page exactly as it was, stuck on "Sending...". Reset it.
+    window.addEventListener('pageshow', function() {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Message';
+      let handedOff = false;
+      try {
+        handedOff = sessionStorage.getItem('contactHandedOff') === '1';
+        sessionStorage.removeItem('contactHandedOff');
+      } catch (_) {}
+      if (handedOff) {
+        form.reset();
+        showStatus('success', 'Thank you for your message. If you completed the verification step, it\'s been received and I\'ll get back to you soon. Best, Roxana Akhmetova');
+      }
     });
   </script>
   

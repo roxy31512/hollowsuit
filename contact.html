@@ -104,6 +104,8 @@
 
     button[type="submit"]:disabled { opacity: 0.5; cursor: not-allowed; }
 
+    .thanks p { font-size: 1.15rem; color: #ffffff; margin-bottom: 1rem; }
+
     /* Messages after sending (plain text, no boxes) */
     .status-message { margin-top: 22px; font-size: 1.05rem; line-height: 1.6; display: none; }
     .status-message.success { display: block; color: #ffffff; }
@@ -117,7 +119,7 @@
     <div class="contact-col">
       <h1>Contact</h1>
 
-      <p class="contact-intro">
+      <p class="contact-intro" id="contactIntro">
         For consulting inquiries, speaking engagements, collaboration opportunities, or general questions about AI policy and governance, please use the form below.
       </p>
 
@@ -183,6 +185,12 @@
 
         <div id="statusMessage" class="status-message" aria-live="polite"></div>
       </form>
+
+      <!-- Shown instead of the form once the message has been sent -->
+      <div id="thanks" class="thanks" hidden>
+        <p>Thank you for your message, it's been received. I'll get back to you soon.</p>
+        <p>Best,<br>Roxana Akhmetova</p>
+      </div>
     </div>
   </main>
 
@@ -241,6 +249,17 @@
       statusMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
+    // Hides the form and intro and shows the thank-you text instead
+    function showThanks() {
+      statusMessage.className = 'status-message';
+      statusMessage.textContent = '';
+      form.style.display = 'none';
+      document.getElementById('contactIntro').style.display = 'none';
+      const thanks = document.getElementById('thanks');
+      thanks.hidden = false;
+      thanks.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
       
@@ -272,8 +291,8 @@
         });
 
         if (response.ok) {
-          showStatus('success', 'Thank you for your message, it\'s been received. I\'ll get back to you soon. Best, Roxana Akhmetova');
           form.reset();
+          showThanks();
         } else {
           // Ask Formspree why it refused, so the real reason shows up
           let detail = '';
@@ -303,6 +322,12 @@
 
     // When the visitor returns from Formspree's check page (Back button or "return to site"),
     // the browser can restore this page exactly as it was, stuck on "Sending...". Reset it.
+    // If Formspree is set to redirect back here after its check (contact.html?sent=1), show the thank-you.
+    if (new URLSearchParams(window.location.search).get('sent') === '1') {
+      showThanks();
+      window.history.replaceState(null, '', window.location.pathname);
+    }
+
     window.addEventListener('pageshow', function() {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Send Message';

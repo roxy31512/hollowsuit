@@ -34,6 +34,7 @@
       --cv-rule: rgba(255,255,255,0.25);
       --cv-rule-soft: rgba(255,255,255,0.12);
       --cv-blue: #9fc0ff;
+      --gold: #c8b27a;
     }
 
     html { scroll-behavior: smooth; background: #000 !important; }
@@ -52,20 +53,20 @@
     }
 
     /* Layout */
-    .cv-container { display: flex; gap: 3rem; align-items: flex-start; }
+    .cv-container { display: flex; gap: 3rem; align-items: flex-start; line-height: 1.45; }
     .cv-content { flex: 1; min-width: 0; line-height: 1.5; }
 
-    /* Side nav */
-    .side-nav { width: 200px; flex: none; position: sticky; top: 100px; }
-    .side-nav h3 { font-size: .8rem; font-weight: 600; color: var(--cv-dim) !important; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 12px; }
-    .side-nav a { display: block; color: #ffffff; padding: 10px 0; border-bottom: 1px solid var(--cv-rule); font-size: .95rem; line-height: 1.3; }
-    .side-nav h3 + a { border-top: 1px solid var(--cv-rule); }
-    .side-nav a:hover, .side-nav a.active { color: var(--cv-blue); }
-    .side-nav a.active { font-weight: 500; }
+    /* Side nav: numbered contents list, no highlight (same as the fellowship/essay page) */
+    .side-nav { width: 230px; flex: none; position: sticky; top: 100px; }
+    .side-nav-label { color: #8f8f8f; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; margin: 0 0 12px; }
+    .side-nav a { display: flex; align-items: baseline; gap: 8px; color: #fff; text-decoration: none; padding: 11px 0; font-size: 0.95rem; line-height: 1.3; border-bottom: 1px solid rgba(255,255,255,0.25); }
+    .side-nav a:hover { color: #fff; }
+    .side-nav-label + a { border-top: 1px solid rgba(255,255,255,0.25); }
+    .side-nav .n { color: var(--gold); font-size: 0.85rem; width: 2rem; flex: none; }
 
     /* Sections */
     .cv-section { border-top: 1px solid var(--cv-rule); padding: 28px 0 8px; margin-bottom: 16px; scroll-margin-top: 90px; }
-    .cv-section h2 { font-size: 1.75rem; font-weight: 500; line-height: 1.25; color: #ffffff !important; margin: 0 0 1rem; }
+    .cv-section h2 { font-size: 1.75rem; font-weight: 500; line-height: 1.25; color: var(--gold) !important; margin: 0 0 1rem; }
     .cv-section h3 { font-size: .8rem; font-weight: 600; line-height: 1.3; color: var(--cv-dim) !important; text-transform: uppercase; letter-spacing: .14em; margin: 28px 0 12px; }
 
     /* Entries and awards: title left, year(s) right, detail underneath */
@@ -119,16 +120,16 @@
 
     <div class="cv-container">
       <!-- Side Navigation -->
-      <nav class="side-nav">
-        <h3>Sections</h3>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#awards">Awards</a>
-        <a href="#publications">Publications</a>
-        <a href="#skills">Research Skills</a>
-        <a href="#conferences">Conferences</a>
-        <a href="#teaching">Teaching</a>
-        <a href="#professional-development">Professional Development</a>
+      <nav class="side-nav" aria-label="Page sections">
+        <div class="side-nav-label">Sections</div>
+        <a href="#education"><span class="n">I.</span><span>Education</span></a>
+        <a href="#experience"><span class="n">II.</span><span>Experience</span></a>
+        <a href="#awards"><span class="n">III.</span><span>Awards</span></a>
+        <a href="#publications"><span class="n">IV.</span><span>Publications</span></a>
+        <a href="#skills"><span class="n">V.</span><span>Research Skills</span></a>
+        <a href="#conferences"><span class="n">VI.</span><span>Conferences</span></a>
+        <a href="#teaching"><span class="n">VII.</span><span>Teaching</span></a>
+        <a href="#professional-development"><span class="n">VIII.</span><span>Professional Development</span></a>
       </nav>
 
       <!-- Main Content -->
@@ -142,8 +143,8 @@
             <div class="cv-title">DPhil</div>
             <div class="cv-organization">University of Oxford</div>
             <p class="cv-description"><strong>Thesis:</strong> The Invisible Border Wall: The Use of AI in Canada's Immigration and Border Control</p>
-            <div class="cv-bullet">Adoption of AI in high-stakes, highly politicised public sector decision-making</div>
-            <div class="cv-bullet">Conducted 35 semi-structured interviews and fieldwork</div>
+            <div class="cv-bullet">Adoption of AI in high-stakes, highly politicised public sector decision-making, including immigration, border control, policing, etc.</div>
+            <div class="cv-bullet">Conducted 35 semi-structured interviews with US, UK, and Canadian government officials (e.g., IRCC and CBSA), lawyers, and AI developpers. Conducted fieldwork at 6 border security expos in Texas, London, Lisbon, and Skopje and visited the US/Mexico border and West Bank separation wall to observe the adoption of AI technologies to enforce immigration and border policies.</div>
             <div class="cv-bullet">Research cited in the U.K. Government's Ethics, Transparency and Accountability Framework for Automated Decision-Making (2024)</div>
             <div class="cv-bullet">Supervised by Dr Ruben Andersson (ODID) and Dr Helen Margetts (OII)</div>
           </div>
@@ -174,11 +175,11 @@
             <div class="cv-title">Program Lead, AI Governance</div>
             <div class="cv-date">2026 – Present</div>
             <div class="cv-organization">Harvard-MIT Impact Research Initiative</div>
-            <div class="cv-bullet">Worked with 3 Harvard researchers on AI governance research.</div>
+            <div class="cv-bullet">Lead Harvard and MIT junior researchers on AI governance. Develop lectures, assign readings, and guide final paper writing process.</div>
           </div>
 
           <div class="cv-item">
-            <div class="cv-title">Policy Analyst, Technology and Export Controls</div>
+            <div class="cv-title">AI Policy</div>
             <div class="cv-date">2025</div>
             <div class="cv-organization">AI Safety Initiative at Georgia Tech (U.S. – remote)</div>
           </div>
@@ -511,18 +512,5 @@
   <!-- Scripts -->
   <script src="https://roxanaakhmetova.com/components/navbar.js"></script>
   <script src="https://roxanaakhmetova.com/components/footer.js"></script>
-
-  <script>
-    // Highlight the current section in the side nav while scrolling
-    const navLinks = document.querySelectorAll('.side-nav a');
-    const sections = document.querySelectorAll('.cv-section');
-    function updateActive() {
-      let current = sections[0].id;
-      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 150) current = s.id; });
-      navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
-    }
-    window.addEventListener('scroll', updateActive);
-    updateActive();
-  </script>
 </body>
 </html>

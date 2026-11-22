@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  
+
   <meta charset="utf-8" />
   <title>Bio | Roxana Akhmetova</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -38,22 +38,53 @@
 
   <link rel="stylesheet" href="style.css">
   <style>
-    /* page width, margins and top spacing now come from .page in style.css (same as the blog) */
-    main { line-height: 1.8; }
-    h1 { font-size: 2.5rem; margin-bottom: 1.25rem; border-bottom: 3px solid #e6eefb; display: inline-block; color: #f7f7f8; font-weight: 600; }
-    h2 { font-size: 1.5rem; margin-top: 2.5rem; margin-bottom: 1rem; color: #f7f7f8; font-weight: 600; }
-    /* "main p" (not just "p") so this beats the "main p" rule in style.css. Change 1.1rem to adjust the text size.
-       max-width keeps lines readable inside the wide page; raise or remove it for even wider text. */
-    main p { margin-bottom: 1.25rem; color: #e6e6e6; font-size: 1.1rem; }
-    a { color: #9fc0ff; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s; }
-    a:hover { border-bottom-color: #9fc0ff; }
+    /* Bio page only. Styled to match the CV and blog pages. */
+    :root {
+      --cv-grey: #b8b8b8;
+      --cv-dim: #8f8f8f;
+      --cv-body: #ffffff;
+      --cv-rule: rgba(255,255,255,0.25);
+      --cv-blue: #9fc0ff;
+      --gold: #c8b27a;
+    }
+
+    html { scroll-behavior: smooth; background: #000 !important; }
+    body { background: #000 !important; }
+
+    /* page width, margins and top spacing come from .page in style.css */
+    main { line-height: 1.5; }
+
+    /* Title: same underline as the CV, blog and home page name */
+    main h1.page-title {
+      font-size: 2.5rem;
+      font-weight: 500;
+      line-height: 1.2;
+      color: #ffffff !important;
+      display: inline-block;
+      margin: 0 0 40px;
+      padding-bottom: .6rem;
+      border-bottom: 3px solid #e6eefb;
+    }
+
+    main h2 { font-size: 1.75rem; font-weight: 500; line-height: 1.25; color: var(--gold); margin: 2.5rem 0 1rem; }
+
+    /* "main p" so this beats the "main p" rule in style.css. Change 1rem to adjust the text size. */
+    main p { font-size: 1rem; line-height: 1.5; color: var(--cv-body); margin: 0 0 1.25rem; }
+
+    /* Links: white, thin underline, gold on hover (same as the CV) */
+    main a { color: #ffffff; border-bottom: 1px solid rgba(255,255,255,.4); padding-bottom: 1px; }
+    main a:hover { color: #ffffff; border-bottom-color: var(--gold); }
+
+    @media (max-width: 768px) {
+      main h1.page-title { font-size: 2rem; }
+    }
   </style>
 </head>
 <body class="text-light font-sans">
   <custom-navbar></custom-navbar>
 
   <main class="page">
-    <h1>Biography</h1>
+    <h1 class="page-title">Biography</h1>
 
     <p>
       Roxana Akhmetova is an AI policy researcher and strategist focused on the governance of frontier AI systems and emerging technologies. She was previously an AI Safety Policy Fellow at Georgia Tech's AI Safety Initiative, where she tracked U.S. legislative and regulatory developments on semiconductor export controls, compute security, and dual-use technology governance.

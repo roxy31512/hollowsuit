@@ -33,6 +33,18 @@
   <link rel="stylesheet" href="/style.css">
 
   <style>
+    /* Leadership page only. Styled to match the CV, blog, bio and gala pages. */
+    :root {
+      --cv-grey: #b8b8b8;
+      --cv-dim: #8f8f8f;
+      --cv-body: #ffffff;
+      --cv-rule: rgba(255,255,255,0.25);
+      --cv-rule-soft: rgba(255,255,255,0.12);
+      --cv-blue: #9fc0ff;
+      --gold: #c8b27a;
+    }
+
+    html { scroll-behavior: smooth; }
     html, body {
       background: #000 !important; /* black background */
       color: #fff;
@@ -41,51 +53,57 @@
       -moz-osx-font-smoothing:grayscale;
     }
 
-    main {
-      margin: 100px auto 80px;
-      max-width: 1100px;
-      padding: 0 24px;
-    }
+    /* page width, margins and top spacing come from .page in style.css */
+    main { line-height: 1.5; }
 
-    h1.page-title {
-      font-size: 2.6rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: #ffffff;
-      border-bottom: 3px solid rgba(255,255,255,0.06);
-      padding-bottom: 14px;
-      display:inline-block;
+    /* Title: same underline as the CV, blog, bio and gala */
+    main h1.page-title {
+      font-size: 2.5rem;
+      font-weight: 500;
+      line-height: 1.2;
+      color: #ffffff !important;
+      display: inline-block;
+      margin: 0 0 24px;
+      padding-bottom: .6rem;
+      border-bottom: 3px solid #e6eefb;
     }
 
     .section {
-      margin-top: 48px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
+      border-top: 1px solid var(--cv-rule);
+      margin-top: 28px;
+      padding: 28px 0 8px;
+      border-bottom: none;
+      scroll-margin-top: 90px;
     }
 
+    /* section heading: gold, like the CV */
     .section h2 {
-      font-size: 1.375rem;
-      color: #9fc0ff;
-      margin-bottom: 6px;
-      font-weight:700;
-    }
-
-    .section h3 {
       font-size: 1.75rem;
-      color: #eaf2ff;
-      margin: 6px 0 12px;
-      font-weight:700;
+      line-height: 1.25;
+      color: var(--gold);
+      margin: 0 0 1rem;
+      font-weight: 500;
     }
 
+    /* role title: like .cv-title */
+    .section h3 {
+      font-size: 1.05rem;
+      color: #ffffff;
+      margin: 0 0 2px;
+      font-weight: 600;
+    }
+
+    /* dates: like .cv-date */
     .meta {
-      color: #9aa4b2;
-      margin-bottom: 16px;
+      color: var(--cv-dim);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
     }
 
     .lead {
-      color: #e6e9ec;
-      line-height: 1.75;
-      font-size: 1.05rem;
+      color: var(--cv-body);
+      line-height: 1.5;
+      font-size: 1rem;
       margin-bottom: 12px;
     }
 
@@ -99,10 +117,10 @@
     }
 
     .gallery-item {
-      border-radius: 12px;
+      border-radius: 0;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.06);
-      background: rgba(255,255,255,0.01);
+      border: 1px solid var(--cv-rule);
+      background: none;
     }
 
     .gallery-item img {
@@ -115,38 +133,41 @@
       max-width: 280px;
     }
 
-    /* Collapsible archive section */
+    /* Collapsible archive section: styled like the info rows on the fellowship page */
     .archive-section {
       margin-top: 32px;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.01);
+      border: none;
+      border-top: 1px solid var(--cv-rule);
+      border-bottom: 1px solid var(--cv-rule);
+      border-radius: 0;
+      background: none;
       overflow: hidden;
     }
 
     .archive-header {
-      padding: 20px 24px;
+      padding: 14px 0;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: background 0.2s;
+      transition: none;
     }
 
     .archive-header:hover {
-      background: rgba(255,255,255,0.02);
+      background: none;
     }
 
     .archive-header h4 {
-      font-size: 1.2rem;
-      color: #9fc0ff;
+      font-size: 1.05rem;
+      color: #ffffff;
       margin: 0;
-      font-weight: 600;
+      font-weight: 500;
+      line-height: 1.3;
     }
 
     .archive-toggle {
-      color: #9fc0ff;
-      font-size: 1.5rem;
+      color: var(--cv-grey);
+      font-size: 1rem;
       transition: transform 0.3s;
       line-height: 1;
     }
@@ -166,40 +187,46 @@
     }
 
     .archive-article {
-      padding: 24px;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 20px 0;
+      border-top: 1px solid var(--cv-rule-soft);
     }
 
     .archive-article h5 {
-      font-size: 1.1rem;
-      color: #eaf2ff;
-      margin-bottom: 8px;
+      font-size: 1.05rem;
+      color: #ffffff;
+      margin-bottom: 4px;
       font-weight: 600;
     }
 
     .archive-article .article-source {
-      color: #9aa4b2;
-      font-size: 0.9rem;
-      margin-bottom: 16px;
+      color: var(--cv-grey);
+      font-size: 0.95rem;
+      margin-bottom: 14px;
     }
 
+    /* Links: white, thin underline, gold on hover */
     .archive-article .article-source a {
-      color: #9fc0ff;
+      color: #ffffff;
       text-decoration: none;
-      border-bottom: 1px solid transparent;
+      border-bottom: 1px solid rgba(255,255,255,.4);
+      padding-bottom: 1px;
     }
 
     .archive-article .article-source a:hover {
-      border-bottom-color: #9fc0ff;
+      color: #ffffff;
+      border-bottom-color: var(--gold);
     }
 
     .archive-article p {
-      color: #e6e9ec;
-      line-height: 1.7;
+      color: var(--cv-body);
+      font-size: 1rem;
+      line-height: 1.5;
       margin-bottom: 12px;
     }
 
     @media (max-width: 768px) {
+      main h1.page-title { font-size: 2rem; }
+
       .image-gallery {
         grid-template-columns: 1fr;
       }
@@ -214,10 +241,10 @@
   </style>
 </head>
 
-<body class="bg-dark text-light font-sans">
+<body class="text-light font-sans">
   <custom-navbar></custom-navbar>
 
-  <main>
+  <main class="page">
     <h1 class="page-title">Oxford AI Leadership</h1>
 
     <!-- Section 1: Presidency -->

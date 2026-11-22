@@ -9,9 +9,6 @@
   <meta name="keywords" content="contact Roxana Akhmetova, AI policy consulting, speaking engagements">
   <meta name="author" content="Roxana Akhmetova">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -30,162 +27,99 @@
   </script>
   <link rel="stylesheet" href="style.css">
   <style>
-    :root{
-      --bg:#000000;
-      --cream:#efe6d3;
-      --cream-dim:#c9beaa;
-      --cream-faint:#8a8270;
-      --hair:rgba(239,230,211,0.16);
-      --hair-strong:rgba(239,230,211,0.3);
-    }
+    /* Fonts, page width, margins and top spacing come from style.css (.page), same as the bio and blog. */
 
-    body {
-      background-color: var(--bg);
-      color: var(--cream);
-      font-family: 'Inter', Arial, Helvetica, sans-serif;
-    }
-    
-    main {
-      margin: 100px auto 60px;
-      max-width: 700px;
-      padding: 0 40px;
-    }
-    
-    main h1 {
-      font-family: 'Source Serif 4', Georgia, serif;
-      font-size: 2.5em !important;
-      margin-bottom: 50px !important;
-      padding-bottom: 15px !important;
-      border-bottom: 3px solid var(--cream) !important;
-      color: var(--cream) !important;
-      font-weight: 500 !important;
-      display: inline-block !important;
-    }
-    
-    .contact-intro {
-      font-size: 1.1em;
-      line-height: 1.8;
-      color: var(--cream-dim);
-      margin-bottom: 40px;
-    }
-    
-    .form-card {
-      background: #0c0c0c;
-      border: 1px solid var(--hair);
-      border-radius: 12px;
-      padding: 40px;
-    }
-    
+    /* Title + underline: same style as the name on the home page */
+    main h1 { font-size: 2.5rem; margin-bottom: 1.6rem; padding-bottom: .6rem; border-bottom: 3px solid #e6eefb; font-weight: 500; }
+
+    /* Keep the form a comfortable width, left-aligned with the title */
+    .contact-col { max-width: 640px; }
+
+    main p.contact-intro { font-size: 1.1rem; color: #ffffff; margin-bottom: 2rem; }
+
     label {
       display: block;
-      color: var(--cream);
-      font-size: 0.85em;
+      color: #ffffff;
+      font-size: 0.85rem;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       margin-bottom: 8px;
-      font-weight: 500;
-    }
-    
-    input, textarea, select {
-      width: 100%;
-      padding: 12px 16px;
-      background: #000;
-      border: 1px solid var(--hair-strong);
-      border-radius: 6px;
-      color: var(--cream);
-      font-size: 1rem;
-      font-family: 'Inter', Arial, Helvetica, sans-serif;
-      transition: all 0.3s ease;
-      margin-bottom: 20px;
-    }
-    
-    input:focus, textarea:focus, select:focus {
-      outline: none;
-      border-color: var(--cream);
-      background: #0a0a0a;
-    }
-    
-    input::placeholder, textarea::placeholder {
-      color: var(--cream-faint);
+      font-weight: 600;
     }
 
-    select{
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 14px;
+      background: #000;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 0;
+      color: #ffffff;
+      font-size: 1.05rem;
+      font-family: inherit;
+      margin-bottom: 22px;
+      user-select: text;
+      -webkit-user-select: text;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: #ffffff;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    select {
       appearance: none;
       -webkit-appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23efe6d3'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%23ffffff'%3E%3Cpath fill-rule='evenodd' d='M5.23 7.21a.75.75 0 011.06.02L10 11.293l3.71-4.06a.75.75 0 111.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0L5.21 8.27a.75.75 0 01.02-1.06z' clip-rule='evenodd'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 14px center;
       background-size: 16px;
       cursor: pointer;
     }
-    select option{
-      background: #000;
-      color: var(--cream);
-    }
-    
-    textarea {
-      resize: vertical;
-      min-height: 150px;
-    }
-    
+
+    select option { background: #000; color: #ffffff; }
+
+    textarea { resize: vertical; min-height: 150px; }
+
+    /* Same button style as the coaching page */
     button[type="submit"] {
-      background: var(--cream);
-      color: #000;
-      padding: 14px 40px;
-      border-radius: 6px;
-      border: none;
+      display: inline-block;
+      background: #000000;
+      color: #ffffff;
+      padding: 11px 28px;
+      border: 1px solid rgba(245, 243, 239, 0.4);
+      border-radius: 0;
+      font-family: inherit;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 500;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: background 0.15s ease;
     }
-    
-    button[type="submit"]:hover {
-      background: #ffffff;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(239, 230, 211, 0.25);
-    }
-    
-    button[type="submit"]:disabled {
-      background: #555;
-      color: #ccc;
-      cursor: not-allowed;
-      transform: none;
-    }
-    
-    .status-message {
-      margin-top: 20px;
-      padding: 12px 20px;
-      border-radius: 6px;
-      display: none;
-    }
-    
-    .status-message.success {
-      display: block;
-      background: rgba(239, 230, 211, 0.08);
-      border: 1px solid rgba(239, 230, 211, 0.35);
-      color: var(--cream);
-    }
-    
-    .status-message.error {
-      display: block;
-      background: rgba(239, 68, 68, 0.1);
-      border: 1px solid rgba(239, 68, 68, 0.3);
-      color: #ef4444;
-    }
+
+    button[type="submit"]:hover { background: #1a1a1a; }
+
+    button[type="submit"]:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    /* Messages after sending (plain text, no boxes) */
+    .status-message { margin-top: 22px; font-size: 1.05rem; line-height: 1.6; display: none; }
+    .status-message.success { display: block; color: #ffffff; }
+    .status-message.error { display: block; color: #ff8a8a; }
   </style>
 </head>
-<body>
+<body class="text-light font-sans">
   <custom-navbar></custom-navbar>
 
-  <main>
+  <main class="page">
     <h1>Contact</h1>
 
-    <p class="contact-intro">
-      For consulting inquiries, speaking engagements, collaboration opportunities, or general questions about AI policy and governance, please use the form below.
-    </p>
+    <div class="contact-col">
+      <p class="contact-intro">
+        For consulting inquiries, speaking engagements, collaboration opportunities, or general questions about AI policy and governance, please use the form below.
+      </p>
 
-    <div class="form-card">
       <form id="contactForm" action="https://formspree.io/f/xovpyqww" method="POST">
         <div>
           <label for="name">Name *</label>
@@ -241,9 +175,12 @@
           ></textarea>
         </div>
 
+        <!-- Honeypot: hidden from people, bots fill it in and Formspree discards the message -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+
         <button type="submit" id="submitBtn">Send Message</button>
 
-        <div id="statusMessage" class="status-message"></div>
+        <div id="statusMessage" class="status-message" aria-live="polite"></div>
       </form>
     </div>
   </main>
@@ -296,6 +233,13 @@
     const submitBtn = document.getElementById('submitBtn');
     const statusMessage = document.getElementById('statusMessage');
 
+    // Shows a message under the button (type is 'success' or 'error')
+    function showStatus(type, text) {
+      statusMessage.className = 'status-message ' + type;
+      statusMessage.textContent = text;
+      statusMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
       
@@ -309,8 +253,7 @@
       // Check for blocked words in all fields
       const allText = `${name} ${email} ${inquiryType} ${subject} ${message}`;
       if (containsBlockedWords(allText)) {
-        statusMessage.className = 'status-message error';
-        statusMessage.textContent = 'Your message contains inappropriate content and cannot be sent. Please revise your message.';
+        showStatus('error', 'Your message contains inappropriate content and cannot be sent. Please revise your message.');
         return;
       }
       
@@ -318,34 +261,31 @@
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
       statusMessage.className = 'status-message';
-      statusMessage.style.display = 'none';
-
-      // Get form data
-      const formData = new FormData(form);
+      statusMessage.textContent = '';
 
       try {
         const response = await fetch(form.action, {
           method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
         });
 
         if (response.ok) {
-          // Success
-          statusMessage.className = 'status-message success';
-          statusMessage.textContent = 'Thank you for your message, it\'s been received. Best, Roxana Akhmetova';
+          showStatus('success', 'Thank you for your message, it\'s been received. I\'ll get back to you soon. Best, Roxana Akhmetova');
           form.reset();
         } else {
-          // Error
-          statusMessage.className = 'status-message error';
-          statusMessage.textContent = 'Oops! There was a problem sending your message. Please try again.';
+          // Ask Formspree why it refused, so the real reason shows up
+          let detail = '';
+          try {
+            const data = await response.json();
+            detail = data.errors ? data.errors.map(x => x.message).join(', ') : (data.error || '');
+          } catch (_) {}
+          console.error('Formspree error', response.status, detail);
+          showStatus('error', 'Oops! There was a problem sending your message. Please try again.' + (detail ? ' (' + detail + ')' : ''));
         }
       } catch (error) {
-        // Network error
-        statusMessage.className = 'status-message error';
-        statusMessage.textContent = 'Network error. Please check your connection and try again.';
+        console.error(error);
+        showStatus('error', 'Network error. Please check your connection and try again.');
       }
 
       // Re-enable button
@@ -355,8 +295,11 @@
   </script>
   
   <script>
-    // Copy protection
-    document.addEventListener('selectstart', e => e.preventDefault());
+    // Copy protection (form fields are exempt so people can select what they type)
+    document.addEventListener('selectstart', e => {
+      if (e.target && e.target.closest && e.target.closest('input, textarea, select')) return;
+      e.preventDefault();
+    });
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('keydown', e => {
       if (
